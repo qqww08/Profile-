@@ -1,0 +1,53 @@
+
+.header_{
+  
+  display: flex;
+  justify-content: space-around;
+  background:#90caf9;
+  width:100%;
+  position: fixed;
+  top: 0;
+  
+}
+.head_left{
+  align-items: center;
+  margin: 8px 12px;
+}
+.head_left li{
+  list-style-type: none;
+  
+}
+.head_left a{
+  text-decoration: none;
+}
+
+.head_medium{
+  display: flex;
+  align-items: center;
+
+}
+.head_medium li{
+  list-style-type: none;
+  
+}
+.head_medium a{
+  text-decoration: none;
+}
+
+
+.head_right{
+  display: flex;
+  align-items: center;
+  
+}
+
+.head_right li{
+  
+  list-style-type: none;
+  
+}
+
+.head_right a{
+  margin-left: 8px;
+  text-decoration: none;
+}

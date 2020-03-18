@@ -1,0 +1,18 @@
+
+
+.Size{
+    position: relative;
+    
+    
+}
+.img_size{
+    width:100%;
+ 
+}
+.Text_1{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
