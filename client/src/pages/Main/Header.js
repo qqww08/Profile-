@@ -52,9 +52,9 @@ function Header(props) {
             </Link>
           </li>
           <li>
-            <a href="# " style={{ textDecoration: "none" }}>
-              <Button type="link">Border</Button>
-            </a>
+            <Button type="link" href="/write">
+              Border
+            </Button>
           </li>
         </ul>
 
