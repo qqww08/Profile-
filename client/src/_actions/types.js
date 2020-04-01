@@ -3,3 +3,6 @@ export const REGISTER = "register";
 export const AUTH_USER = "auth_user";
 export const FACEBOOK = "facebook";
 export const FACEBOOK_REG = "facebook_reg";
+export const POST_UP = "postup";
+export const POST_GET = "postget";
+export const POST_OPEN = "post_open";

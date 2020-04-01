@@ -4,6 +4,7 @@ import Header from "./Header";
 import Profile from "./Profile";
 import Skill from "./Skill";
 import Contact from "./Contact";
+import WritePage from "../Posts/WritePage";
 import "./css/LadingPage.css";
 import { withRouter } from "react-router-dom";
 import Typing from "./typing";
@@ -20,6 +21,7 @@ function LadingPage() {
       <Header />
       <Profile />
       <Skill />
+      <WritePage />
       <Contact />
     </div>
   );

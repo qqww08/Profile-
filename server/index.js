@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const config = require("./config/key");
 const { auth } = require("./middleware/auth");
 const { User } = require("./models/User");
-const { Post } = require("./models/Post");
 //application/x-www-form-urlencoded
 
 const mongoose = require("mongoose");

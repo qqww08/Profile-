@@ -52,7 +52,7 @@ function Header(props) {
             </Link>
           </li>
           <li>
-            <Button type="link" href="/write">
+            <Button type="link" href="/WritePage">
               Border
             </Button>
           </li>
