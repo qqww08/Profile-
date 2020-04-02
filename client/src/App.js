@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Write from "./pages/Posts/Write";
+import BorderWrite from "./pages/Posts/BorderWrite";
+import BorderList from "./pages/Posts/BorderList";
 import LandingPage from "./pages/Main/LandingPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/Register/RegisterPage";
-import WriteOpen from "./pages/Posts/WriteOpen";
+import BorderInfo from "./pages/Posts/BorderInfo";
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
 
@@ -16,8 +17,9 @@ function App() {
         <Route exact path="/" component={Auth(LoginPage, false)} />
         <Route exact path="/Main" component={Auth(LandingPage, true)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        <Route exact path="/post/Write" component={Auth(Write, true)} />
-        <Route exact path="/post/:postId" component={Auth(WriteOpen, true)} />
+        <Route exact path="/Write" component={Auth(BorderWrite, false)} />
+        <Route exact path="/List" component={Auth(BorderList, false)} />
+        <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
       </Switch>
     </Router>
   );

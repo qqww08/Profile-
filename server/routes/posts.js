@@ -1,34 +1,45 @@
 const express = require("express");
 const router = express.Router();
 const { Post } = require("../models/Post");
+const { auth } = require("../middleware/auth");
 
-router.post("/wr", (req, res) => {
+//게시판 리스트
+router.get("/", (req, res) => {
+  Post.find()
+    .populate("writer")
+    .exec((err, borderlist) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, borderlist });
+    });
+});
+//게시판 내용
+router.post("/info", (req, res) => {
+  Post.findOne({ _id: req.body.postId })
+    .populate("writer")
+    .exec((err, post) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, post });
+    });
+});
+
+// //게시판 수정
+// router.put("/:id", (req, res) => {
+//   Post.findByIdAndUpdate(req.params.id, req.body)
+//     .then(() => {
+//       res.json(req.body);
+//     })
+//     .catch(err => {
+//       res.status(400).send("실패");
+//     });
+// });
+//글쓰기
+router.post("/", (req, res) => {
   const post = new Post(req.body);
-
-  post.save((err, doc) => {
+  post.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({
       success: true
     });
   });
 });
-
-router.get("/getWr", (req, res) => {
-  Post.find()
-    .populate("writer")
-    .exec((err, posts) => {
-      if (err) return res.status(400).send(err);
-      res.status(200).json({ success: true, posts });
-    });
-});
-
-router.post("/wrDetail", (req, res) => {
-  Post.find({ email: req.email })
-    .populate("writer")
-    .exec((err, postsOpen) => {
-      if (err) return res.status(400).send(err);
-      res.status(200).json({ success: true, postsOpen });
-    });
-});
-
 module.exports = router;

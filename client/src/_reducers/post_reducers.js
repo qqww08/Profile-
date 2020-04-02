@@ -1,14 +1,14 @@
-import { POST_UP, POST_GET, POST_OPEN } from "../_actions/types";
+import { BORDER_SAVE, BORDER_GET, BORDER_INFO } from "../_actions/types";
 
 export default function(state = {}, action) {
   switch (action.type) {
-    case POST_UP:
+    case BORDER_SAVE:
       return { ...state, success: action.payload };
 
-    case POST_GET:
+    case BORDER_GET:
       return { ...state, success: action.payload };
 
-    case POST_OPEN:
+    case BORDER_INFO:
       return { ...state, success: action.payload };
 
     default:
