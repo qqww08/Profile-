@@ -25,7 +25,7 @@ function BorderWrite(props) {
     };
     dispatch(bordersave(body)).then(response => {
       if (response.payload.success) {
-        props.history.push("/main");
+        props.history.push("/List");
       } else {
         alert("실패");
       }

@@ -34,17 +34,22 @@ function BorderWrite() {
   });
 
   return (
-    <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      {Listcheck}
-    </Table>
+    <>
+      <Table striped bordered hover size="sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+          </tr>
+        </thead>
+        {Listcheck}
+      </Table>
+      <a href="/Write">
+        <button>qq</button>
+      </a>
+    </>
   );
 }
 export default withRouter(BorderWrite);

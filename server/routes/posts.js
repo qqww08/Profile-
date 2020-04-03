@@ -33,7 +33,16 @@ router.post("/info", (req, res) => {
 //     });
 // });
 //글쓰기
-router.post("/", (req, res) => {
+
+router.post("/delete", auth, (req, res) => {
+  Post.remove({ _id: req.body.postId })
+    .populate("writer")
+    .exec((err, post) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, post });
+    });
+});
+router.post("/", auth, (req, res) => {
   const post = new Post(req.body);
   post.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
