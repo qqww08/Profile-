@@ -1,4 +1,9 @@
-import { BORDER_SAVE, BORDER_GET, BORDER_INFO } from "../_actions/types";
+import {
+  BORDER_SAVE,
+  BORDER_GET,
+  BORDER_INFO,
+  BORDER_EDIT,
+} from "../_actions/types";
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -9,6 +14,9 @@ export default function (state = {}, action) {
       return { ...state, success: action.payload };
 
     case BORDER_INFO:
+      return { ...state, success: action.payload };
+
+    case BORDER_EDIT:
       return { ...state, success: action.payload };
 
     default:

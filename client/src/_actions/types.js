@@ -6,3 +6,4 @@ export const FACE_REG = "facereg";
 export const BORDER_SAVE = "bordersave";
 export const BORDER_GET = "bodrerget";
 export const BORDER_INFO = "borderinfo";
+export const BORDER_EDIT = "borderedit";

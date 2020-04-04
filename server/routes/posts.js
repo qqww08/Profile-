@@ -4,7 +4,7 @@ const { Post } = require("../models/Post");
 const { auth } = require("../middleware/auth");
 
 //게시판 리스트
-router.get("/", (req, res) => {
+router.get("/", auth, (req, res) => {
   Post.find()
     .populate("writer")
     .exec((err, borderlist) => {
@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     });
 });
 //게시판 내용
-router.post("/info", (req, res) => {
+router.post("/info", auth, (req, res) => {
   Post.findOne({ _id: req.body.postId })
     .populate("writer")
     .exec((err, post) => {
@@ -22,18 +22,23 @@ router.post("/info", (req, res) => {
     });
 });
 
-// //게시판 수정
-// router.put("/:id", (req, res) => {
-//   Post.findByIdAndUpdate(req.params.id, req.body)
-//     .then(() => {
-//       res.json(req.body);
-//     })
-//     .catch(err => {
-//       res.status(400).send("실패");
-//     });
-// });
-//글쓰기
+//게시판 수정
+router.put("/edit", auth, (req, res) => {
+  Post.findByIdAndUpdate(
+    { _id: req.body.postId },
+    { title: req.body.title },
+    (err, post) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, post });
+    }
+  );
+});
+// .exec((err, post) => {
+//   if (err) return res.json({ success: false, err });
+//   return res.status(200).send({ success: true, post });
+// })
 
+// 글쓰기
 router.post("/delete", auth, (req, res) => {
   Post.remove({ _id: req.body.postId })
     .populate("writer")

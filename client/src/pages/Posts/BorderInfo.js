@@ -26,7 +26,7 @@ function BorderInfo(props) {
 
     Axios.post("/api/posts/delete", UserInfo).then((response) => {
       if (response.data.success) {
-        props.history.push("/List");
+        props.history.push("/Main");
       } else {
         alert("삭제실패");
       }
@@ -39,6 +39,7 @@ function BorderInfo(props) {
         <p>{Info.title}</p>
         <p>{Info.body}</p>
         <p>{Info.writer.name}</p>
+        <a href={`/edit/${Info._id}`}>날짜</a>
         {user.userData.email === Info.writer.email ? (
           <button onClick={InfoDelete}>삭제</button>
         ) : (

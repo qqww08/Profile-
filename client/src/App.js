@@ -7,6 +7,7 @@ import LandingPage from "./pages/Main/LandingPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/Register/RegisterPage";
 import BorderInfo from "./pages/Posts/BorderInfo";
+import BorderEdit from "./pages/Posts/BorderEdit";
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
 
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/Write" component={Auth(BorderWrite, false)} />
         <Route exact path="/List" component={Auth(BorderList, false)} />
         <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
+        <Route exact path="/edit/:postId" component={Auth(BorderEdit, false)} />
       </Switch>
     </Router>
   );

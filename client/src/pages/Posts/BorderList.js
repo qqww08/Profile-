@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
+import BorderWrite from "./BorderWrite";
 
-function BorderWrite() {
+function BorderList() {
   const [List, setList] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -46,10 +47,8 @@ function BorderWrite() {
         </thead>
         {Listcheck}
       </Table>
-      <Link to="/Write">
-        <button>글쓰기</button>
-      </Link>
+      <BorderWrite />
     </>
   );
 }
-export default withRouter(BorderWrite);
+export default withRouter(BorderList);
