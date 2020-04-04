@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
@@ -8,7 +8,7 @@ function BorderWrite() {
   const [List, setList] = useState([]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(borderget()).then(response => {
+    dispatch(borderget()).then((response) => {
       if (response.payload.success) {
         console.log(response.payload);
         setList(response.payload.borderlist);
@@ -27,7 +27,7 @@ function BorderWrite() {
             <a href={`/${post._id}`}>{post.title}</a>
           </td>
           <td>{post.writer.name}</td>
-          <td>@mdo</td>
+          <td>날짜</td>
         </tr>
       </tbody>
     );
@@ -39,16 +39,16 @@ function BorderWrite() {
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
+            <th>내용</th>
+            <th>이름</th>
+            <th>날짜</th>
           </tr>
         </thead>
         {Listcheck}
       </Table>
-      <a href="/Write">
-        <button>qq</button>
-      </a>
+      <Link to="/Write">
+        <button>글쓰기</button>
+      </Link>
     </>
   );
 }

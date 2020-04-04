@@ -11,21 +11,21 @@ function LoginPage(props) {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
 
-  const emailHandler = event => {
+  const emailHandler = (event) => {
     setEmail(event.currentTarget.value);
   };
 
-  const passHandler = event => {
+  const passHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
 
-  const submitHandler = event => {
+  const submitHandler = (event) => {
     event.preventDefault();
     let body = {
       email: Email,
-      password: Password
+      password: Password,
     };
-    dispatch(loginUser(body)).then(response => {
+    dispatch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
         props.history.push("/Main");
       } else {
@@ -39,7 +39,7 @@ function LoginPage(props) {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh"
+        height: "100vh",
       }}
     >
       <form

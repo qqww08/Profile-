@@ -42,13 +42,15 @@ router.post("/delete", auth, (req, res) => {
       res.status(200).json({ success: true, post });
     });
 });
+//게시판 저장
 router.post("/", auth, (req, res) => {
   const post = new Post(req.body);
   post.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
     return res.status(200).json({
-      success: true
+      success: true,
     });
   });
 });
+
 module.exports = router;

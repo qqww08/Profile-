@@ -12,20 +12,20 @@ function RegisterPage(props) {
   const [Password, setPassword] = useState("");
   const [PassCh, setPassCh] = useState("");
 
-  const NameHandler = event => {
+  const NameHandler = (event) => {
     setName(event.currentTarget.value);
   };
-  const EmailHandler = event => {
+  const EmailHandler = (event) => {
     setEmail(event.currentTarget.value);
   };
-  const PassHandler = event => {
+  const PassHandler = (event) => {
     setPassword(event.currentTarget.value);
   };
-  const PassChHandler = event => {
+  const PassChHandler = (event) => {
     setPassCh(event.currentTarget.value);
   };
 
-  const submitHandler = event => {
+  const submitHandler = (event) => {
     event.preventDefault();
     if (!Name) {
       setMessage("아이디를 입력해주세요");
@@ -40,11 +40,11 @@ function RegisterPage(props) {
     let body = {
       name: Name,
       email: Email,
-      password: Password
+      password: Password,
     };
     console.log(body);
 
-    dispatch(register(body)).then(response => {
+    dispatch(register(body)).then((response) => {
       if (response.payload.success) {
         console.log(response);
         props.history.push("/");
@@ -60,7 +60,7 @@ function RegisterPage(props) {
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
-          height: "100vh"
+          height: "100vh",
         }}
       >
         <form

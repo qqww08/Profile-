@@ -5,16 +5,16 @@ const postSchema = mongoose.Schema(
   {
     writer: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
     },
     title: {
       type: String,
-      require: true
+      require: true,
     },
     body: {
       type: String,
-      require: true
-    }
+      require: true,
+    },
   },
   { timestamps: true }
 );

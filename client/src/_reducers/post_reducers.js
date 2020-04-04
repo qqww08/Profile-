@@ -1,6 +1,6 @@
 import { BORDER_SAVE, BORDER_GET, BORDER_INFO } from "../_actions/types";
 
-export default function(state = {}, action) {
+export default function (state = {}, action) {
   switch (action.type) {
     case BORDER_SAVE:
       return { ...state, success: action.payload };

@@ -1,19 +1,28 @@
 import Axios from "axios";
-import { BORDER_SAVE, BORDER_GET } from "./types";
+import { BORDER_SAVE, BORDER_GET, BORDER_INFO } from "./types";
 
 export function bordersave(dataToSubmit) {
   const request = Axios.post("/api/posts/", dataToSubmit).then(
-    response => response.data
+    (response) => response.data
   );
   return {
     type: BORDER_SAVE,
-    payload: request
+    payload: request,
   };
 }
 export function borderget() {
-  const request = Axios.get("/api/posts/").then(response => response.data);
+  const request = Axios.get("/api/posts/").then((response) => response.data);
   return {
     type: BORDER_GET,
-    payload: request
+    payload: request,
+  };
+}
+export function borderinfo(data) {
+  const request = Axios.post("/api/posts/info", data).then(
+    (response) => response.data
+  );
+  return {
+    type: BORDER_INFO,
+    payload: request,
   };
 }

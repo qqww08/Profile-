@@ -4,28 +4,28 @@ import { withRouter } from "react-router-dom";
 import { bordersave } from "../../_actions/post_actions";
 
 function BorderWrite(props) {
-  const user = useSelector(state => state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const [BorderTitle, setBorderTitle] = useState("");
   const [BorderText, setBorderText] = useState("");
-  const TitleHandler = event => {
+  const TitleHandler = (event) => {
     setBorderTitle(event.currentTarget.value);
   };
-  const TextHandler = event => {
+  const TextHandler = (event) => {
     setBorderText(event.currentTarget.value);
   };
 
-  const BoderSubmit = event => {
+  const BoderSubmit = (event) => {
     event.preventDefault();
     const body = {
       writer: user.userData._id,
       title: BorderTitle,
-      body: BorderText
+      body: BorderText,
     };
-    dispatch(bordersave(body)).then(response => {
+    dispatch(bordersave(body)).then((response) => {
       if (response.payload.success) {
-        props.history.push("/List");
+        props.history.push("/Main");
       } else {
         alert("실패");
       }
