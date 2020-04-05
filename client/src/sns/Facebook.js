@@ -8,7 +8,7 @@ function Facebook(props) {
   const dispatch = useDispatch();
 
   const responseFacebook = (response) => {
-    console.log(response);
+    // console.log(response);
 
     let body = {
       name: response.name,

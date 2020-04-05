@@ -42,11 +42,11 @@ function RegisterPage(props) {
       email: Email,
       password: Password,
     };
-    console.log(body);
+    // console.log(body);
 
     dispatch(register(body)).then((response) => {
       if (response.payload.success) {
-        console.log(response);
+        // console.log(response);
         props.history.push("/");
       }
     });

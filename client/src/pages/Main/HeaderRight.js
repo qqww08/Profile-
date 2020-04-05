@@ -10,7 +10,7 @@ function HeaderRight(props) {
   const onClickHandler = () => {
     Axios.get(`/api/users/logout`).then((response) => {
       if (response.data.success) {
-        props.history.push("/");
+        props.history.push("/Login");
       } else {
         alert("로그아웃 하는데 실패 했습니다.");
       }
@@ -37,7 +37,7 @@ function HeaderRight(props) {
 
   return (
     <>
-      {user.loginSuccess || post.success ? (
+      {user.loginSuccess ? (
         <Button variant="link" onClick={onClickHandler}>
           Logout
         </Button>

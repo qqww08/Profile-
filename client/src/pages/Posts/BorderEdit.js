@@ -25,7 +25,7 @@ function BorderInfo(props) {
   const dispatch = useDispatch();
 
   const TitleHanler = (event) => {
-    console.log(event.currentTarget.value);
+    // console.log(event.currentTarget.value);
     // console.log(response.payload.post);
     setTitle(event.currentTarget.value);
   };
@@ -37,7 +37,7 @@ function BorderInfo(props) {
   useEffect(() => {
     dispatch(borderinfo(UserInfo)).then((response) => {
       if (response.payload.success) {
-        console.log(response.payload.post);
+        // console.log(response.payload.post);
         setInfo(response.payload.post);
         setTitle(response.payload.post.title);
         setBody(response.payload.post.body);
@@ -49,10 +49,10 @@ function BorderInfo(props) {
   const BorderEdit = (event) => {
     event.preventDefault();
     const UserEdit = { postId: postId, title: Title, body: Body };
-    console.log(UserEdit);
+    // console.log(UserEdit);
     dispatch(borderedit(UserEdit)).then((response) => {
       if (response.payload.success) {
-        console.log(response.payload.post);
+        // console.log(response.payload.post);
         setTitle(response.payload.post);
         setBody(response.payload.post);
         props.history.push(`/${postId}`);

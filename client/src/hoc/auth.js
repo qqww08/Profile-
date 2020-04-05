@@ -8,7 +8,7 @@ export default function (SpecificComponent, option) {
 
     useEffect(() => {
       dispatch(auth()).then((response) => {
-        console.log(response);
+        // console.log(response);
         if (!response.payload.isAuth) {
           if (option) {
             props.history.push("/");
