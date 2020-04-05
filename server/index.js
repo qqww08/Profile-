@@ -26,6 +26,7 @@ app.use(cookieParser());
 app.use("/api/posts", require("./routes/posts"));
 app.use("/api/users", require("./routes/users"));
 
-const port = 5000;
+// const port = 5000;
+
+app.listen(process.env.PORT || 5000);
 console.log("현재 포트" + process.env.PORT);
-app.listen(process.env.PORT || port);
