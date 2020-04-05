@@ -6,7 +6,7 @@ import { Button, ButtonGroup } from "react-bootstrap";
 
 function HeaderRight(props) {
   const user = useSelector((state) => state.user);
-  const post = useSelector((state) => state.post);
+  // const post = useSelector((state) => state.post);
   const onClickHandler = () => {
     Axios.get(`/api/users/logout`).then((response) => {
       if (response.data.success) {
