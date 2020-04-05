@@ -26,6 +26,17 @@ app.use(cookieParser());
 app.use("/api/posts", require("./routes/posts"));
 app.use("/api/users", require("./routes/users"));
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client/build")));
+}
+
+app.get("/api/greeting", (req, res) => {
+  res.send("Hello World!");
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 const port = process.env.PORT || 5000;
-console.log("현재 포트" + process.env.PORT);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
