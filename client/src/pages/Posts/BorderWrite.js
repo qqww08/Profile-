@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { bordersave } from "../../_actions/post_actions";
-import { Button, Modal, InputGroup, FormControl } from "react-bootstrap";
+import { Button, Modal, Form } from "react-bootstrap";
+
 function BorderWrite(props) {
   const [show, setShow] = useState(false);
 
@@ -15,6 +16,7 @@ function BorderWrite(props) {
   const [BorderTitle, setBorderTitle] = useState("");
   const [BorderText, setBorderText] = useState("");
   const TitleHandler = (event) => {
+    console.log(event.currentTarget.value);
     setBorderTitle(event.currentTarget.value);
   };
   const TextHandler = (event) => {
@@ -23,6 +25,7 @@ function BorderWrite(props) {
 
   const BoderSubmit = (event) => {
     event.preventDefault();
+
     const body = {
       writer: user.userData._id,
       title: BorderTitle,
@@ -30,15 +33,17 @@ function BorderWrite(props) {
     };
     dispatch(bordersave(body)).then((response) => {
       if (response.payload.success) {
-        props.history.push("/Main");
+        setShow(false);
+        props.history.push("/List");
       } else {
+        console.log(response);
         alert("실패");
       }
     });
   };
 
   return (
-    <div>
+    <Form>
       <Button variant="primary" onClick={handleShow}>
         글쓰기
       </Button>
@@ -48,43 +53,36 @@ function BorderWrite(props) {
           <Modal.Title>Modal heading</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body value={BorderTitle} onChange={TitleHandler}>
-          <InputGroup size="sm" className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroup-sizing-sm">제목</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
+        <Modal.Body>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>제목</Form.Label>
+            <Form.Control
+              placeholder="제목"
+              value={BorderTitle}
+              onChange={TitleHandler}
             />
-          </InputGroup>
-        </Modal.Body>
-        <Modal.Body value={BorderText} onChange={TextHandler}>
-          <InputGroup size="sm" className="mb-3">
-            <InputGroup.Prepend>
-              <InputGroup.Text id="inputGroup-sizing-sm">제목</InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>내용</Form.Label>
+            <Form.Control
+              placeholder="내용"
+              value={BorderText}
+              onChange={TextHandler}
+              style={{ height: "500px" }}
             />
-          </InputGroup>
+          </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onSubmit={BoderSubmit}>
+          <Button variant="primary" type="submit" onClick={BoderSubmit}>
             등록
           </Button>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleClose}>
             취소
           </Button>
         </Modal.Footer>
       </Modal>
-      <form onSubmit={BoderSubmit}>
-        <input value={BorderTitle} onChange={TitleHandler}></input>
-        <textarea value={BorderText} onChange={TextHandler}></textarea>
-        <button type="submit"></button>
-      </form>
-    </div>
+    </Form>
   );
 }
 

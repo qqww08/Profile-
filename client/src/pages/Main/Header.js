@@ -2,25 +2,16 @@ import React from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";
-import { Button, Menu } from "antd";
+import { Menu } from "antd";
+import { Button } from "react-bootstrap";
 import "antd/es/button/style";
-import Axios from "axios";
-import { withRouter } from "react-router-dom";
+import HeaderRight from "./HeaderRight";
+import { withRouter, Link as Li } from "react-router-dom";
 
-function Header(props) {
-  const onClickHandler = () => {
-    Axios.get(`/api/users/logout`).then(response => {
-      if (response.data.success) {
-        props.history.push("/");
-      } else {
-        alert("로그아웃 하는데 실패 했습니다.");
-      }
-    });
-  };
-
+function Header() {
   const { SubMenu } = Menu;
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     console.log("click ", e);
   };
 
@@ -30,38 +21,38 @@ function Header(props) {
       <div className="header_">
         <ul className="head_left">
           <li>
-            <Button type="link" onClick={scroll.scrollToTop}>
-              Home
-            </Button>
+            <Li to="/">
+              <Button variant="link" onClick={scroll.scrollToTop}>
+                Home
+              </Button>
+            </Li>
           </li>
         </ul>
         <ul className="head_medium">
           <li>
             <Link to="about" spy={true} smooth={true}>
-              <Button type="link">About</Button>
+              <Button variant="link">About</Button>
             </Link>
           </li>
           <li>
             <Link to="skill" spy={true} smooth={true}>
-              <Button type="link">Skill</Button>
+              <Button variant="link">Skill</Button>
             </Link>
           </li>
           <li>
             <Link to="contect" spy={true} smooth={true}>
-              <Button type="link">Contect</Button>
+              <Button variant="link">Contect</Button>
             </Link>
           </li>
           <li>
-            <Button type="link" href="/List">
-              Border
-            </Button>
+            <Li to="/List">
+              <Button variant="link">Border</Button>
+            </Li>
           </li>
         </ul>
 
         <ul className="head_right">
-          <Button type="link" onClick={onClickHandler} className="LogoutBtn">
-            Logout
-          </Button>
+          <HeaderRight />
         </ul>
         <span className="menu_bar">
           <Menu

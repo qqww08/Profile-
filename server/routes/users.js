@@ -22,14 +22,14 @@ router.post("/login", (req, res) => {
     // console.log('user', user)
     if (!user) {
       return res.json({
-        loginSuccess: false,
+        success: false,
         message: "제공된 이메일에 해당하는 유저가 없습니다.",
       });
     }
     user.comparePassword(req.body.password, (err, isMatch) => {
       if (!isMatch)
         return res.json({
-          loginSuccess: false,
+          success: false,
           message: "비밀번호가 틀렸습니다.",
         });
       user.generateToken((err, user) => {
@@ -37,7 +37,7 @@ router.post("/login", (req, res) => {
         res
           .cookie("x_auth", user.token)
           .status(200)
-          .json({ loginSuccess: true, userId: user._id });
+          .json({ success: true, userId: user._id });
       });
     });
   });
@@ -60,7 +60,7 @@ router.post("/fblogin", (req, res) => {
     // console.log('user', user)
     if (!user) {
       return res.json({
-        loginSuccess: false,
+        success: false,
         message: "제공된 이메일에 해당하는 유저가 없습니다.",
       });
     }
@@ -70,7 +70,7 @@ router.post("/fblogin", (req, res) => {
       res
         .cookie("x_auth", user.token)
         .status(200)
-        .json({ loginSuccess: true, userId: user._id });
+        .json({ success: true, userId: user._id });
     });
   });
 });

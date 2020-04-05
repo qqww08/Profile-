@@ -16,9 +16,9 @@ function Facebook(props) {
       userID: response.userID,
     };
     dispatch(fbUser(body)).then((response) => {
-      if (response.payload.loginSuccess) {
+      if (response.payload.success) {
         // console.log(response);
-        props.history.push("/Main");
+        props.history.push("/");
       } else {
         dispatch(fbregister(body)).then((response) => {
           if (response.payload.success) {

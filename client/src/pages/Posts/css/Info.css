@@ -1,0 +1,10 @@
+.fo {
+  width: 500px;
+  height: 500px;
+  padding: 30px;
+  border: 2px solid;
+}
+.gr {
+  display: flex;
+  justify-content: space-between;
+}
