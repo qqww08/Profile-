@@ -29,4 +29,4 @@ app.use("/api/users", require("./routes/users"));
 const port = process.env.PORT || 5000;
 console.log("현재 포트" + process.env.PORT);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-console.log(post);
+console.log(`${post}`);
