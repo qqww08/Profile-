@@ -4,10 +4,10 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "heroku-postbuild": "cd client && yarn install && yarn build",
-    "server": "nodemon server/index.js",
-    "client": "npm run start --prefix client",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+    "start": "concurrently \"npm run dev\" \"npm run start --prefix client\"",
+    "heroku-postbuild": "cd client && npm install && npm build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server/index.js"
   },
   "repository": {
     "type": "git",
