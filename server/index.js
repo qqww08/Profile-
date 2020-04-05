@@ -28,5 +28,5 @@ app.use("/api/users", require("./routes/users"));
 
 // const port = 5000;
 
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 3000);
 console.log("현재 포트" + process.env.PORT);
