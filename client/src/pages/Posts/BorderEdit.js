@@ -45,7 +45,7 @@ function BorderInfo(props) {
         alert("실패");
       }
     });
-  }, []);
+  }, [UserInfo, dispatch]);
   const BorderEdit = (event) => {
     event.preventDefault();
     const UserEdit = { postId: postId, title: Title, body: Body };

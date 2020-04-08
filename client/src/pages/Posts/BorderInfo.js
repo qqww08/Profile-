@@ -23,7 +23,7 @@ function BorderInfo(props) {
         alert("Failed to get video Info");
       }
     });
-  }, [dispatch]);
+  }, [dispatch, UserInfo]);
 
   const InfoDelete = (event) => {
     event.preventDefault();

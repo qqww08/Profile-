@@ -20,7 +20,7 @@ function BorderList() {
         alert("실패");
       }
     });
-  }, []);
+  }, [dispatch]);
 
   if (List) {
     const Listcheck = List.map((post, index) => {
