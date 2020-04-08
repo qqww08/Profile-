@@ -37,7 +37,7 @@ function HeaderRight(props) {
 
   return (
     <>
-      {user.loginSuccess ? (
+      {user.userData.isAuth ? (
         <Button variant="link" onClick={onClickHandler}>
           Logout
         </Button>
