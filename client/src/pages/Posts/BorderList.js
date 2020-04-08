@@ -4,8 +4,8 @@ import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
 import BorderWrite from "./BorderWrite";
-import Moment from "react-moment";
-import "moment-timezone";
+// import Moment from "react-moment";
+// import "moment-timezone";
 
 function BorderList() {
   const [List, setList] = useState([]);
@@ -33,7 +33,7 @@ function BorderList() {
             </td>
             <td>{post.writer.name}</td>
             <td>
-              <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment>
+              {/* <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment> */}
             </td>
             <td>{post.views}</td>
           </tr>
