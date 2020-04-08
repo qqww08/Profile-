@@ -47,7 +47,7 @@ function RegisterPage(props) {
     dispatch(register(body)).then((response) => {
       if (response.payload.success) {
         // console.log(response);
-        props.history.push("/");
+        props.history.push("/login");
       }
     });
   };

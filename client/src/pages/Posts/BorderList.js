@@ -14,33 +14,34 @@ function BorderList() {
   useEffect(() => {
     dispatch(borderget()).then((response) => {
       if (response.payload.success) {
-        // console.log(response.payload.borderlist);
+        console.log(response.payload.borderlist);
         setList(response.payload.borderlist);
       } else {
         alert("실패");
       }
     });
   }, [dispatch]);
-
-  if (List) {
-    const Listcheck = List.map((post, index) => {
-      return (
-        <tbody key={post._id}>
-          <tr>
-            <td>1</td>
-            <td>
-              <a href={`/${post._id}`}>{post.title}</a>
-            </td>
-            <td>{post.writer.name}</td>
-            <td>
-              {/* <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment> */}
-            </td>
-            <td>{post.views}</td>
-          </tr>
-        </tbody>
-      );
-    });
-
+  const refesh = (newList) => {
+    setList(List.concat(newList));
+  };
+  const Listcheck = List.map((post, index) => {
+    return (
+      <tbody key={post._id}>
+        <tr>
+          <td>1</td>
+          <td>
+            <a href={`/${post._id}`}>{post.title}</a>
+          </td>
+          <td>{post.writer.name}</td>
+          <td>
+            {/* <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment> */}
+          </td>
+          <td>{post.views}</td>
+        </tr>
+      </tbody>
+    );
+  });
+  if (Listcheck) {
     return (
       <>
         <Table striped bordered hover size="sm" style={{ marginTop: "60px" }}>
@@ -55,7 +56,7 @@ function BorderList() {
           </thead>
           {Listcheck}
         </Table>
-        <BorderWrite />
+        <BorderWrite refesh={refesh} />
       </>
     );
   } else {

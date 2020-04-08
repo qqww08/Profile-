@@ -71,7 +71,20 @@ function BorderInfo(props) {
   //   </form>
   // );
 
-  if (Info.writer && Info.writer.email && Info.title && Info.body) {
+  if (!Info.writer && !Info.title) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
+  } else {
     return (
       <div
         style={{
@@ -118,30 +131,17 @@ function BorderInfo(props) {
             />
           </Form.Group>
           <Form.Group>
-            {user.userData._id === Info.writer._id ? (
+            {user.userData._id !== Info.writer._id ? (
+              <div>hi</div>
+            ) : (
               <ButtonGroup aria-label="Basic example">
                 <Button variant="secondary" onClick={BorderEdit}>
                   수정
                 </Button>
               </ButtonGroup>
-            ) : (
-              <div>hi</div>
             )}
           </Form.Group>
         </Form>
-      </div>
-    );
-  } else {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <Spinner animation="border" variant="primary" />
       </div>
     );
   }

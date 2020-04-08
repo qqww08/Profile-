@@ -5,11 +5,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form } from "react-bootstrap";
 import "./css/Info.css";
+// import PutDel from "./PutDel";
 // import Moment from "react-moment";
 // import "moment-timezone";
 
 function BorderInfo(props) {
   const user = useSelector((state) => state.user);
+  // const post = useSelector((state) => state.post);
   const postId = props.match.params.postId;
   const UserInfo = { postId: postId };
   const [Info, setInfo] = useState([]);
@@ -37,7 +39,20 @@ function BorderInfo(props) {
     });
   };
 
-  if (Info.writer && Info.writer.email && Info.title && Info.body) {
+  if (!Info.writer && !Info.title) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      >
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
+  } else {
     return (
       <div
         style={{
@@ -70,7 +85,9 @@ function BorderInfo(props) {
             <Form.Label>{Info.body}</Form.Label>
           </Form.Group>
           <Form.Group>
-            {user.userData._id === Info.writer._id ? (
+            {user.userData._id !== Info.writer._id ? (
+              <div></div>
+            ) : (
               <ButtonGroup aria-label="Basic example">
                 <Button variant="secondary" href={`/edit/${Info._id}`}>
                   수정
@@ -79,24 +96,10 @@ function BorderInfo(props) {
                   삭제
                 </Button>
               </ButtonGroup>
-            ) : (
-              <div>hi</div>
             )}
+            {/* <PutDel {Info}/> */}
           </Form.Group>
         </Form>
-      </div>
-    );
-  } else {
-    return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        <Spinner animation="border" variant="primary" />
       </div>
     );
   }

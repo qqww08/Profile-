@@ -49,9 +49,12 @@ router.post("/", auth, (req, res) => {
   const post = new Post(req.body);
   post.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });
-    return res.status(200).json({
-      success: true,
-    });
+    Post.find({ _id: post._id })
+      .populate("writer")
+      .exec((err, result) => {
+        if (err) return res.json({ success: false, err });
+        return res.status(200).json({ success: true, result });
+      });
   });
 });
 

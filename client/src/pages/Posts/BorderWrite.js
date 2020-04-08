@@ -35,6 +35,9 @@ function BorderWrite(props) {
       if (response.payload.success) {
         setShow(false);
         props.history.push("/List");
+        setBorderTitle("");
+        setBorderText("");
+        props.refesh(response.payload.result);
       } else {
         console.log(response);
         alert("실패");
@@ -43,7 +46,7 @@ function BorderWrite(props) {
   };
 
   return (
-    <Form>
+    <Form onSubmit={BoderSubmit}>
       <Button variant="primary" onClick={handleShow}>
         글쓰기
       </Button>
@@ -74,7 +77,7 @@ function BorderWrite(props) {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={BoderSubmit}>
+          <Button variant="primary" onClick={BoderSubmit}>
             등록
           </Button>
           <Button variant="primary" onClick={handleClose}>
