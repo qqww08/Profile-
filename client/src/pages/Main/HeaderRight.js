@@ -16,43 +16,24 @@ function HeaderRight(props) {
       }
     });
   };
-  // if (user.loginSuccess) {
-  //   return (
-  //     <Button variant="link" onClick={onClickHandler}>
-  //       Logout
-  //     </Button>
-  //   );
-  // } else {
-  //   return (
-  //     <ButtonGroup aria-label="Basic example">
-  //       <Button variant="link" href="/Login">
-  //         Login
-  //       </Button>
-  //       <Button variant="link" href="/Register">
-  //         Register
-  //       </Button>
-  //     </ButtonGroup>
-  //   );
-  // }
-
-  return (
-    <>
-      {user.userData.isAuth ? (
-        <Button variant="link" onClick={onClickHandler}>
-          Logout
+  if (user.userData && user.userData.isAuth) {
+    return (
+      <Button variant="link" onClick={onClickHandler}>
+        Logout
+      </Button>
+    );
+  } else {
+    return (
+      <ButtonGroup aria-label="Basic example">
+        <Button variant="link" href="/Login">
+          Login
         </Button>
-      ) : (
-        <ButtonGroup aria-label="Basic example">
-          <Button variant="link" href="/Login">
-            Login
-          </Button>
-          <Button variant="link" href="/Register">
-            Register
-          </Button>
-        </ButtonGroup>
-      )}
-    </>
-  );
+        <Button variant="link" href="/Register">
+          Register
+        </Button>
+      </ButtonGroup>
+    );
+  }
 }
 
 export default withRouter(HeaderRight);
