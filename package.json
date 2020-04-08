@@ -29,13 +29,7 @@
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
-    "mongoose": "^5.9.5",
-    "react-hot-loader": "^4.12.20",
-    "react-moment": "^0.9.7",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
+    "mongoose": "^5.9.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
