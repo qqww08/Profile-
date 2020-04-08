@@ -33,5 +33,5 @@ if (process.env.NODE_EUV === "production") {
   });
 }
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
