@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use("/api/posts", require("./routes/posts"));
 app.use("/api/users", require("./routes/users"));
 
-if (process.env.NODE_EUV === "production") {
+if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/bulid"));
 
   app.get("*", (req, res) => {
