@@ -5,8 +5,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form } from "react-bootstrap";
 import "./css/Info.css";
-import Moment from "react-moment";
-import "moment-timezone";
+// import Moment from "react-moment";
+// import "moment-timezone";
 
 function BorderInfo(props) {
   const user = useSelector((state) => state.user);
@@ -52,7 +52,7 @@ function BorderInfo(props) {
             <Form.Label>제목 {Info.title}</Form.Label>
             <Form.Group>
               <Form.Label>
-                시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
+                {/* 시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
               </Form.Label>
               <Form.Label
                 style={{
