@@ -46,7 +46,7 @@ function Header() {
           </li>
           <li>
             <Li to="/List">
-              <Button variant="link">Border</Button>
+              <Button variant="link">Board</Button>
             </Li>
           </li>
         </ul>
