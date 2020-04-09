@@ -14,7 +14,7 @@ function BorderList() {
   useEffect(() => {
     dispatch(borderget()).then((response) => {
       if (response.payload.success) {
-        console.log(response.payload.borderlist);
+        // console.log(response.payload.borderlist);
         setList(response.payload.borderlist);
       } else {
         alert("실패");

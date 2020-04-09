@@ -30,7 +30,7 @@ function BorderInfo(props) {
     setTitle(event.currentTarget.value);
   };
   const BodyHanler = (event) => {
-    console.log(event.currentTarget.value);
+    // console.log(event.currentTarget.value);
     // console.log(response.payload.post);
     setBody(event.currentTarget.value);
   };

@@ -39,7 +39,7 @@ function BorderWrite(props) {
         setBorderText("");
         props.refesh(response.payload.result);
       } else {
-        console.log(response);
+        // console.log(response);
         alert("실패");
       }
     });
