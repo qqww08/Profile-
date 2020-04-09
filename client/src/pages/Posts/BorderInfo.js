@@ -92,7 +92,7 @@ function BorderInfo(props) {
             {user.userData && user.userData._id === Info.writer._id ? (
               <ButtonGroup aria-label="Basic example">
                 <Button variant="primary" href={`/edit/${Info._id}`}>
-                  수정
+                  수정1
                 </Button>
 
                 <Button variant="secondary" onClick={handleShow}>
