@@ -16,13 +16,7 @@ function HeaderRight(props) {
       }
     });
   };
-  if (user.userData && user.userData.isAuth) {
-    return (
-      <Button variant="link" onClick={onClickHandler}>
-        Logout
-      </Button>
-    );
-  } else {
+  if (user.userData && !user.userData.isAuth) {
     return (
       <ButtonGroup aria-label="Basic example">
         <Button variant="link" href="/Login">
@@ -32,6 +26,12 @@ function HeaderRight(props) {
           Register
         </Button>
       </ButtonGroup>
+    );
+  } else {
+    return (
+      <Button variant="link" onClick={onClickHandler}>
+        Logout
+      </Button>
     );
   }
 }

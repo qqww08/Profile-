@@ -3,13 +3,17 @@ import Axios from "axios";
 import { withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
-import { Spinner, Button, ButtonGroup, Form } from "react-bootstrap";
+import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
 import "./css/Info.css";
 // import PutDel from "./PutDel";
 // import Moment from "react-moment";
 // import "moment-timezone";
 
 function BorderInfo(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const user = useSelector((state) => state.user);
   // const post = useSelector((state) => state.post);
   const postId = props.match.params.postId;
@@ -85,17 +89,33 @@ function BorderInfo(props) {
             <Form.Label>{Info.body}</Form.Label>
           </Form.Group>
           <Form.Group>
-            {user.userData._id !== Info.writer._id ? (
-              <div></div>
-            ) : (
+            {user.userData && user.userData._id === Info.writer._id ? (
               <ButtonGroup aria-label="Basic example">
-                <Button variant="secondary" href={`/edit/${Info._id}`}>
+                <Button variant="primary" href={`/edit/${Info._id}`}>
                   수정
                 </Button>
-                <Button variant="secondary" onClick={InfoDelete}>
+
+                <Button variant="secondary" onClick={handleShow}>
                   삭제
                 </Button>
+
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>정말 삭제 하시겠습니까?</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={InfoDelete}>
+                      삭제
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                      취소
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
               </ButtonGroup>
+            ) : (
+              <div></div>
             )}
             {/* <PutDel {Info}/> */}
           </Form.Group>

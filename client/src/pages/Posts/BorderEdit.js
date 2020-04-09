@@ -95,20 +95,10 @@ function BorderInfo(props) {
         }}
       >
         <Form className="fo">
-          <Form.Group className="gr">
-            <Form.Label value={Title} onChange={TitleHanler}>
-              제목
-            </Form.Label>
-            <FormControl
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
-              value={Title}
-              onChange={TitleHanler}
-              style={{ width: "50%", margin: "0" }}
-            />
-            <Form.Group>
-              <Form.Label>
-                {/* 시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
+          <Form.Group>
+            <Form.Group className="EditTitle">
+              <Form.Label value={Title} onChange={TitleHanler}>
+                제목
               </Form.Label>
               <Form.Label
                 style={{
@@ -120,8 +110,19 @@ function BorderInfo(props) {
                 작성자 {Info.writer.name}
               </Form.Label>
             </Form.Group>
+            <Form.Group>
+              <FormControl
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                value={Title}
+                onChange={TitleHanler}
+                style={{ width: "100%", margin: "0px" }}
+              />
+              <Form.Label>
+                {/* 시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
+              </Form.Label>
+            </Form.Group>
           </Form.Group>
-
           <Form.Group>
             <FormControl
               aria-label="Small"
@@ -131,15 +132,11 @@ function BorderInfo(props) {
             />
           </Form.Group>
           <Form.Group>
-            {user.userData._id !== Info.writer._id ? (
-              <div>hi</div>
-            ) : (
-              <ButtonGroup aria-label="Basic example">
-                <Button variant="secondary" onClick={BorderEdit}>
-                  수정
-                </Button>
-              </ButtonGroup>
-            )}
+            <ButtonGroup aria-label="Basic example">
+              <Button variant="secondary" onClick={BorderEdit}>
+                수정
+              </Button>
+            </ButtonGroup>
           </Form.Group>
         </Form>
       </div>

@@ -4,6 +4,7 @@ import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
 import BorderWrite from "./BorderWrite";
+import "./css/BList.css";
 // import Moment from "react-moment";
 // import "moment-timezone";
 
@@ -21,14 +22,15 @@ function BorderList() {
       }
     });
   }, [dispatch]);
+
   const refesh = (newList) => {
     setList(List.concat(newList));
   };
+
   const Listcheck = List.map((post, index) => {
     return (
       <tbody key={post._id}>
         <tr>
-          <td>1</td>
           <td>
             <a href={`/${post._id}`}>{post.title}</a>
           </td>
@@ -36,31 +38,34 @@ function BorderList() {
           <td>
             {/* <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment> */}
           </td>
-          <td>{post.views}</td>
+          <td style={{ textAlign: "center" }}>{post.views}</td>
         </tr>
       </tbody>
     );
   });
-  if (Listcheck) {
-    return (
-      <>
-        <Table striped bordered hover size="sm" style={{ marginTop: "60px" }}>
+
+  return (
+    <div>
+      <div className="Blist">
+        <Table striped bordered hover size="sm" style={{ width: "800px" }}>
           <thead>
             <tr>
-              <th>#</th>
               <th>내용</th>
               <th>이름</th>
               <th>날짜</th>
-              <th>조회수</th>
+              <th style={{ width: "10%" }}>조회수</th>
             </tr>
           </thead>
           {Listcheck}
         </Table>
-        <BorderWrite refesh={refesh} />
-      </>
-    );
-  } else {
-    return <div>loading</div>;
-  }
+      </div>
+      <div className="BEdit">
+        <div style={{ width: "800px" }}>
+          <BorderWrite refesh={refesh} />
+        </div>
+      </div>
+    </div>
+  );
 }
+
 export default withRouter(BorderList);
