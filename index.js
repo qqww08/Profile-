@@ -2,17 +2,20 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const config = require("./config/key");
+// const config = require("./config/key");
 const path = require("path");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(config.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    "mongodb+srv://SDH:tlseog08!@cluster0-jxe5q.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 

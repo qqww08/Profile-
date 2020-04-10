@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
 
-// import ".RegisterPage.css";
+import "./RegisterPage.css";
 
 function RegisterPage(props) {
   const dispatch = useDispatch();
@@ -26,14 +26,14 @@ function RegisterPage(props) {
     setPassCh(event.currentTarget.value);
   };
   const check_spc = /[~!@#$%^&*()_+|<>?:{}]/;
-  const pw_msg = "";
+  const check_num = /[0-9]/;
   const submitHandler = (event) => {
     event.preventDefault();
 
     if (!Name) {
       setMessage("이름을 입력해주세요");
-    } else if (check_spc.test(Name)) {
-      setMessage("특수문자 입력 불가");
+    } else if (check_spc.test(Name) || check_num.test(Name)) {
+      setMessage("특수문자,숫자 입력 불가");
     } else if (!Email) {
       setMessage("이메일을 입력해주세요");
     } else if (check_spc.test(Email)) {
@@ -71,6 +71,7 @@ function RegisterPage(props) {
         }}
       >
         <form
+          className="Register"
           style={{ display: "flex", flexDirection: "column" }}
           onSubmit={submitHandler}
         >

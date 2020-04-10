@@ -1,4 +1,4 @@
-.inputName,
+/* .inputName,
 .inputEmail,
 .inputPass {
   width: 300px;
@@ -28,4 +28,7 @@ input::placeholder {
 }
 button:focus {
   outline: none;
+} */
+.Register {
+  border: 2px solid;
 }

@@ -34,42 +34,52 @@ function LoginPage(props) {
     });
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={submitHandler}
+    <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
       >
-        <input
-          className="inputEmail"
-          type="email"
-          value={Email}
-          onChange={emailHandler}
-          placeholder="Email"
-        />
+        <form
+          className="FormBack"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            background: "#fafafa",
+            width: "500px",
+            justifyContent: "center",
+          }}
+          onSubmit={submitHandler}
+        >
+          <label className="LoginTitle">로그인</label>
+          <input
+            className="inputEmail"
+            type="email"
+            value={Email}
+            onChange={emailHandler}
+            placeholder="Email"
+          />
 
-        <input
-          className="inputPass"
-          type="password"
-          value={Password}
-          onChange={passHandler}
-          placeholder="Password"
-        />
+          <input
+            className="inputPass"
+            type="password"
+            value={Password}
+            onChange={passHandler}
+            placeholder="Password"
+          />
 
-        <a href="/register" style={{ textAlign: "right" }}>
-          회원가입
-        </a>
-        <button className="btnLogin" type="submit">
-          Login
-        </button>
-      </form>
-      <Facebook />
+          <a href="/register" style={{ textAlign: "right" }}>
+            회원가입
+          </a>
+          <button className="btnLogin" type="submit">
+            Login
+          </button>
+          <Facebook />
+        </form>
+      </div>
     </div>
   );
 }
