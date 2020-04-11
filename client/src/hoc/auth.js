@@ -11,7 +11,8 @@ export default function (SpecificComponent, option) {
         // console.log(response);
         if (!response.payload.isAuth) {
           if (option) {
-            props.history.push("/");
+            alert("로그인 해주세요");
+            props.history.push("/login");
           }
         }
       });

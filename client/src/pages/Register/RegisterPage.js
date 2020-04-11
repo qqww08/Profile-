@@ -71,7 +71,7 @@ function RegisterPage(props) {
         }}
       >
         <form
-          className="Register"
+          className="FormBack"
           style={{ display: "flex", flexDirection: "column" }}
           onSubmit={submitHandler}
         >
@@ -110,7 +110,7 @@ function RegisterPage(props) {
           />
 
           <br />
-          <label>{Message}</label>
+          <label style={{ color: "red" }}>{Message}</label>
           <button className="btnLogin" type="submit">
             Register
           </button>

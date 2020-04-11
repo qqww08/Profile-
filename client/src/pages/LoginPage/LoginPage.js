@@ -43,24 +43,14 @@ function LoginPage(props) {
           height: "100vh",
         }}
       >
-        <form
-          className="FormBack"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            background: "#fafafa",
-            width: "500px",
-            justifyContent: "center",
-          }}
-          onSubmit={submitHandler}
-        >
+        <form className="FormBack" onSubmit={submitHandler}>
           <label className="LoginTitle">로그인</label>
           <input
             className="inputEmail"
             type="email"
             value={Email}
             onChange={emailHandler}
-            placeholder="Email"
+            placeholder="이메일"
           />
 
           <input
@@ -68,16 +58,14 @@ function LoginPage(props) {
             type="password"
             value={Password}
             onChange={passHandler}
-            placeholder="Password"
+            placeholder="비밀번호"
           />
 
-          <a href="/register" style={{ textAlign: "right" }}>
-            회원가입
-          </a>
           <button className="btnLogin" type="submit">
-            Login
+            로그인
           </button>
-          <Facebook />
+
+          {/* <Facebook /> */}
         </form>
       </div>
     </div>

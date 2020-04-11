@@ -139,7 +139,14 @@ q:after {
 
   content: none;
 }
-
+@font-face {
+  font-family: "BlackHanSans-Regular";
+  src: url(./fonts//BlackHanSans-Regular.ttf);
+}
+@font-face {
+  font-family: "DoHeyon";
+  src: url(./fonts/DoHyeon-Regular.ttf);
+}
 table {
   border-collapse: collapse;
 

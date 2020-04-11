@@ -2,19 +2,13 @@ import React from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";
-import { Menu } from "antd";
-import { Button } from "react-bootstrap";
+
+import { Button, Dropdown } from "react-bootstrap";
 import "antd/es/button/style";
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
 
 function Header() {
-  const { SubMenu } = Menu;
-
-  const handleClick = (e) => {
-    console.log("click ", e);
-  };
-
   return (
     <nav className="body">
       {/* header */}
@@ -22,7 +16,11 @@ function Header() {
         <ul className="head_left">
           <li>
             <Li to="/">
-              <Button variant="link" onClick={scroll.scrollToTop}>
+              <Button
+                variant="link"
+                onClick={scroll.scrollToTop}
+                style={{ textDecoration: "none" }}
+              >
                 Home
               </Button>
             </Li>
@@ -31,22 +29,30 @@ function Header() {
         <ul className="head_medium">
           <li>
             <Link to="about" spy={true} smooth={true}>
-              <Button variant="link">About</Button>
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                About
+              </Button>
             </Link>
           </li>
           <li>
             <Link to="skill" spy={true} smooth={true}>
-              <Button variant="link">Skill</Button>
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Skill
+              </Button>
             </Link>
           </li>
           <li>
             <Link to="contect" spy={true} smooth={true}>
-              <Button variant="link">Contect</Button>
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Contect
+              </Button>
             </Link>
           </li>
           <li>
             <Li to="/List">
-              <Button variant="link">Board</Button>
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Board
+              </Button>
             </Li>
           </li>
         </ul>
@@ -55,40 +61,53 @@ function Header() {
           <HeaderRight />
         </ul>
         <span className="menu_bar">
-          <Menu
-            onClick={handleClick}
-            style={{ width: 150, background: "#fafafa", border: "none" }}
-            mode="inline"
-          >
-            <SubMenu
-              title={
-                <span style={{ marginLeft: "50px", color: "#89c5fc" }}>
-                  <span>Menu</span>
-                </span>
-              }
+          <Dropdown>
+            <Dropdown.Toggle
+              variant="link"
+              id="dropdown-basic"
+              style={{ textDecoration: "none", marginTop: "8px" }}
             >
-              <Menu.Item>
-                <Button type="link" onClick={scroll.scrollToTop}>
-                  Home
-                </Button>
-              </Menu.Item>
-              <Menu.Item>
+              Menu
+            </Dropdown.Toggle>
+
+            <Dropdown.Menu
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <Dropdown.Item href="#/action-1">
                 <Link to="about" spy={true} smooth={true}>
-                  <Button type="link">About</Button>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    About
+                  </Button>
                 </Link>
-              </Menu.Item>
-              <Menu.Item>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">
                 <Link to="skill" spy={true} smooth={true}>
-                  <Button type="link">Skill</Button>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    Skill
+                  </Button>
                 </Link>
-              </Menu.Item>
-              <Menu.Item>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
                 <Link to="contect" spy={true} smooth={true}>
-                  <Button type="link">Contect</Button>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    Contect
+                  </Button>
                 </Link>
-              </Menu.Item>
-            </SubMenu>
-          </Menu>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-4">
+                <Li to="/List">
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    Board
+                  </Button>
+                </Li>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-5">
+                <HeaderRight />
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </span>
       </div>
     </nav>

@@ -1,13 +1,18 @@
 .LoginTitle {
   text-align: center;
+  font-size: 50px;
 }
 .FormBack {
+  font-family: "DoHeyon";
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #fafafa;
   width: 500px;
   height: 400px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 .inputEmail,
 .inputPass {
@@ -38,4 +43,9 @@ input::placeholder {
 }
 button:focus {
   outline: none;
+}
+@media screen and (max-width: 768px) {
+  .FormBack {
+    width: 400px;
+  }
 }

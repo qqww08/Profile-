@@ -19,17 +19,26 @@ function HeaderRight(props) {
   if (user.userData && !user.userData.isAuth) {
     return (
       <ButtonGroup aria-label="Basic example">
-        <Button variant="link" href="/Login">
+        <Button variant="link" href="/Login" style={{ textDecoration: "none" }}>
           Login
         </Button>
-        <Button variant="link" href="/Register">
+
+        <Button
+          variant="link"
+          href="/Register"
+          style={{ textDecoration: "none" }}
+        >
           Register
         </Button>
       </ButtonGroup>
     );
   } else {
     return (
-      <Button variant="link" onClick={onClickHandler}>
+      <Button
+        variant="link"
+        onClick={onClickHandler}
+        style={{ textDecoration: "none" }}
+      >
         Logout
       </Button>
     );

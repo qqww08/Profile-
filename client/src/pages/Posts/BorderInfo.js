@@ -6,8 +6,8 @@ import { borderinfo } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
 import "./css/Info.css";
 // import PutDel from "./PutDel";
-// import Moment from "react-moment";
-// import "moment-timezone";
+import Moment from "react-moment";
+import "moment-timezone";
 
 function BorderInfo(props) {
   const [show, setShow] = useState(false);
@@ -71,7 +71,7 @@ function BorderInfo(props) {
             <Form.Label>제목 {Info.title}</Form.Label>
             <Form.Group>
               <Form.Label>
-                {/* 시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
+                시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
               </Form.Label>
               <Form.Label
                 style={{

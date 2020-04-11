@@ -11,8 +11,8 @@ import {
   Form,
   FormControl,
 } from "react-bootstrap";
-// import Moment from "react-moment";
-// import "moment-timezone";
+import Moment from "react-moment";
+import "moment-timezone";
 function BorderInfo(props) {
   const user = useSelector((state) => state.user);
 
@@ -119,7 +119,7 @@ function BorderInfo(props) {
                 style={{ width: "100%", margin: "0px" }}
               />
               <Form.Label>
-                {/* 시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
+                시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
               </Form.Label>
             </Form.Group>
           </Form.Group>

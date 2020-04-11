@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
 import BorderWrite from "./BorderWrite";
 import "./css/BList.css";
-// import Moment from "react-moment";
-// import "moment-timezone";
+import Moment from "react-moment";
+import "moment-timezone";
 
 function BorderList() {
   const [List, setList] = useState([]);
@@ -36,7 +36,7 @@ function BorderList() {
           </td>
           <td>{post.writer.name}</td>
           <td>
-            {/* <Moment format="YY/MM/DD HH:mm">{post.createdAt}</Moment> */}
+            <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
           </td>
           <td style={{ textAlign: "center" }}>{post.views}</td>
         </tr>
@@ -50,10 +50,10 @@ function BorderList() {
         <Table striped bordered hover size="sm" style={{ width: "800px" }}>
           <thead>
             <tr>
-              <th>내용</th>
-              <th>이름</th>
-              <th>날짜</th>
-              <th style={{ width: "10%" }}>조회수</th>
+              <th style={{ textAlign: "center" }}>내용</th>
+              <th style={{ width: "15%" }}>작성자</th>
+              <th style={{ width: "20%", textAlign: "center" }}>날짜</th>
+              <th style={{ width: "10%", textAlign: "center" }}>조회수</th>
             </tr>
           </thead>
           {Listcheck}
