@@ -8,3 +8,12 @@
   display: flex;
   justify-content: center;
 }
+.BoaderT {
+  width: 800px;
+}
+.TitleC {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
