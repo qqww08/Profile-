@@ -96,7 +96,19 @@ function BorderInfo(props) {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label style={{ height: "280px" }}>{Info.body}</Form.Label>
+            <Form.Control
+              as="textarea"
+              aria-label="With textarea"
+              readonly="readonly"
+              style={{
+                height: "290px",
+                resize: "none",
+                background: "none",
+                border: "none",
+              }}
+            >
+              {Info.body}
+            </Form.Control>
           </Form.Group>
           <Form.Group>
             {user.userData && user.userData._id === Info.writer._id ? (

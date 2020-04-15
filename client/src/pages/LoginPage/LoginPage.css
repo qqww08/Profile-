@@ -44,6 +44,7 @@ input::placeholder {
 button:focus {
   outline: none;
 }
+
 @media screen and (max-width: 768px) {
   .FormBack {
     width: 400px;

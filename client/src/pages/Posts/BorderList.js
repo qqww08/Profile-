@@ -42,7 +42,7 @@ function BorderList() {
   } else {
     const Listcheck = List.map((post, index) => {
       return (
-        <tbody key={post._id}>
+        <tbody key={post._id} style={{ width: "800px", tableLayout: "fixed" }}>
           <tr>
             <td className="TitleC1">
               <a
@@ -69,7 +69,13 @@ function BorderList() {
     return (
       <div>
         <div className="Blist">
-          <Table striped bordered hover size="sm" style={{ width: "800px" }}>
+          <Table
+            striped
+            bordered
+            hover
+            size="sm"
+            style={{ width: "800px", tableLayout: "fixed" }}
+          >
             <thead>
               <tr>
                 <th style={{ textAlign: "center", width: "300px" }}>내용</th>
