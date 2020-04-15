@@ -4,14 +4,9 @@
   padding: 30px;
   border: 2px solid;
 }
-.gr {
-  display: flex;
-  justify-content: space-between;
-}
+
 .EditTitle {
   display: flex;
   justify-content: space-between;
-}
-a {
-  text-decoration: none;
+  align-items: center;
 }

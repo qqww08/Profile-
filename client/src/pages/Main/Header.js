@@ -42,9 +42,9 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="contect" spy={true} smooth={true}>
+            <Link to="Project" spy={true} smooth={true}>
               <Button variant="link" style={{ textDecoration: "none" }}>
-                Contect
+                Project
               </Button>
             </Link>
           </li>
@@ -90,9 +90,9 @@ function Header() {
                 </Link>
               </Dropdown.Item>
               <Dropdown.Item href="#/action-3">
-                <Link to="contect" spy={true} smooth={true}>
+                <Link to="Project" spy={true} smooth={true}>
                   <Button variant="link" style={{ textDecoration: "none" }}>
-                    Contect
+                    Project
                   </Button>
                 </Link>
               </Dropdown.Item>

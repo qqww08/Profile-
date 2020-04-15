@@ -15,7 +15,6 @@ import Auth from "./hoc/auth";
 function App() {
   return (
     <Router>
-      <Header />
       <Switch>
         <Route exact path="/" component={Auth(LandingPage, false)} />
         <Route exact path="/Login" component={Auth(LoginPage, false)} />
@@ -25,6 +24,7 @@ function App() {
         <Route exact path="/:postId" component={Auth(BorderInfo, true)} />
         <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />
       </Switch>
+      <Header />
     </Router>
   );
 }

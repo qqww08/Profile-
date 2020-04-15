@@ -7,3 +7,7 @@
 .h1text {
   text-align: center;
 }
+.cards {
+  display: flex;
+  justify-content: center;
+}

@@ -44,8 +44,17 @@ function BorderList() {
       return (
         <tbody key={post._id}>
           <tr>
-            <td className="TitleC">
-              <a href={`/${post._id}`}>{post.title}</a>
+            <td className="TitleC1">
+              <a
+                href={`/${post._id}`}
+                style={{
+                  listStyleType: "none",
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                {post.title}
+              </a>
             </td>
             <td>{post.writer.name}</td>
             <td>
@@ -63,7 +72,7 @@ function BorderList() {
           <Table striped bordered hover size="sm" style={{ width: "800px" }}>
             <thead>
               <tr>
-                <th style={{ textAlign: "center", width: "350px" }}>내용</th>
+                <th style={{ textAlign: "center", width: "300px" }}>내용</th>
                 <th style={{ width: "150px" }}>작성자</th>
                 <th style={{ width: "200px", textAlign: "center" }}>날짜</th>
                 <th style={{ width: "100px", textAlign: "center" }}>조회수</th>

@@ -11,9 +11,9 @@
 .BoaderT {
   width: 800px;
 }
-.TitleC {
+.TitleC1 {
   display: -webkit-box;
-  -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }

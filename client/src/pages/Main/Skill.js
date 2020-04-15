@@ -6,13 +6,16 @@ import mongodb from "./images/mongodb.svg";
 import node from "./images/node.svg";
 import react from "./images/react.svg";
 import redux from "./images/redux.png";
-import ant from "./images/ant.png";
+import Bootstrap from "./images/Bootstrap_logo.png";
 import "./css/skill.css";
+import { Element } from "react-scroll";
 
 function Skill() {
   return (
     <div>
-      <h1 className="h1text">Web Skills</h1>
+      <Element id="skill" />
+      <h1 className="h1text">Skill</h1>
+      <h1 className="h1text">Front End</h1>
       <ul className="skill">
         <li>
           <img src={html5} alt="html" />
@@ -24,7 +27,7 @@ function Skill() {
           <img src={js} alt="js" />
         </li>
       </ul>
-      <h1 className="h1text">FrameWork</h1>
+
       <ul className="skill">
         <li>
           <img src={react} alt="react" />
@@ -33,7 +36,7 @@ function Skill() {
           <img src={redux} alt="redux" />
         </li>
         <li>
-          <img src={ant} alt="ant" />
+          <img src={Bootstrap} alt="ant" />
         </li>
       </ul>
       <h1 className="h1text">Back-end</h1>

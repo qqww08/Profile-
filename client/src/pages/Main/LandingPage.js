@@ -1,8 +1,9 @@
 import React from "react";
 import Back from "./Back";
-import Header from "./Header";
+
 import Profile from "./Profile";
 import Skill from "./Skill";
+import Project from "./Project";
 import Contact from "./Contact";
 
 import "./css/LadingPage.css";
@@ -12,10 +13,10 @@ function LadingPage() {
   return (
     <div>
       <Back />
-      <Header />
+
       <Profile />
       <Skill />
-
+      <Project />
       <Contact />
     </div>
   );

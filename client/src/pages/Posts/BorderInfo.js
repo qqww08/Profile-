@@ -68,31 +68,41 @@ function BorderInfo(props) {
       >
         <Form className="fo">
           <Form.Group className="gr">
-            <Form.Label>제목 {Info.title}</Form.Label>
-            <Form.Group>
-              <Form.Label>
-                시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
-              </Form.Label>
-              <Form.Label
-                style={{
-                  display: "flex",
-                  justifyContent: "end",
-                  textAlign: "right",
-                }}
-              >
-                작성자 {Info.writer.name}
+            <Form.Group
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Form.Label>제목 {Info.title}</Form.Label>
+              <Button variant="secondary" href="/List">
+                목록
+              </Button>
+            </Form.Group>
+            <Form.Group
+              style={{
+                display: "flex",
+                marginTop: "10px",
+              }}
+            >
+              <Form.Label>작성자 {Info.writer.name}</Form.Label>
+
+              <Form.Label style={{ marginLeft: "15px" }}>
+                작성일
+                <Moment format="YYYY.MM.DD HH:mm">{Info.createdAt}</Moment>
               </Form.Label>
             </Form.Group>
           </Form.Group>
 
           <Form.Group>
-            <Form.Label>{Info.body}</Form.Label>
+            <Form.Label style={{ height: "280px" }}>{Info.body}</Form.Label>
           </Form.Group>
           <Form.Group>
             {user.userData && user.userData._id === Info.writer._id ? (
               <ButtonGroup aria-label="Basic example">
                 <Button variant="primary" href={`/edit/${Info._id}`}>
-                  수정1
+                  수정
                 </Button>
 
                 <Button variant="secondary" onClick={handleShow}>
@@ -101,7 +111,7 @@ function BorderInfo(props) {
 
                 <Modal show={show} onHide={handleClose}>
                   <Modal.Header closeButton>
-                    <Modal.Title>Modal heading</Modal.Title>
+                    <Modal.Title>알림</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>정말 삭제 하시겠습니까?</Modal.Body>
                   <Modal.Footer>

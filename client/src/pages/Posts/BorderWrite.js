@@ -53,10 +53,10 @@ function BorderWrite(props) {
 
       <Modal show={show} onHide={handleClose} animation={false}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>글쓰기</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body style={{ width: "100%" }}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>제목</Form.Label>
             <Form.Control
@@ -69,10 +69,12 @@ function BorderWrite(props) {
           <Form.Group controlId="formBasicPassword">
             <Form.Label>내용</Form.Label>
             <Form.Control
+              as="textarea"
+              aria-label="With textarea"
               placeholder="내용"
               value={BorderText}
               onChange={TextHandler}
-              style={{ height: "500px" }}
+              style={{ height: "400px", resize: "none" }}
             />
           </Form.Group>
         </Modal.Body>

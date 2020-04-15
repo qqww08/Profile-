@@ -14,7 +14,7 @@ import {
 import Moment from "react-moment";
 import "moment-timezone";
 function BorderInfo(props) {
-  const user = useSelector((state) => state.user);
+  // const user = useSelector((state) => state.user);
 
   const postId = props.match.params.postId;
   const UserInfo = { postId: postId };
@@ -100,35 +100,34 @@ function BorderInfo(props) {
               <Form.Label value={Title} onChange={TitleHanler}>
                 제목
               </Form.Label>
-              <Form.Label
-                style={{
-                  display: "flex",
-                  justifyContent: "end",
-                  textAlign: "right",
-                }}
-              >
-                작성자 {Info.writer.name}
-              </Form.Label>
-            </Form.Group>
-            <Form.Group>
               <FormControl
                 aria-label="Small"
                 aria-describedby="inputGroup-sizing-sm"
                 value={Title}
                 onChange={TitleHanler}
-                style={{ width: "100%", margin: "0px" }}
+                style={{ width: "95%", marginBottom: "5px" }}
               />
-              <Form.Label>
-                시간 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
+            </Form.Group>
+            <Form.Group
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                textAlign: "right",
+              }}
+            >
+              <Form.Label>작성자 {Info.writer.name}</Form.Label>
+              <Form.Label style={{ marginLeft: "15px" }}>
+                작성일 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
               </Form.Label>
             </Form.Group>
           </Form.Group>
           <Form.Group>
             <FormControl
-              aria-label="Small"
-              aria-describedby="inputGroup-sizing-sm"
+              as="textarea"
+              aria-label="With textarea"
               value={Body}
               onChange={BodyHanler}
+              style={{ height: "290px", resize: "none" }}
             />
           </Form.Group>
           <Form.Group>
