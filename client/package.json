@@ -27,6 +27,7 @@
     "react-dom": "^16.13.1",
     "react-facebook-login": "^4.1.1",
     "react-hooks-paginator": "^0.4.4",
+    "react-hover-image": "^1.0.1",
     "react-js-pagination": "^3.0.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",

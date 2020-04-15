@@ -9,6 +9,7 @@ import redux from "./images/redux.png";
 import Bootstrap from "./images/Bootstrap_logo.png";
 import "./css/skill.css";
 import { Element } from "react-scroll";
+import { OverlayTrigger, Tooltip, Popover, Button } from "react-bootstrap";
 
 function Skill() {
   return (
@@ -18,17 +19,63 @@ function Skill() {
       <h1 className="h1text">Front End</h1>
       <ul className="skill">
         <li>
-          <img src={html5} alt="html" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  HTML5
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  Basic
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={html5} alt="html" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
         <li>
-          <img src={css3} alt="css3" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  CSS3
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  FLEX, GRID, 미디어쿼리를 이용한 웹 제작
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={css3} alt="css3" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
         <li>
-          <img src={js} alt="js" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  CSS3
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  FLEX, GRID, 미디어쿼리를 이용한 웹 제작
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={js} alt="js" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
-      </ul>
 
-      <ul className="skill">
         <li>
           <img src={react} alt="react" />
         </li>

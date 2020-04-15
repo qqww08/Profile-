@@ -100,6 +100,7 @@ function BorderInfo(props) {
               as="textarea"
               aria-label="With textarea"
               readonly="readonly"
+              disabled="disabled"
               style={{
                 height: "290px",
                 resize: "none",

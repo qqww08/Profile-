@@ -1,18 +1,61 @@
 .Blist {
   display: flex;
   justify-content: center;
-
+  width: 100%;
   margin-top: 60px;
 }
 .BEdit {
   display: flex;
   justify-content: center;
 }
-.BoaderT {
-  width: 800px;
-}
+
 .TitleC1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.BEditM {
+  display: none;
+  justify-content: center;
+}
+.BMobile {
+  display: none;
+  justify-content: center;
+  width: 100%;
+  margin-top: 60px;
+}
+@media screen and (max-width: 768px) {
+  .Blist {
+    display: none;
+  }
+  .BEdit {
+    display: none;
+  }
+  .BMobile {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+  }
+  .BEditM {
+    display: flex;
+  }
+  .TitleC1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+  }
+  .Mtr {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .MView {
+    width: 10%;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

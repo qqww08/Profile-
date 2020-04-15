@@ -26,6 +26,7 @@ function BorderList() {
   const refesh = (newList) => {
     setList(List.concat(newList));
   };
+
   if (user.userData && !user.userData.isAuth) {
     return (
       <div
@@ -65,7 +66,31 @@ function BorderList() {
         </tbody>
       );
     });
-    console.log(Listcheck);
+    const Mobile = List.map((post, index) => {
+      return (
+        <tbody key={post._id} style={{ width: "100%", tableLayout: "fixed" }}>
+          <tr className="Mtr">
+            <td className="TitleC1">
+              <a
+                href={`/${post._id}`}
+                style={{
+                  listStyleType: "none",
+                  textDecoration: "none",
+                  color: "black",
+                }}
+              >
+                <p style={{ margin: "0px" }}>{post.title}</p>
+                <p style={{ margin: "0px" }}>{post.writer.name}</p>
+                {/* <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment> */}
+              </a>
+            </td>
+
+            <td className="MView">{post.views}</td>
+          </tr>
+        </tbody>
+      );
+    });
+
     return (
       <div>
         <div className="Blist">
@@ -80,7 +105,7 @@ function BorderList() {
               <tr>
                 <th style={{ textAlign: "center", width: "300px" }}>내용</th>
                 <th style={{ width: "150px" }}>작성자</th>
-                <th style={{ width: "200px", textAlign: "center" }}>날짜</th>
+                <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
                 <th style={{ width: "100px", textAlign: "center" }}>조회수</th>
               </tr>
             </thead>
@@ -90,6 +115,30 @@ function BorderList() {
         <div className="BEdit">
           <div style={{ width: "800px" }}>
             <BorderWrite refesh={refesh} />
+          </div>
+        </div>
+
+        <div>
+          <div className="BMobile">
+            <Table
+              striped
+              bordered
+              hover
+              size="sm"
+              style={{ width: "800px", tableLayout: "fixed" }}
+            >
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "center" }}>전체글</th>
+                </tr>
+              </thead>
+              {Mobile}
+            </Table>
+          </div>
+          <div className="BEditM">
+            <div style={{ width: "800px" }}>
+              <BorderWrite refesh={refesh} />
+            </div>
           </div>
         </div>
       </div>
