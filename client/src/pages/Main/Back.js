@@ -1,6 +1,6 @@
 import React from "react";
 import Typing from "./typing";
-import images from "./images/back.jpg";
+import images from "./images/back.PNG";
 
 function Back() {
   return (

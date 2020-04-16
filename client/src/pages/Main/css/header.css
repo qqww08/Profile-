@@ -1,5 +1,6 @@
 .header_ {
-  font-family: "BlackHanSans-Regular";
+  font-family: "Nanum";
+  color: #1d4e89;
   display: flex;
   justify-content: space-around;
   background: #fafafa;
@@ -20,7 +21,8 @@
 }
 
 .head_medium {
-  font-family: "BlackHanSans-Regular";
+  font-family: "Nanum";
+
   margin: 0px;
   display: flex;
   align-items: center;

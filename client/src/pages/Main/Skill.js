@@ -71,10 +71,10 @@ function Skill() {
             overlay={
               <Popover id={`popover-positioned-${"top"}`}>
                 <Popover.Title as="h3" style={{ textAlign: "center" }}>
-                  CSS3
+                  JavaScript
                 </Popover.Title>
                 <Popover.Content style={{ width: "170px" }}>
-                  FLEX, GRID, 미디어쿼리를 이용한 웹 제작
+                  EC6 문법 활용
                 </Popover.Content>
               </Popover>
             }
@@ -84,22 +84,103 @@ function Skill() {
         </li>
 
         <li>
-          <img src={react} alt="react" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  React
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  Hooks 을 이용한 상태관리
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={react} alt="react" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
         <li>
-          <img src={redux} alt="redux" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  Redux
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  Redux-thrunk, Redux-promise 사용
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={redux} alt="redux" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
         <li>
-          <img src={Bootstrap} alt="ant" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  Bootstrap
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  반응형 웹 제작
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={Bootstrap} alt="ant" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
       </ul>
       <h1 className="h1text">Back-end</h1>
       <ul className="skill">
         <li>
-          <img src={node} alt="node" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  nodeJs
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  bcrypt 이용해서 비밀번호 암호화, jsonwebtoken 이용해서 세션
+                  관리
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={node} alt="node" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
         <li>
-          <img src={mongodb} alt="material" />
+          <OverlayTrigger
+            trigger="click"
+            key={"top"}
+            placement={"top"}
+            overlay={
+              <Popover id={`popover-positioned-${"top"}`}>
+                <Popover.Title as="h3" style={{ textAlign: "center" }}>
+                  CSS3
+                </Popover.Title>
+                <Popover.Content style={{ width: "170px" }}>
+                  FLEX, GRID, 미디어쿼리를 이용한 웹 제작
+                </Popover.Content>
+              </Popover>
+            }
+          >
+            <img src={mongodb} alt="material" style={{ cursor: "pointer" }} />
+          </OverlayTrigger>
         </li>
       </ul>
     </div>

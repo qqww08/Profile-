@@ -148,6 +148,11 @@ q:after {
   font-family: "DoHeyon";
   src: url(./fonts/DoHyeon-Regular.ttf);
 }
+@font-face {
+  font-family: "Nanum";
+
+  src: url(./fonts/NanumGothic-ExtraBold.ttf);
+}
 table {
   border-collapse: collapse;
 

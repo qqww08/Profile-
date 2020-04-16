@@ -1,6 +1,9 @@
 body {
   margin: 0;
 }
+.LMain {
+  margin-top: 55px;
+}
 @media screen and (max-width: 768px) {
   .LMain {
     margin-top: 55px;
