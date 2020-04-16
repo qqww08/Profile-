@@ -19,7 +19,7 @@
   .skill {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-column-gap: 6px;
     grid-row-gap: 6px;
     grid-gap: 1rem;
