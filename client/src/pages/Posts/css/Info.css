@@ -1,8 +1,11 @@
 .fo {
+  padding: 30px;
+  align-items: center;
+  background: #fafafa;
   width: 800px;
   height: 500px;
-  padding: 30px;
-  border: 2px solid;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
 }
 
 .EditTitle {

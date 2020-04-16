@@ -1,5 +1,6 @@
 import React from "react";
 import Bootstrap from "./images/Bootstrap_logo.png";
+import project2 from "./images/project2.PNG";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";
 import "./css/project.css";
@@ -23,7 +24,7 @@ function Project() {
           </Card.Body>
         </Card>
         <Card className="mcard2">
-          <Card.Img variant="top" src={Bootstrap} />
+          <Card.Img variant="top" src={project2} />
           <Card.Body>
             <Card.Title>Board</Card.Title>
             <Card.Text>

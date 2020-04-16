@@ -11,9 +11,8 @@ import { withRouter } from "react-router-dom";
 
 function LadingPage() {
   return (
-    <div>
+    <div style={{ marginTop: "55px" }}>
       <Back />
-
       <Profile />
       <Skill />
       <Project />

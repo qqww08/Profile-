@@ -11,8 +11,8 @@ import {
   Form,
   FormControl,
 } from "react-bootstrap";
-// import Moment from "react-moment";
-// import "moment-timezone";
+import Moment from "react-moment";
+import "moment-timezone";
 function BorderInfo(props) {
   // const user = useSelector((state) => state.user);
 
@@ -117,7 +117,7 @@ function BorderInfo(props) {
             >
               <Form.Label>작성자 {Info.writer.name}</Form.Label>
               <Form.Label style={{ marginLeft: "15px" }}>
-                {/* 작성일 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment> */}
+                작성일 <Moment format="YY/MM/DD HH:mm">{Info.createdAt}</Moment>
               </Form.Label>
             </Form.Group>
           </Form.Group>
@@ -132,8 +132,11 @@ function BorderInfo(props) {
           </Form.Group>
           <Form.Group>
             <ButtonGroup aria-label="Basic example">
-              <Button variant="secondary" onClick={BorderEdit}>
+              <Button variant="primary" onClick={BorderEdit}>
                 수정
+              </Button>
+              <Button variant="secondary" href="/List">
+                취소
               </Button>
             </ButtonGroup>
           </Form.Group>

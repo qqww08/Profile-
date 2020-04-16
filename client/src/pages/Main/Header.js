@@ -50,7 +50,11 @@ function Header() {
           </li>
           <li>
             <Li to="/List">
-              <Button variant="link" style={{ textDecoration: "none" }}>
+              <Button
+                variant="link"
+                style={{ textDecoration: "none" }}
+                onClick={scroll.scrollToTop}
+              >
                 Board
               </Button>
             </Li>
@@ -98,7 +102,11 @@ function Header() {
               </Dropdown.Item>
               <Dropdown.Item href="#/action-4">
                 <Li to="/List">
-                  <Button variant="link" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="link"
+                    style={{ textDecoration: "none" }}
+                    onClick={scroll.scrollToTop}
+                  >
                     Board
                   </Button>
                 </Li>
