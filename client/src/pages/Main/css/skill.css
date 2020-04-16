@@ -15,6 +15,11 @@
 .overlays {
   font-size: 50px;
 }
+.skill img {
+  width: 150px;
+  height: 150px;
+  border: solid 1px;
+}
 @media screen and (max-width: 768px) {
   .skill {
     display: grid;

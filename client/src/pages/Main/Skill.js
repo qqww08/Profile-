@@ -9,7 +9,14 @@ import redux from "./images/redux.png";
 import Bootstrap from "./images/Bootstrap_logo.png";
 import "./css/skill.css";
 import { Element } from "react-scroll";
-import { OverlayTrigger, Tooltip, Popover, Button } from "react-bootstrap";
+import {
+  OverlayTrigger,
+  Popover,
+  Container,
+  Row,
+  Image,
+  Col,
+} from "react-bootstrap";
 
 function Skill() {
   return (
