@@ -22,7 +22,6 @@ function HeaderRight(props) {
         <Button variant="link" href="/Login" style={{ textDecoration: "none" }}>
           Login
         </Button>
-
         <Button
           variant="link"
           href="/Register"

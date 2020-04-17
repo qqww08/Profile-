@@ -29,23 +29,29 @@ function Header() {
         <ul className="head_medium">
           <li>
             <Link to="about" spy={true} smooth={true}>
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                About
-              </Button>
+              <Li to="/">
+                <Button variant="link" style={{ textDecoration: "none" }}>
+                  About
+                </Button>
+              </Li>
             </Link>
           </li>
           <li>
             <Link to="skill" spy={true} smooth={true}>
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                Skill
-              </Button>
+              <Li to="/">
+                <Button variant="link" style={{ textDecoration: "none" }}>
+                  Skill
+                </Button>
+              </Li>
             </Link>
           </li>
           <li>
             <Link to="Project" spy={true} smooth={true}>
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                Project
-              </Button>
+              <Li to="/">
+                <Button variant="link" style={{ textDecoration: "none" }}>
+                  Project
+                </Button>
+              </Li>
             </Link>
           </li>
           <li>
@@ -81,23 +87,29 @@ function Header() {
             >
               <Dropdown.Item href="#/action-1">
                 <Link to="about" spy={true} smooth={true}>
-                  <Button variant="link" style={{ textDecoration: "none" }}>
-                    About
-                  </Button>
+                  <Li to="/">
+                    <Button variant="link" style={{ textDecoration: "none" }}>
+                      About
+                    </Button>
+                  </Li>
                 </Link>
               </Dropdown.Item>
               <Dropdown.Item href="#/action-2">
                 <Link to="skill" spy={true} smooth={true}>
-                  <Button variant="link" style={{ textDecoration: "none" }}>
-                    Skill
-                  </Button>
+                  <Li to="/">
+                    <Button variant="link" style={{ textDecoration: "none" }}>
+                      Skill
+                    </Button>
+                  </Li>
                 </Link>
               </Dropdown.Item>
               <Dropdown.Item href="#/action-3">
                 <Link to="Project" spy={true} smooth={true}>
-                  <Button variant="link" style={{ textDecoration: "none" }}>
-                    Project
-                  </Button>
+                  <Li to="/">
+                    <Button variant="link" style={{ textDecoration: "none" }}>
+                      Project
+                    </Button>
+                  </Li>
                 </Link>
               </Dropdown.Item>
               <Dropdown.Item href="#/action-4">

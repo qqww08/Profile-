@@ -25,24 +25,27 @@ function BorderWrite(props) {
 
   const BoderSubmit = (event) => {
     event.preventDefault();
-
-    const body = {
-      writer: user.userData._id,
-      title: BorderTitle,
-      body: BorderText,
-    };
-    dispatch(bordersave(body)).then((response) => {
-      if (response.payload.success) {
-        setShow(false);
-        props.history.push("/List");
-        setBorderTitle("");
-        setBorderText("");
-        props.refesh(response.payload.result);
-      } else {
-        // console.log(response);
-        alert("실패");
-      }
-    });
+    if (!BorderTitle) {
+      alert("제목을 입력해주세요");
+    } else {
+      const body = {
+        writer: user.userData._id,
+        title: BorderTitle,
+        body: BorderText,
+      };
+      dispatch(bordersave(body)).then((response) => {
+        if (response.payload.success) {
+          setShow(false);
+          props.history.push("/List");
+          setBorderTitle("");
+          setBorderText("");
+          props.refesh(response.payload.result);
+        } else {
+          // console.log(response);
+          alert("실패");
+        }
+      });
+    }
   };
 
   return (
@@ -63,6 +66,7 @@ function BorderWrite(props) {
               placeholder="제목"
               value={BorderTitle}
               onChange={TitleHandler}
+              minLength="2"
               maxLength="40"
             />
           </Form.Group>

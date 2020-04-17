@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
@@ -27,6 +27,7 @@ function RegisterPage(props) {
   };
   const check_spc = /[~!@#$%^&*()_+|<>?:{}]/;
   const check_num = /[0-9]/;
+
   const submitHandler = (event) => {
     event.preventDefault();
 
@@ -53,6 +54,10 @@ function RegisterPage(props) {
       if (response.payload.success) {
         // console.log(response);
         props.history.push("/login");
+        alert("회원가입 완료");
+      } else {
+        setMessage("이메일 중복 입니다");
+        return;
       }
     });
   };
@@ -82,7 +87,7 @@ function RegisterPage(props) {
             value={Name}
             onChange={NameHandler}
             placeholder="이름"
-            maxlength="6"
+            maxLength="6"
           />
           <input
             className="inputEmail"
@@ -96,6 +101,7 @@ function RegisterPage(props) {
             className="inputPass"
             type="password"
             value={Password}
+            minLength="5"
             onChange={PassHandler}
             placeholder="패스워드"
           />
