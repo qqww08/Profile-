@@ -14,9 +14,10 @@ function LadingPage() {
     <div className="LMain">
       <Back />
       <Profile />
+
       <Skill />
       <Project />
-      <Demo />
+
       <Contact />
     </div>
   );

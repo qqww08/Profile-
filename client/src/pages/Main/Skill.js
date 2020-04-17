@@ -13,10 +13,17 @@ import { OverlayTrigger, Popover } from "react-bootstrap";
 
 function Skill() {
   return (
-    <div>
+    <div
+      style={{
+        background: "#f7f7f7",
+        boxShadow: "0 0 4px 0 rgba(0,0,0,0.3)",
+        marginTop: "30px",
+        padding: "50px",
+      }}
+    >
       <Element id="skill" />
-      <h1 className="h1text">Skill</h1>
-      <h1 className="h1text">Front End</h1>
+      <h1 className="h1Text">Skill</h1>
+      <h1 className="h2Text">Front End</h1>
       <ul className="skill">
         <li>
           <OverlayTrigger
@@ -152,7 +159,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
       </ul>
-      <h1 className="h1text">Back-end</h1>
+      <h1 className="h2Text">Back-end</h1>
       <ul className="skill">
         <li>
           <OverlayTrigger
@@ -198,6 +205,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
       </ul>
+      <h1 className="h2Text">아이콘을 클릭해주세요</h1>
     </div>
   );
 }

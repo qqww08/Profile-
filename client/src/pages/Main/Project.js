@@ -6,9 +6,9 @@ import { Element } from "react-scroll";
 import "./css/project.css";
 function Project() {
   return (
-    <div style={{ margin: "0px" }}>
+    <div style={{ padding: "50px" }}>
       <Element id="Project" />
-      <h1 className="h1text">Project</h1>
+      <h1 className="h1Text">Project</h1>
       <div className="cards">
         <Card className="mcard1">
           <Card.Img variant="top" src={project1} style={{ height: "190px" }} />

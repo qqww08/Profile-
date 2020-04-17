@@ -57,7 +57,6 @@ function RegisterPage(props) {
         alert("회원가입 완료");
       } else {
         setMessage("이메일 중복 입니다");
-        return;
       }
     });
   };
@@ -115,7 +114,9 @@ function RegisterPage(props) {
           />
 
           <br />
-          <label style={{ color: "red" }}>{Message}</label>
+          <label style={{ color: "red", margin: "0px", padding: "0px" }}>
+            {Message}
+          </label>
           <button className="btnLogin" type="submit">
             Register
           </button>
