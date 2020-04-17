@@ -18,20 +18,20 @@ function Contact() {
         My INFO
       </Card.Title>
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
-        신대현
+        {/* 신대현 */}
       </Card.Title>
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
-        010-9447-6412
+        {/* 010-9447-6412 */}
       </Card.Title>
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
-        qqwwee08@gmail.com
+        {/* qqwwee08@gmail.com */}
       </Card.Title>
-
+      {/* 
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
         <a href="https://github.com/qqww08/Profile-" target="_blank">
           <img src={github} alt="github" style={{ width: "50px" }} />
         </a>
-      </Card.Title>
+      </Card.Title> */}
     </Card.Footer>
   );
 }
