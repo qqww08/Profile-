@@ -36,8 +36,6 @@ function RegisterPage(props) {
       setMessage("이름에는 특수문자,숫자 입력 불가");
     } else if (!Email) {
       setMessage("이메일을 입력해주세요");
-    } else if (Email) {
-      setMessage("특수문자 입력 불가");
     } else if (!Password) {
       setMessage("패스워드를 입력해주세요");
     } else if (Password !== PassCh) {
