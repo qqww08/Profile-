@@ -29,6 +29,9 @@
     justify-content: center;
     text-align: center;
   }
+  .profileStory {
+    margin-left: 0px;
+  }
   .profile_flex {
     display: flex;
     flex-direction: column;

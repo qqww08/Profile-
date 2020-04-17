@@ -18,8 +18,8 @@ function Skill() {
         background: "#f7f7f7",
         boxShadow: "0 0 4px 0 rgba(0,0,0,0.3)",
         marginTop: "30px",
-        padding: "50px",
       }}
+      className="skillbody"
     >
       <Element id="skill" />
       <h1 className="h1Text">Skill</h1>

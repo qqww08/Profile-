@@ -1,3 +1,6 @@
+.skillbody {
+  padding: 50px;
+}
 .skill {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -37,5 +40,8 @@
     grid-column-gap: 6px;
     grid-row-gap: 6px;
     grid-gap: 1rem;
+  }
+  .skillbody {
+    padding: 0px;
   }
 }
