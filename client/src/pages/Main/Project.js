@@ -1,5 +1,5 @@
 import React from "react";
-import Bootstrap from "./images/Bootstrap_logo.png";
+import project1 from "./images/project1.PNG";
 import project2 from "./images/project2.PNG";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";
@@ -11,7 +11,7 @@ function Project() {
       <h1 className="h1text">Project</h1>
       <div className="cards">
         <Card className="mcard1">
-          <Card.Img variant="top" src={Bootstrap} />
+          <Card.Img variant="top" src={project1} style={{ height: "190px" }} />
           <Card.Body>
             <Card.Title>포트폴리오</Card.Title>
             <Card.Text>
@@ -24,7 +24,7 @@ function Project() {
           </Card.Body>
         </Card>
         <Card className="mcard2">
-          <Card.Img variant="top" src={project2} />
+          <Card.Img variant="top" src={project2} style={{ height: "190px" }} />
           <Card.Body>
             <Card.Title>Board</Card.Title>
             <Card.Text>

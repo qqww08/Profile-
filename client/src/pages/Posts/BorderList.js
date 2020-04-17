@@ -15,7 +15,7 @@ function BorderList() {
   useEffect(() => {
     dispatch(borderget()).then((response) => {
       if (response.payload.success) {
-        console.log(response.payload.borderlist);
+        // console.log(response.payload.borderlist);
         setList(response.payload.borderlist);
       } else {
         alert("실패");
@@ -80,7 +80,7 @@ function BorderList() {
                 }}
               >
                 <p style={{ margin: "0px" }}>{post.title}</p>
-                <p style={{ margin: "0px" }}>
+                <p style={{ margin: "0px", fontSize: "11px", color: "gray" }}>
                   {post.writer.name}{" "}
                   <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
                 </p>

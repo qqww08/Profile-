@@ -33,7 +33,7 @@ function RegisterPage(props) {
     if (!Name) {
       setMessage("이름을 입력해주세요");
     } else if (check_spc.test(Name) || check_num.test(Name)) {
-      setMessage("특수문자,숫자 입력 불가");
+      setMessage("이름에는 특수문자,숫자 입력 불가");
     } else if (!Email) {
       setMessage("이메일을 입력해주세요");
     } else if (check_spc.test(Email)) {
@@ -83,14 +83,15 @@ function RegisterPage(props) {
             type="text"
             value={Name}
             onChange={NameHandler}
-            placeholder="Name"
+            placeholder="이름"
+            maxlength="6"
           />
           <input
             className="inputEmail"
             type="email"
             value={Email}
             onChange={EmailHandler}
-            placeholder="Email"
+            placeholder="이메일"
           />
 
           <input
@@ -98,7 +99,7 @@ function RegisterPage(props) {
             type="password"
             value={Password}
             onChange={PassHandler}
-            placeholder="Password"
+            placeholder="패스워드"
           />
 
           <input
@@ -106,7 +107,7 @@ function RegisterPage(props) {
             type="password"
             value={PassCh}
             onChange={PassChHandler}
-            placeholder="PasswordComfim"
+            placeholder="패스워드 체크"
           />
 
           <br />

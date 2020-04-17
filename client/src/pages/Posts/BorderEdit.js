@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
 
 import { borderedit } from "../../_actions/post_actions";
@@ -45,7 +45,7 @@ function BorderInfo(props) {
         alert("실패");
       }
     });
-  }, []);
+  }, [UserInfo, dispatch]);
   const BorderEdit = (event) => {
     event.preventDefault();
     const UserEdit = { postId: postId, title: Title, body: Body };

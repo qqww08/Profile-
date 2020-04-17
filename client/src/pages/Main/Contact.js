@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/contact.css";
 import { Card } from "react-bootstrap";
-import Clock from "react-live-clock";
+
 import github from "./images/github.svg";
 function Contact() {
   return (

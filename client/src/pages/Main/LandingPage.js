@@ -5,7 +5,7 @@ import Profile from "./Profile";
 import Skill from "./Skill";
 import Project from "./Project";
 import Contact from "./Contact";
-import Skill2 from "./Skill2";
+import Demo from "./Demo";
 import "./css/LadingPage.css";
 import { withRouter } from "react-router-dom";
 
@@ -15,8 +15,8 @@ function LadingPage() {
       <Back />
       <Profile />
       <Skill />
-
       <Project />
+      <Demo />
       <Contact />
     </div>
   );

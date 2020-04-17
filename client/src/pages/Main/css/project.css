@@ -9,6 +9,7 @@
   width: 15rem;
   margin-left: 50px;
 }
+
 @media screen and (max-width: 768px) {
   .cards {
     display: grid;

@@ -63,6 +63,7 @@ function BorderWrite(props) {
               placeholder="제목"
               value={BorderTitle}
               onChange={TitleHandler}
+              maxLength="40"
             />
           </Form.Group>
 
