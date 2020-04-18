@@ -61,7 +61,6 @@ function BorderList() {
             <td>
               <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
             </td>
-            <td style={{ textAlign: "center" }}>{post.views}</td>
           </tr>
         </tbody>
       );
@@ -81,13 +80,11 @@ function BorderList() {
               >
                 <p style={{ margin: "0px" }}>{post.title}</p>
                 <p style={{ margin: "0px", fontSize: "11px", color: "gray" }}>
-                  {post.writer.name}{" "}
+                  {post.writer.name}
                   <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
                 </p>
               </a>
             </td>
-
-            <td className="MView">{post.views}</td>
           </tr>
         </tbody>
       );
@@ -108,7 +105,6 @@ function BorderList() {
                 <th style={{ textAlign: "center", width: "300px" }}>내용</th>
                 <th style={{ width: "150px" }}>작성자</th>
                 <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
-                <th style={{ width: "100px", textAlign: "center" }}>조회수</th>
               </tr>
             </thead>
             {Listcheck}

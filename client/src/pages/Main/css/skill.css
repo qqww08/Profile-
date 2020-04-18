@@ -10,7 +10,7 @@
   text-align: center;
 }
 .h1Text {
-  margin: 0;
+  margin: 10px;
   display: flex;
   justify-content: center;
   font-size: 46px;
