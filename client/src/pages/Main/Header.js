@@ -2,18 +2,19 @@ import React from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";
-
 import { Button, Dropdown } from "react-bootstrap";
 import "antd/es/button/style";
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
 
+// navbar
 function Header() {
   return (
     <nav className="body">
       {/* header */}
       <div className="header_">
         <ul className="head_left">
+          {/* 홈버튼 */}
           <li>
             <Li to="/">
               <Button
@@ -26,6 +27,7 @@ function Header() {
             </Li>
           </li>
         </ul>
+        {/* navbar 중간 */}
         <ul className="head_medium">
           <li>
             <Link to="about" spy={true} smooth={true}>
@@ -66,10 +68,12 @@ function Header() {
             </Li>
           </li>
         </ul>
-
+        {/* 로그인 회원가입 */}
         <ul className="head_right">
           <HeaderRight />
         </ul>
+
+        {/* 반응형 웹  */}
         <span className="menu_bar">
           <Dropdown>
             <Dropdown.Toggle

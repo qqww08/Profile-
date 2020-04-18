@@ -4,6 +4,8 @@ import project2 from "./images/project2.PNG";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";
 import "./css/project.css";
+
+// Project 설명
 function Project() {
   return (
     <div style={{ padding: "50px" }}>

@@ -14,30 +14,26 @@ import {
 import Moment from "react-moment";
 import "moment-timezone";
 function BorderInfo(props) {
-  // const user = useSelector((state) => state.user);
-
+  //:postId 변수 선언
   const postId = props.match.params.postId;
+  //서버에서 확인 할 UserInfo안에 :postId 담기
   const UserInfo = { postId: postId };
-
+  //게시글 정보 변수
   const [Info, setInfo] = useState([]);
   const [Title, setTitle] = useState("");
   const [Body, setBody] = useState("");
   const dispatch = useDispatch();
 
   const TitleHanler = (event) => {
-    // console.log(event.currentTarget.value);
-    // console.log(response.payload.post);
     setTitle(event.currentTarget.value);
   };
   const BodyHanler = (event) => {
-    // console.log(event.currentTarget.value);
-    // console.log(response.payload.post);
     setBody(event.currentTarget.value);
   };
   useEffect(() => {
+    //게시글 정보 가지고 오기
     dispatch(borderinfo(UserInfo)).then((response) => {
       if (response.payload.success) {
-        // console.log(response.payload.post);
         setInfo(response.payload.post);
         setTitle(response.payload.post.title);
         setBody(response.payload.post.body);
@@ -45,32 +41,28 @@ function BorderInfo(props) {
         alert("실패");
       }
     });
-  }, [UserInfo, dispatch]);
+  }, []);
+  //수정 버튼 클릭 후
   const BorderEdit = (event) => {
     event.preventDefault();
+    //수정된 제목, 타이틀 정보 UserEdit에 담기
     const UserEdit = { postId: postId, title: Title, body: Body };
-    // console.log(UserEdit);
+    //서버로 수정된 정보 전송
     dispatch(borderedit(UserEdit)).then((response) => {
+      //서버에서 success:true 일시
       if (response.payload.success) {
-        // console.log(response.payload.post);
+        //제목, 내용에 수정된 정보 담기
         setTitle(response.payload.post);
         setBody(response.payload.post);
+        //수정된 게시글 이동
         props.history.push(`/${postId}`);
       } else {
+        //실패시
         alert("실패");
       }
     });
   };
-
-  // return (
-  //   <form onSubmit={BorderEdit}>
-  //     <input value={Title} onChange={TitleHanler} />
-  //     <button type="submit">수정</button>
-  //     <p>{Info.body}</p>
-  //     <p>{Info.writer.name}</p>
-  //   </form>
-  // );
-
+  //게시글 정보 불러오기전 bootstrap 스피너
   if (!Info.writer && !Info.title) {
     return (
       <div
@@ -106,6 +98,7 @@ function BorderInfo(props) {
                 value={Title}
                 onChange={TitleHanler}
                 style={{ width: "95%", marginBottom: "5px" }}
+                className="MEdit"
               />
             </Form.Group>
             <Form.Group

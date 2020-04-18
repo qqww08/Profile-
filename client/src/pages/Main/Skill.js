@@ -11,6 +11,7 @@ import "./css/skill.css";
 import { Element } from "react-scroll";
 import { OverlayTrigger, Popover } from "react-bootstrap";
 
+// 아이콘 이미지
 function Skill() {
   return (
     <div
@@ -26,6 +27,7 @@ function Skill() {
       <h1 className="h2Text">Front End</h1>
       <ul className="skill">
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -48,6 +50,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -70,6 +73,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -93,6 +97,7 @@ function Skill() {
         </li>
 
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -115,6 +120,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -137,6 +143,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -162,6 +169,7 @@ function Skill() {
       <h1 className="h2Text">Back-end</h1>
       <ul className="skill">
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}
@@ -175,8 +183,8 @@ function Skill() {
                   nodeJs
                 </Popover.Title>
                 <Popover.Content style={{ width: "170px" }}>
-                  bcrypt 이용해서 비밀번호 암호화, jsonwebtoken 이용해서 세션
-                  관리
+                  expressjs 활용 bcrypt 이용해서 비밀번호 암호화, jsonwebtoken
+                  쿠키 토큰 생성
                 </Popover.Content>
               </Popover>
             }
@@ -185,6 +193,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
         <li>
+          {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger
             trigger="click"
             key={"top"}

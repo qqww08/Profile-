@@ -1,6 +1,13 @@
 import Axios from "axios";
-import { LOGIN_USER, REGISTER, AUTH_USER, FACE_USER, FACE_REG } from "./types";
-
+import {
+  LOGIN_USER,
+  REGISTER,
+  AUTH_USER,
+  // FACE_USER,
+  // FACE_REG,
+  LOGOUT,
+} from "./types";
+//로그인 정보 전송
 export function loginUser(dataToSubmit) {
   const request = Axios.post("/api/users/login", dataToSubmit).then(
     (response) => response.data
@@ -11,6 +18,17 @@ export function loginUser(dataToSubmit) {
     payload: request,
   };
 }
+//로그아웃 정보 전송
+export function logout() {
+  const request = Axios.get("/api/users/logout").then(
+    (response) => response.data
+  );
+  return {
+    type: LOGOUT,
+    payload: request,
+  };
+}
+//회원가입 정보 전송
 export function register(dataToSubmit) {
   const request = Axios.post("/api/users/register", dataToSubmit).then(
     (response) => response.data
@@ -21,26 +39,27 @@ export function register(dataToSubmit) {
     payload: request,
   };
 }
-export function fbUser(data) {
-  const request = Axios.post("/api/users/fblogin", data).then(
-    (response) => response.data
-  );
+// export function fbUser(data) {
+//   const request = Axios.post("/api/users/fblogin", data).then(
+//     (response) => response.data
+//   );
 
-  return {
-    type: FACE_USER,
-    payload: request,
-  };
-}
-export function fbregister(data) {
-  const request = Axios.post("/api/users/fbregister", data).then(
-    (response) => response.data
-  );
+//   return {
+//     type: FACE_USER,
+//     payload: request,
+//   };
+// }
+// export function fbregister(data) {
+//   const request = Axios.post("/api/users/fbregister", data).then(
+//     (response) => response.data
+//   );
 
-  return {
-    type: FACE_REG,
-    payload: request,
-  };
-}
+//   return {
+//     type: FACE_REG,
+//     payload: request,
+//   };
+// }
+// 로그인 체크
 export function auth() {
   const request = Axios.get("/api/users/auth").then(
     (response) => response.data

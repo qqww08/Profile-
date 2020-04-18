@@ -4,6 +4,7 @@ import "./css/back.css";
 
 export default function Typing() {
   return (
+    // Landingpage 이미지 텍스트
     <Typist>
       <Typist.Delay ms={500} />
       <label className="Typist">

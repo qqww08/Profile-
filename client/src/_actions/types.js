@@ -7,3 +7,5 @@ export const BORDER_SAVE = "bordersave";
 export const BORDER_GET = "bodrerget";
 export const BORDER_INFO = "borderinfo";
 export const BORDER_EDIT = "borderedit";
+export const LOGOUT = "logout";
+export const BORDER_DELETE = "borderdelete";

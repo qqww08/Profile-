@@ -22,3 +22,12 @@
 .TextInfo:focus {
   outline: none;
 }
+@media screen and (max-width: 768px) {
+  .fo {
+    width: 300px;
+    font-size: 13px;
+  }
+  .MEdit {
+    height: 10%;
+  }
+}

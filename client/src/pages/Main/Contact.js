@@ -1,10 +1,12 @@
 import React from "react";
 import "./css/contact.css";
 import { Card } from "react-bootstrap";
-
 import github from "./images/github.svg";
+
+// Footer
 function Contact() {
   return (
+    // Bootstrap Footer
     <Card.Footer className="text-muted footer1" style={{ marginTop: "30px" }}>
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
         My INFO
