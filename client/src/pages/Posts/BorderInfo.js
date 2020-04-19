@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { borderinfo, Bdelete } from "../../_actions/post_actions";
+import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
 import "./css/Info.css";
 
@@ -40,7 +40,7 @@ function BorderInfo(props) {
   const InfoDelete = (event) => {
     event.preventDefault();
     //서버로 UserInfo 삭제 할 정보 보내기
-    dispatch(Bdelete(UserInfo)).then((response) => {
+    dispatch(bdelete(UserInfo)).then((response) => {
       //서버에서 success:ture 일시
       if (response.payload.success) {
         props.history.push("/List");
@@ -49,17 +49,11 @@ function BorderInfo(props) {
       }
     });
   };
+
   // 작성자 정보를 불러오기 전 bootstrap 스피너
   if (!Info.writer && !Info.title) {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="info">
         <Spinner animation="border" variant="primary" />
       </div>
     );

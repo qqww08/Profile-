@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
-
 import { borderedit } from "../../_actions/post_actions";
 import {
   Spinner,
@@ -13,6 +12,8 @@ import {
 } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
+import "./css/BEdit.css";
+
 function BorderInfo(props) {
   //:postId 변수 선언
   const postId = props.match.params.postId;
@@ -65,40 +66,27 @@ function BorderInfo(props) {
   //게시글 정보 불러오기전 bootstrap 스피너
   if (!Info.writer && !Info.title) {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="info">
         <Spinner animation="border" variant="primary" />
       </div>
     );
   } else {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
+      <div className="info">
         <Form className="fo">
           <Form.Group>
             <Form.Group className="EditTitle">
-              <Form.Label value={Title} onChange={TitleHanler}>
+              <Form.Label
+                value={Title}
+                onChange={TitleHanler}
+                style={{ width: "40px" }}
+              >
                 제목
               </Form.Label>
               <FormControl
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
                 value={Title}
                 onChange={TitleHanler}
-                style={{ width: "95%", marginBottom: "5px" }}
-                className="MEdit"
+                className="EditInput1"
               />
             </Form.Group>
             <Form.Group

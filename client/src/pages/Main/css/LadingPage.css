@@ -2,13 +2,13 @@ body {
   margin: 0;
 }
 .LMain {
+  width: 800px;
+  margin: 0px auto;
   margin-top: 55px;
 }
 @media screen and (max-width: 768px) {
   .LMain {
     margin-top: 55px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%;
   }
 }

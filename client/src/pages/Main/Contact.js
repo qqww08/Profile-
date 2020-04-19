@@ -7,7 +7,10 @@ import github from "./images/github.svg";
 function Contact() {
   return (
     // Bootstrap Footer
-    <Card.Footer className="text-muted footer1" style={{ marginTop: "30px" }}>
+    <Card.Footer
+      className="text-muted footer1"
+      style={{ marginTop: "30px", width: "100%" }}
+    >
       <Card.Title style={{ display: "flex", justifyContent: "center" }}>
         My INFO
       </Card.Title>

@@ -45,8 +45,8 @@ export function borderedit(dataToSubmit) {
     payload: request,
   };
 }
-export function Bdelete(data) {
-  const request = Axios.put("/api/posts/delete", data).then(
+export function bdelete(data) {
+  const request = Axios.post("/api/posts/delete", data).then(
     (response) => response.data
   );
   return {

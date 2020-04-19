@@ -11,11 +11,13 @@ import { withRouter } from "react-router-dom";
 
 function LadingPage() {
   return (
-    <div className="LMain">
-      <Back />
-      <Profile />
-      <Skill />
-      <Project />
+    <div>
+      <div className="LMain">
+        <Back />
+        <Profile />
+        <Skill />
+        <Project />
+      </div>
       <Contact />
     </div>
   );

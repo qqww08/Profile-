@@ -13,7 +13,9 @@
   text-align: center;
   font-size: 30px;
 }
-
+.Typist {
+  font-size: 26px;
+}
 @media screen and (max-width: 768px) {
   .Typist {
     font-size: 13px;

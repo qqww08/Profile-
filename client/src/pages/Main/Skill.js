@@ -19,8 +19,8 @@ function Skill() {
         background: "#f7f7f7",
         boxShadow: "0 0 4px 0 rgba(0,0,0,0.3)",
         marginTop: "30px",
+        padding: "30px",
       }}
-      className="skillbody"
     >
       <Element id="skill" />
       <h1 className="h1Text">Skill</h1>
@@ -214,7 +214,7 @@ function Skill() {
           </OverlayTrigger>
         </li>
       </ul>
-      <h1 className="h2Text">아이콘을 클릭해주세요</h1>
+      <h1 className="h3Text">아이콘을 클릭해주세요</h1>
     </div>
   );
 }

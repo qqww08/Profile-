@@ -4,7 +4,6 @@
   align-items: center;
   height: 100vh;
 }
-
 .fo {
   padding: 30px;
   align-items: center;
@@ -14,15 +13,13 @@
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 }
-
-.TextInfo {
-  height: 290px;
-  resize: none;
-  background: none;
-  border: none;
+.EditInput1 {
+  margin-bottom: 5px;
 }
-.TextInfo:focus {
-  outline: none;
+.EditTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 @media screen and (max-width: 768px) {
   .fo {
