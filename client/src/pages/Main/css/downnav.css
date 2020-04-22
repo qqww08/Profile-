@@ -1,0 +1,12 @@
+.downnav {
+  margin: 0px;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+  background: #fafafa;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+}
+.downfont {
+  font-size: 16px;
+  text-align: center;
+}
