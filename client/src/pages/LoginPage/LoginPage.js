@@ -31,7 +31,7 @@ function LoginPage(props) {
         props.history.push("/");
         //서버에서 success:false 일시
       } else {
-        alert("error");
+        alert("가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");
       }
     });
   };

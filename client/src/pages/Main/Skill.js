@@ -23,6 +23,7 @@ function Skill() {
       }}
     >
       <Element id="skill" />
+      <h1 className="h3Text">아이콘을 클릭해주세요</h1>
       <h1 className="h1Text">Skill</h1>
       <h1 className="h2Text">Front End</h1>
       <ul className="skill">
@@ -111,7 +112,7 @@ function Skill() {
                   React
                 </Popover.Title>
                 <Popover.Content style={{ width: "170px" }}>
-                  Hooks 을 이용한 상태관리
+                  Hook 활용
                 </Popover.Content>
               </Popover>
             }
@@ -183,8 +184,7 @@ function Skill() {
                   nodeJs
                 </Popover.Title>
                 <Popover.Content style={{ width: "170px" }}>
-                  expressjs 활용 bcrypt 이용해서 비밀번호 암호화, jsonwebtoken
-                  쿠키 토큰 생성
+                  express를 이용해서 서부 구축
                 </Popover.Content>
               </Popover>
             }
@@ -206,7 +206,9 @@ function Skill() {
                 <Popover.Title as="h3" style={{ textAlign: "center" }}>
                   MongoDB
                 </Popover.Title>
-                <Popover.Content style={{ width: "170px" }}></Popover.Content>
+                <Popover.Content style={{ width: "170px" }}>
+                  Basic
+                </Popover.Content>
               </Popover>
             }
           >
@@ -214,7 +216,6 @@ function Skill() {
           </OverlayTrigger>
         </li>
       </ul>
-      <h1 className="h3Text">아이콘을 클릭해주세요</h1>
     </div>
   );
 }

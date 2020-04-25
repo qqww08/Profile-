@@ -4,16 +4,12 @@ import "animate.css/animate.min.css";
 import { Card } from "react-bootstrap";
 import github from "./images/github.svg";
 import "animate.css/animate.min.css";
-import ScrollAnimation from "react-animate-on-scroll";
-import Downnav from "./Downnav";
+
 // Footer
 function Contact() {
   return (
     // Bootstrap Footer
     <div>
-      <ScrollAnimation animateOut="fadeOut">
-        <Downnav />
-      </ScrollAnimation>
       <Card.Footer
         className="text-muted footer1"
         style={{ marginTop: "30px", width: "100%" }}

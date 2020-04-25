@@ -11,7 +11,6 @@ import BorderEdit from "./pages/Posts/BorderEdit";
 import Header from "./pages/Main/Header";
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
-import Downnav from "./pages/Main/Downnav";
 
 function App() {
   return (

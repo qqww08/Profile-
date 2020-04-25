@@ -31,6 +31,7 @@
     "react-facebook-login": "^4.1.1",
     "react-hooks-paginator": "^0.4.4",
     "react-hover-image": "^1.0.1",
+    "react-infinite-scroller": "^1.2.4",
     "react-js-pagination": "^3.0.3",
     "react-live-clock": "^4.0.5",
     "react-moment": "^0.9.7",
