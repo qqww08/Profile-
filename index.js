@@ -7,12 +7,15 @@ const path = require("path");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(config.mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    "mongodb+srv://SDH:tlseog08!@cluster0-jxe5q.mongodb.net/test?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
 
