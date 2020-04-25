@@ -14,7 +14,7 @@ function Project() {
       <div className="cards">
         <Card className="mcard1">
           <Card.Img variant="top" src={project1} style={{ height: "190px" }} />
-          <Card.Body>
+          <Card.Body className="project_con">
             <Card.Title>포트폴리오</Card.Title>
             <Card.Text>페이지 기능 : 로그인, 회원가입, 로그아웃</Card.Text>
             <Button variant="primary" href="/">
@@ -24,11 +24,9 @@ function Project() {
         </Card>
         <Card className="mcard2">
           <Card.Img variant="top" src={project2} style={{ height: "190px" }} />
-          <Card.Body>
-            <Card.Title>Board</Card.Title>
-            <Card.Text>
-              페이지 기능 : 로그인, 회원가입, 게시판 수정, 삭제, 쓰기
-            </Card.Text>
+          <Card.Body className="project_con">
+            <Card.Title>게시판</Card.Title>
+            <Card.Text>페이지 기능 : 게시판CRUD</Card.Text>
 
             <Button variant="primary" href="/List">
               바로가기

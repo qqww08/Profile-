@@ -9,7 +9,11 @@
   width: 15rem;
   margin-left: 50px;
 }
-
+.project_con {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 @media screen and (max-width: 768px) {
   .cards {
     display: grid;
