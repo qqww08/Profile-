@@ -24,7 +24,7 @@ function Contact() {
           010-9447-6412
         </Card.Title>
         <Card.Title style={{ display: "flex", justifyContent: "center" }}>
-          qqwwee08@gmail.com
+          qqwwee08@naver.com
         </Card.Title>
 
         <Card.Title style={{ display: "flex", justifyContent: "center" }}>

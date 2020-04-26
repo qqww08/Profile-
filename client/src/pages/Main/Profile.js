@@ -22,7 +22,7 @@ function Profile() {
             <p>나이:27세(1994.05.10)</p>
             <p>연락처:010-9447-6412</p>
             <p>지역:울산</p>
-            <p>E-mail:tlseog08@gmail.com</p>
+            <p>E-mail:qqwwee08@naver.com</p>
           </div>
           <div>
             <h1 className="profileText">History</h1>
