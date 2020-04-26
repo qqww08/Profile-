@@ -23,6 +23,7 @@
     "react-addons-css-transition-group": "^15.6.2",
     "react-addons-transition-group": "^15.6.2",
     "react-animate-on-scroll": "^2.1.5",
+    "react-app-polyfill": "^1.0.6",
     "react-bootstrap": "^1.0.0",
     "react-bootstrap-table-next": "^4.0.0",
     "react-bootstrap-table2-paginator": "^2.1.2",
@@ -64,6 +65,7 @@
       "not op_mini all"
     ],
     "development": [
+      "ie 11",
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"

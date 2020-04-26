@@ -9,6 +9,8 @@ import ReduxThunk from "redux-thunk";
 import Reducer from "./_reducers";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-app-polyfill/ie9";
+import "react-app-polyfill/stable";
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
