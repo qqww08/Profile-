@@ -121,7 +121,7 @@ function BorderList() {
             bordered
             hover
             size="sm"
-            style={{ width: "800px", tableLayout: "fixed" }}
+            style={{ width: "100%", tableLayout: "fixed" }}
           >
             <thead>
               <tr>
