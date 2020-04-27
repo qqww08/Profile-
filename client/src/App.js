@@ -11,6 +11,7 @@ import BorderEdit from "./pages/Posts/BorderEdit";
 import Header from "./pages/Main/Header";
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
+import Github from "./pages/Main/Github";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />
       </Switch>
       <Header />
+      <Github />
     </Router>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { withRouter } from "react-router-dom";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux";
@@ -9,19 +9,21 @@ import Moment from "react-moment";
 import "moment-timezone";
 import Listcheck from "./PostsList";
 import Pagination from "./Pagination";
+import useLoadMoreOnScroll from "react-hook-pagination";
+
 function BorderList() {
   //게시판에 올라오는 정보 변수
   const [List, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5);
-
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = List.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const dispatch = useDispatch();
   //글쓰기가 작성 된 후
+
   useEffect(() => {
     //redux로 서버로 전송
 
@@ -123,6 +125,7 @@ function BorderList() {
             {Mobile}
           </Table>
         </div>
+
         <div className="BEditM">
           <div style={{ width: "800px" }}>
             <BorderWrite refesh={refesh} />

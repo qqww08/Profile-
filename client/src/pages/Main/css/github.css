@@ -1,0 +1,17 @@
+.gith {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.gitimg {
+  width: 50px;
+}
+@media screen and (max-width: 768px) {
+  .gitimg {
+    width: 40px;
+  }
+}
