@@ -26,7 +26,7 @@ function Project() {
           <Card.Img variant="top" src={project2} style={{ height: "190px" }} />
           <Card.Body className="project_con">
             <Card.Title>게시판</Card.Title>
-            <Card.Text>페이지 기능 : 게시판CRUD </Card.Text>
+            <Card.Text>페이지 기능 : 게시판CRUD, 페이징 </Card.Text>
 
             <Button variant="primary" href="/List">
               바로가기
