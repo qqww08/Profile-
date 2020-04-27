@@ -9,14 +9,13 @@ import Moment from "react-moment";
 import "moment-timezone";
 import Listcheck from "./PostsList";
 import Pagination from "./Pagination";
-import useLoadMoreOnScroll from "react-hook-pagination";
 
 function BorderList() {
   //게시판에 올라오는 정보 변수
   const [List, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(5);
+  const [postsPerPage] = useState(10);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = List.slice(indexOfFirstPost, indexOfLastPost);
