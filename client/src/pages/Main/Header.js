@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";
@@ -6,72 +6,79 @@ import { Button, Dropdown } from "react-bootstrap";
 import "antd/es/button/style";
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 // navbar
 function Header() {
+  const post = useSelector((state) => state.post);
+  console.log(post);
+  const Hideon = () => {
+    post.success = false;
+  };
   return (
-    <div className="body">
+    <nav className="body">
       {/* header */}
       <div className="header_">
         <ul className="head_left">
           {/* 홈버튼 */}
           <li>
-            <Li to="/">
+            <a href="/">
               <Button
                 variant="link"
-                onClick={scroll.scrollToTop}
                 style={{ textDecoration: "none" }}
+                onClick={(scroll.scrollToTop, Hideon)}
               >
                 Home
               </Button>
-            </Li>
+            </a>
           </li>
         </ul>
         {/* navbar 중간 */}
-        <ul className="head_medium">
-          <li>
-            <Link to="about" spy={true} smooth={true}>
-              <Li to="/">
+        {!post.success ? (
+          <ul className="head_medium">
+            <li>
+              <Link to="about" spy={true} smooth={true}>
                 <Button variant="link" style={{ textDecoration: "none" }}>
                   About
                 </Button>
-              </Li>
-            </Link>
-          </li>
-          <li>
-            <Link to="skill" spy={true} smooth={true}>
-              <Li to="/">
+              </Link>
+            </li>
+
+            <li>
+              <Link to="skill" spy={true} smooth={true}>
                 <Button variant="link" style={{ textDecoration: "none" }}>
                   Skill
                 </Button>
-              </Li>
-            </Link>
-          </li>
-          <li>
-            <Link to="Project" spy={true} smooth={true}>
-              <Li to="/">
+              </Link>
+            </li>
+            <li>
+              <Link to="Project" spy={true} smooth={true}>
                 <Button variant="link" style={{ textDecoration: "none" }}>
                   Project
                 </Button>
+              </Link>
+            </li>
+            <li>
+              <Li to="/List">
+                <Button variant="link" style={{ textDecoration: "none" }}>
+                  Board
+                </Button>
               </Li>
-            </Link>
-          </li>
-          <li>
+            </li>
+          </ul>
+        ) : (
+          <ul className="head_medium">
             <Li to="/List">
-              <Button
-                variant="link"
-                style={{ textDecoration: "none" }}
-                onClick={scroll.scrollToTop}
-              >
+              <Button variant="link" style={{ textDecoration: "none" }}>
                 Board
               </Button>
             </Li>
-          </li>
-        </ul>
+          </ul>
+        )}
         {/* 로그인 회원가입 */}
-        <ul className="head_right">
+        <div className="head_right">
           <HeaderRight />
-        </ul>
+        </div>
 
         {/* 반응형 웹  */}
         <span className="menu_bar">
@@ -134,7 +141,7 @@ function Header() {
           </Dropdown>
         </span>
       </div>
-    </div>
+    </nav>
   );
 }
 

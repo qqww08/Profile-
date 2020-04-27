@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
-import BorderWrite from "./BorderWrite";
+
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -42,9 +42,7 @@ function BorderList() {
   }, [dispatch]);
 
   //새로고침 하지 않아도 List에 등록 될 변수 선언
-  const refesh = (newList) => {
-    setList(List.concat(newList));
-  };
+
   console.log(List);
   // 반응형 웹 전용 게시판 목록
   const Mobile = List.map((post, index) => {
@@ -52,8 +50,8 @@ function BorderList() {
       <tbody key={post._id} style={{ width: "100%", tableLayout: "fixed" }}>
         <tr className="Mtr">
           <td className="TitleC1">
-            <a
-              href={`/${post._id}`}
+            <Link
+              to={`/${post._id}`}
               style={{
                 listStyleType: "none",
                 textDecoration: "none",
@@ -65,7 +63,7 @@ function BorderList() {
                 {post.writer.name}
                 <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
               </p>
-            </a>
+            </Link>
           </td>
         </tr>
       </tbody>
@@ -96,9 +94,9 @@ function BorderList() {
         <ul style={{ width: "800px", display: "flex" }}>
           {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
           <li>
-            <Button variant="primary" href="/Write">
-              글쓰기
-            </Button>
+            <Link to="/Write">
+              <Button variant="primary">글쓰기</Button>
+            </Link>
           </li>
           <li style={{ margin: "0 auto" }}>
             <Pagination
@@ -130,9 +128,9 @@ function BorderList() {
 
         <div className="BEditM">
           <div style={{ width: "800px" }}>
-            <Button variant="primary" href="/Write">
-              글쓰기
-            </Button>
+            <Link to="/Write">
+              <Button variant="primary">글쓰기</Button>
+            </Link>
           </div>
         </div>
       </div>

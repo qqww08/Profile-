@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
 import { borderedit } from "../../_actions/post_actions";
@@ -116,9 +116,9 @@ function BorderInfo(props) {
               <Button variant="primary" onClick={BorderEdit}>
                 수정
               </Button>
-              <Button variant="secondary" href="/List">
-                취소
-              </Button>
+              <Link to="/List">
+                <Button variant="secondary">취소</Button>
+              </Link>
             </ButtonGroup>
           </Form.Group>
         </Form>

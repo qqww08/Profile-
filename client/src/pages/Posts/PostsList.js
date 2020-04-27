@@ -2,21 +2,10 @@ import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
 import { Spinner } from "react-bootstrap";
-
+import { Link } from "react-router-dom";
 const Listcheck = ({ List, loading }) => {
   if (loading) {
-    return (
-      <div
-        className={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
-        <Spinner animation="border" variant="primary" />
-      </div>
-    );
+    return <Spinner animation="border" variant="primary" />;
   }
 
   return List.map((post) => (
@@ -24,8 +13,8 @@ const Listcheck = ({ List, loading }) => {
       <tr>
         {/* 게시판 제목 */}
         <td className="TitleC1">
-          <a
-            href={`/${post._id}`}
+          <Link
+            to={`/${post._id}`}
             style={{
               listStyleType: "none",
               textDecoration: "none",
@@ -33,7 +22,7 @@ const Listcheck = ({ List, loading }) => {
             }}
           >
             {post.title}
-          </a>
+          </Link>
         </td>
         {/* 게시판 작성자 */}
         <td>{post.writer.name}</td>

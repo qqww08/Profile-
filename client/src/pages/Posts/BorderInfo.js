@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
@@ -80,9 +80,9 @@ function BorderInfo(props) {
               {/* :postId로 받아온 게시글 제목 */}
               <Form.Label>제목 {Info.title}</Form.Label>
               {/* 게시판 목록으로 돌아가기 */}
-              <Button variant="secondary" href="/List">
-                목록
-              </Button>
+              <Link to="/List">
+                <Button variant="secondary">목록</Button>
+              </Link>
             </Form.Group>
             <Form.Group
               style={{
@@ -121,9 +121,9 @@ function BorderInfo(props) {
             {/* useSelector 이용해서 작성자 인지 확인 후 수정 삭제 기능 추가*/}
             {user.userData && user.userData._id === Info.writer._id ? (
               <ButtonGroup aria-label="Basic example">
-                <Button variant="primary" href={`/edit/${Info._id}`}>
-                  수정
-                </Button>
+                <Link to={`/edit/${Info._id}`}>
+                  <Button variant="primary">수정</Button>
+                </Link>
                 <Button variant="secondary" onClick={handleShow}>
                   삭제
                 </Button>
