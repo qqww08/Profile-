@@ -43,7 +43,6 @@ function BorderList() {
 
   //새로고침 하지 않아도 List에 등록 될 변수 선언
 
-  console.log(List);
   // 반응형 웹 전용 게시판 목록
   const Mobile = List.map((post, index) => {
     return (
