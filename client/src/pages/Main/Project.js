@@ -3,6 +3,7 @@ import project1 from "./images/project1.PNG";
 import project2 from "./images/project2.PNG";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";
+import { Link } from "react-router-dom";
 import "./css/project.css";
 
 // Project 설명
@@ -27,10 +28,9 @@ function Project() {
           <Card.Body className="project_con">
             <Card.Title>게시판</Card.Title>
             <Card.Text>페이지 기능 : 게시판CRUD, 페이징, SPA </Card.Text>
-
-            <Button variant="primary" href="/List">
-              바로가기
-            </Button>
+            <Link to="/List">
+              <Button variant="primary">바로가기</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>
