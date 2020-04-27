@@ -13,10 +13,12 @@ const postSchema = mongoose.Schema(
     body: {
       type: String,
     },
+    createdAt: { type: Date, default: Date.now }, // 2
+    updatedAt: { type: Date },
     views: { type: Number, default: 0 },
     numId: { type: Number },
-  },
-  { timestamps: true }
+  }
+  // { timestamps: true }
 );
 
 const Post = mongoose.model("Post", postSchema);

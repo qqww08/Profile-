@@ -33,6 +33,7 @@ function BorderList() {
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
         setLoading(false);
+
         //success:false 일시
       } else {
         alert("실패");
@@ -44,7 +45,7 @@ function BorderList() {
   const refesh = (newList) => {
     setList(List.concat(newList));
   };
-
+  console.log(List);
   // 반응형 웹 전용 게시판 목록
   const Mobile = List.map((post, index) => {
     return (

@@ -7,6 +7,7 @@ const { auth } = require("../middleware/auth");
 router.get("/", (req, res) => {
   Post.find()
     .populate("writer")
+    .sort("-createdAt")
     .exec((err, borderlist) => {
       if (err) return res.status(400).send(err);
       res.status(200).json({ success: true, borderlist });
@@ -16,6 +17,7 @@ router.get("/", (req, res) => {
 router.post("/info", (req, res) => {
   Post.findOne({ _id: req.body.postId })
     .populate("writer")
+
     .exec((err, post) => {
       if (err) return res.status(400).send(err);
       res.status(200).json({ success: true, post });
