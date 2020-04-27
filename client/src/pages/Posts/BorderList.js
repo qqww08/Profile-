@@ -70,49 +70,43 @@ function BorderList() {
   });
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <div className="Blist">
-        <Table
-          striped
-          bordered
-          hover
-          size="sm"
-          style={{ width: "800px", tableLayout: "fixed" }}
-        >
-          <thead>
-            <tr>
-              <th style={{ textAlign: "center", width: "300px" }}>내용</th>
-              <th style={{ width: "150px" }}>작성자</th>
-              <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
-            </tr>
-          </thead>
-          <Listcheck List={currentPosts} loading={loading} paginate />
-        </Table>
-      </div>
-      <div className="BEdit">
-        <ul style={{ width: "800px", display: "flex" }}>
-          {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
-          <li>
-            <Link to="/Write">
-              <Button variant="primary">글쓰기</Button>
-            </Link>
-          </li>
-          <li style={{ margin: "0 auto" }}>
-            <Pagination
-              postsPerPage={postsPerPage}
-              totalPosts={List.length}
-              paginate={paginate}
-            />
-          </li>
-        </ul>
+    <div>
+      <div className="none">
+        <div className="Blist">
+          <Table
+            striped
+            bordered
+            hover
+            size="sm"
+            style={{ width: "800px", tableLayout: "fixed" }}
+          >
+            <thead>
+              <tr>
+                <th style={{ textAlign: "center", width: "300px" }}>내용</th>
+                <th style={{ width: "150px" }}>작성자</th>
+                <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
+              </tr>
+            </thead>
+            <Listcheck List={currentPosts} loading={loading} paginate />
+          </Table>
+        </div>
+        <div className="BEdit">
+          <ul style={{ width: "800px", display: "flex" }}>
+            {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
+            <li>
+              <Link to="/Write">
+                <Button variant="primary">글쓰기</Button>
+              </Link>
+            </li>
+            <li style={{ margin: "0 auto" }}>
+              <Pagination
+                postsPerPage={postsPerPage}
+                totalPosts={List.length}
+                paginate={paginate}
+              />
+            </li>
+          </ul>
+        </div>
       </div>
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
