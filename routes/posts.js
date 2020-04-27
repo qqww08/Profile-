@@ -17,7 +17,6 @@ router.get("/", (req, res) => {
 router.post("/info", (req, res) => {
   Post.findOne({ _id: req.body.postId })
     .populate("writer")
-
     .exec((err, post) => {
       if (err) return res.status(400).send(err);
       res.status(200).json({ success: true, post });
@@ -53,6 +52,7 @@ router.post("/", auth, (req, res) => {
     if (err) return res.json({ success: false, err });
     Post.find({ _id: post._id })
       .populate("writer")
+
       .exec((err, result) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({ success: true, result });

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
 import BorderWrite from "./BorderWrite";
@@ -25,11 +25,11 @@ function BorderList() {
 
   useEffect(() => {
     //redux로 서버로 전송
-
+    setLoading(true);
     dispatch(borderget()).then((response) => {
       //서버에서 success:true 일시
+
       if (response.payload.success) {
-        setLoading(true);
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
         setLoading(false);
@@ -96,7 +96,9 @@ function BorderList() {
         <ul style={{ width: "800px", display: "flex" }}>
           {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
           <li>
-            <BorderWrite refesh={refesh} />
+            <Button variant="primary" href="/Write">
+              글쓰기
+            </Button>
           </li>
           <li style={{ margin: "0 auto" }}>
             <Pagination
@@ -128,7 +130,9 @@ function BorderList() {
 
         <div className="BEditM">
           <div style={{ width: "800px" }}>
-            <BorderWrite refesh={refesh} />
+            <Button variant="primary" href="/Write">
+              글쓰기
+            </Button>
           </div>
         </div>
       </div>

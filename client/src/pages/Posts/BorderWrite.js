@@ -2,13 +2,9 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { bordersave } from "../../_actions/post_actions";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Button, ButtonGroup, FormControl, Form } from "react-bootstrap";
 
 function BorderWrite(props) {
-  //Bootstrap modal 초기 설정
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   //user 정보를 가지고 오기 위해 선언
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -41,12 +37,13 @@ function BorderWrite(props) {
         //서버에서 success: true 일시
         if (response.payload.success) {
           //등록 버튼 누른 후 success:true 일시 modal 닫기
-          setShow(false);
+
           //다음 작성을 위해 제목 내용 값 제거
           setBorderTitle("");
           setBorderText("");
           //props 로 게시판 에 서버에 저장된 글 refesh
-          props.refesh(response.payload.result);
+          // props.refesh(response.payload.result);
+          props.history.push("/List");
           //실패시
         } else {
           // console.log(response);
@@ -57,53 +54,46 @@ function BorderWrite(props) {
   };
 
   return (
-    // bootstrap modal 글쓰기 버튼
-    <Form onSubmit={BoderSubmit}>
-      <Button variant="primary" onClick={handleShow}>
-        글쓰기
-      </Button>
-      {/* 모달 타이틀 */}
-      <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>글쓰기</Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body style={{ width: "100%" }}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>제목</Form.Label>
-            {/* 제목 Input 정보 */}
-            <Form.Control
-              placeholder="제목"
+    <div className="info">
+      <Form className="fo">
+        <Form.Group>
+          <Form.Group className="EditTitle">
+            <Form.Label style={{ width: "40px" }}>제목</Form.Label>
+            <FormControl
               value={BorderTitle}
               onChange={TitleHandler}
-              minLength="2"
-              maxLength="30"
+              className="EditInput1"
             />
           </Form.Group>
-
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>내용</Form.Label>
-            {/* 내용 Input 정보 */}
-            <Form.Control
-              as="textarea"
-              aria-label="With textarea"
-              placeholder="내용"
-              value={BorderText}
-              onChange={TextHandler}
-              style={{ height: "400px", resize: "none" }}
-            />
-          </Form.Group>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={BoderSubmit}>
-            등록
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            취소
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </Form>
+          <Form.Group
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              textAlign: "right",
+            }}
+          ></Form.Group>
+        </Form.Group>
+        <Form.Group>
+          <FormControl
+            as="textarea"
+            aria-label="With textarea"
+            value={BorderText}
+            onChange={TextHandler}
+            style={{ height: "290px", resize: "none" }}
+          />
+        </Form.Group>
+        <Form.Group>
+          <ButtonGroup aria-label="Basic example">
+            <Button variant="primary" onClick={BoderSubmit}>
+              등록
+            </Button>
+            <Button variant="secondary" href="/List">
+              취소
+            </Button>
+          </ButtonGroup>
+        </Form.Group>
+      </Form>
+    </div>
   );
 }
 

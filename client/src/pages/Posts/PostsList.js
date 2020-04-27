@@ -1,9 +1,22 @@
 import React from "react";
 import Moment from "react-moment";
 import "moment-timezone";
+import { Spinner } from "react-bootstrap";
+
 const Listcheck = ({ List, loading }) => {
   if (loading) {
-    return <h2>Loading</h2>;
+    return (
+      <div
+        className={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
   }
 
   return List.map((post) => (

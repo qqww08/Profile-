@@ -10,7 +10,7 @@ import { withRouter, Link as Li } from "react-router-dom";
 // navbar
 function Header() {
   return (
-    <nav className="body">
+    <div className="body">
       {/* header */}
       <div className="header_">
         <ul className="head_left">
@@ -134,7 +134,7 @@ function Header() {
           </Dropdown>
         </span>
       </div>
-    </nav>
+    </div>
   );
 }
 
