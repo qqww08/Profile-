@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../_actions/user_actions";
 
 export default function (SpecificComponent, option) {
   function AuthenticationCheck(props) {
     const dispatch = useDispatch();
+    const post = useSelector((post) => post.state);
     //로그인 확인 기능
     useEffect(() => {
       dispatch(auth()).then((response) => {

@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 // navbar
 function Header() {
   const post = useSelector((state) => state.post);
-  console.log(post);
+
   const Hideon = () => {
     post.success = false;
   };
@@ -67,13 +67,7 @@ function Header() {
             </li>
           </ul>
         ) : (
-          <ul className="head_medium">
-            <Li to="/List">
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                Board
-              </Button>
-            </Li>
-          </ul>
+          <div></div>
         )}
         {/* 로그인 회원가입 */}
         <div className="head_right">

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
 
 import "./LoginPage.css";
 function LoginPage(props) {
+  const post = useSelector((state) => state.post);
+  const Hideon = () => {
+    post.success = false;
+  };
   const dispatch = useDispatch();
   // 로그인 페이지 Input
   const [Email, setEmail] = useState("");
@@ -64,7 +68,7 @@ function LoginPage(props) {
             placeholder="비밀번호"
           />
 
-          <button className="btnLogin" type="submit">
+          <button className="btnLogin" type="submit" onClick={Hideon}>
             로그인
           </button>
 

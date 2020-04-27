@@ -5,7 +5,19 @@ import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const Listcheck = ({ List, loading }) => {
   if (loading) {
-    return <Spinner animation="border" variant="primary" />;
+    return (
+      <div
+        style={{
+          width: "800px",
+          display: "flex",
+          justifyContent: "center",
+          height: "350px",
+          alignItems: "center",
+        }}
+      >
+        <Spinner animation="border" variant="primary" />;
+      </div>
+    );
   }
 
   return List.map((post) => (
