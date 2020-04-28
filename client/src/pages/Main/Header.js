@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";

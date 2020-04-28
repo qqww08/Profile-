@@ -1,3 +1,6 @@
+import "react-app-polyfill/ie9";
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -9,9 +12,7 @@ import ReduxThunk from "redux-thunk";
 import Reducer from "./_reducers";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/ie11";
-import "react-app-polyfill/stable";
+
 import "fast-text-encoding/text";
 
 const createStoreWithMiddleware = applyMiddleware(
