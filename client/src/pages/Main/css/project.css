@@ -11,26 +11,25 @@
 }
 .project_con {
   margin: 0px;
-
   height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 @media screen and (max-width: 768px) {
   .cards {
-    display: grid;
-
-    margin-left: 200px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-    grid-column-gap: 6px;
-    grid-row-gap: 6px;
-    grid-gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mcard1 {
+    display: flex;
+    margin: 0px auto;
   }
   .mcard2 {
     display: flex;
-
-    margin: 0px;
+    margin: 0px auto;
+    margin-top: 30px;
   }
 }

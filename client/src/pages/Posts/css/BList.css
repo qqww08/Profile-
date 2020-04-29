@@ -53,10 +53,10 @@
     display: flex;
   }
   .TitleC1 {
+    width: 100%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 100%;
   }
   .Mtr {
     display: flex;
@@ -64,10 +64,18 @@
   }
 
   .MView {
-    width: 10%;
+    width: 100%;
     margin: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .TitleC1 {
+    width: 10%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

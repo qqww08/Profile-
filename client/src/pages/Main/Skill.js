@@ -26,6 +26,7 @@ function Skill() {
       <h1 className="h3Text">아이콘을 클릭해주세요</h1>
       <h1 className="h1Text">Skill</h1>
       <h1 className="h2Text">Front End</h1>
+
       <ul className="skill">
         <li>
           {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
@@ -96,7 +97,8 @@ function Skill() {
             <img src={js} alt="js" style={{ cursor: "pointer" }} />
           </OverlayTrigger>
         </li>
-
+      </ul>
+      <ul className="skill">
         <li>
           {/* Bootstrap 이용해서 이미지 클릭시 Tooltips */}
           <OverlayTrigger

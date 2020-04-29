@@ -67,7 +67,7 @@ function Header() {
             </li>
           </ul>
         ) : (
-          <div></div>
+          <div className="head_medium">게시판</div>
         )}
         {/* 로그인 회원가입 */}
         <div className="head_right">
@@ -75,6 +75,7 @@ function Header() {
         </div>
 
         {/* 반응형 웹  */}
+
         <span className="menu_bar">
           <Dropdown>
             <Dropdown.Toggle
@@ -85,53 +86,61 @@ function Header() {
               Menu
             </Dropdown.Toggle>
 
-            <Dropdown.Menu
-              style={{
-                textAlign: "center",
-              }}
-            >
-              <Dropdown.Item href="#/action-1">
-                <Link to="about" spy={true} smooth={true}>
-                  <Li to="/">
-                    <Button variant="link" style={{ textDecoration: "none" }}>
-                      About
+            {!post.success ? (
+              <Dropdown.Menu
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                <Dropdown.Item href="#/action-1">
+                  <Link to="about" spy={true} smooth={true}>
+                    <Li to="/">
+                      <Button variant="link" style={{ textDecoration: "none" }}>
+                        About
+                      </Button>
+                    </Li>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-2">
+                  <Link to="skill" spy={true} smooth={true}>
+                    <Li to="/">
+                      <Button variant="link" style={{ textDecoration: "none" }}>
+                        Skill
+                      </Button>
+                    </Li>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-3">
+                  <Link to="Project" spy={true} smooth={true}>
+                    <Li to="/">
+                      <Button variant="link" style={{ textDecoration: "none" }}>
+                        Project
+                      </Button>
+                    </Li>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-4">
+                  <Li to="/List">
+                    <Button
+                      variant="link"
+                      style={{ textDecoration: "none" }}
+                      onClick={scroll.scrollToTop}
+                    >
+                      Board
                     </Button>
                   </Li>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">
-                <Link to="skill" spy={true} smooth={true}>
-                  <Li to="/">
-                    <Button variant="link" style={{ textDecoration: "none" }}>
-                      Skill
-                    </Button>
-                  </Li>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-3">
-                <Link to="Project" spy={true} smooth={true}>
-                  <Li to="/">
-                    <Button variant="link" style={{ textDecoration: "none" }}>
-                      Project
-                    </Button>
-                  </Li>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-4">
-                <Li to="/List">
-                  <Button
-                    variant="link"
-                    style={{ textDecoration: "none" }}
-                    onClick={scroll.scrollToTop}
-                  >
-                    Board
-                  </Button>
-                </Li>
-              </Dropdown.Item>
-              <Dropdown.Item href="#/action-5">
-                <HeaderRight />
-              </Dropdown.Item>
-            </Dropdown.Menu>
+                </Dropdown.Item>
+                <Dropdown.Item href="#/action-5">
+                  <HeaderRight />
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            ) : (
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-5">
+                  <HeaderRight />
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            )}
           </Dropdown>
         </span>
       </div>
