@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { borderget } from "../../_actions/post_actions";
-import SearchBar from "./SearchBar";
+import { borderget, borderpost } from "../../_actions/post_actions";
+import { Input } from "antd";
+
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -12,6 +13,7 @@ import Pagination from "./Pagination";
 
 function BorderList() {
   //게시판에 올라오는 정보 변수
+  const { Search } = Input;
   const [List, setList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,14 +23,23 @@ function BorderList() {
   const currentPosts = List.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const dispatch = useDispatch();
+  //Search props
+  const [Searchv, setSearchv] = useState("");
+  const searchHandler = (event) => {
+    setSearchv(event.currentTarget.value);
+  };
+  //더보기
+
   //글쓰기가 작성 된 후
 
-  useEffect(() => {
-    //redux로 서버로 전송
-    setLoading(true);
-    dispatch(borderget()).then((response) => {
+  //redux로 서버로 전송
+  const updateSearch = () => {
+    const body = {
+      searchTerm: Searchv,
+    };
+    dispatch(borderpost(body)).then((response) => {
       //서버에서 success:true 일시
-
+      setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
@@ -39,7 +50,23 @@ function BorderList() {
         alert("실패");
       }
     });
-  }, [dispatch]);
+  };
+  useEffect(() => {
+    dispatch(borderget()).then((response) => {
+      //서버에서 success:true 일시
+      setLoading(true);
+      if (response.payload.success) {
+        //서버에서 담고 있는 borderlist를 List 넣기
+
+        setList(response.payload.borderlist);
+        setLoading(false);
+
+        //success:false 일시
+      } else {
+        alert("실패");
+      }
+    });
+  }, []);
 
   //새로고침 하지 않아도 List에 등록 될 변수 선언
 
@@ -77,7 +104,13 @@ function BorderList() {
           <Link to="/Write">
             <Button variant="primary">글쓰기</Button>
           </Link>
-          <SearchBar />
+          <Search
+            placeholder="Search"
+            value={Searchv}
+            onChange={searchHandler}
+            onSearch={updateSearch}
+            style={{ width: 200 }}
+          />
         </div>
         {/* 게시판 목록 */}
         <div className="Blist">
@@ -115,12 +148,12 @@ function BorderList() {
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
         <div className="BEditM">
-          <div style={{ width: "800px" }}>
+          <div>
             <Link to="/Write">
               <Button variant="primary">글쓰기</Button>
             </Link>
           </div>
-          <SearchBar />
+          <div></div>
         </div>
         <div className="BMobile">
           <Table

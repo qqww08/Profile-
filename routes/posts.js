@@ -13,6 +13,18 @@ router.get("/", (req, res) => {
       res.status(200).json({ success: true, borderlist });
     });
 });
+router.post("/search", (req, res) => {
+  const term = req.body.searchTerm;
+
+  Post.find()
+    .find({ $text: { $search: term } })
+    .populate("writer")
+    .sort("-createdAt")
+    .exec((err, borderlist) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, borderlist });
+    });
+});
 //게시판 내용
 router.post("/info", (req, res) => {
   Post.findOne({ _id: req.body.postId })
@@ -52,7 +64,6 @@ router.post("/", auth, (req, res) => {
     if (err) return res.json({ success: false, err });
     Post.find({ _id: post._id })
       .populate("writer")
-
       .exec((err, result) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({ success: true, result });

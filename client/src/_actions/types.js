@@ -9,3 +9,4 @@ export const BORDER_INFO = "borderinfo";
 export const BORDER_EDIT = "borderedit";
 export const LOGOUT = "logout";
 export const BORDER_DELETE = "borderdelete";
+export const BORDER_POST = "borderpost";

@@ -1,6 +1,7 @@
 import {
   BORDER_SAVE,
   BORDER_GET,
+  BORDER_POST,
   BORDER_INFO,
   BORDER_EDIT,
   BORDER_DELETE,
@@ -13,6 +14,8 @@ export default function (state = {}, action) {
       return { ...state, success: action.payload };
     //게시판 목록
     case BORDER_GET:
+      return { ...state, success: action.payload };
+    case BORDER_POST:
       return { ...state, success: action.payload };
     //게시글 정보
     case BORDER_INFO:
