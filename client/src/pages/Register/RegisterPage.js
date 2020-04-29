@@ -37,6 +37,15 @@ function RegisterPage(props) {
     event.preventDefault();
 
     //Input 태그 빈칸 및 특수문자 체크
+
+    //Input 입력 된 정보를 body 안에 담기
+    let body = {
+      name: Name,
+      email: Email,
+      password: Password,
+    };
+    // console.log(body);
+    //회원가입을 위해 redux 를 이용해 서버로 전송
     if (!Name) {
       setMessage("이름을 입력해주세요");
     } else if (check_spc.test(Name) || check_num.test(Name)) {
@@ -46,27 +55,20 @@ function RegisterPage(props) {
     } else if (!Password) {
       setMessage("패스워드를 입력해주세요");
     } else if (Password !== PassCh) {
-      setMessage("패스워드와 패스워드 확인이 일치해야 합니다");
+      setMessage("패스워드와 패스워드 체크가 일치해야 합니다");
+    } else {
+      dispatch(register(body)).then((response) => {
+        //서버에서 success: ture 일시
+        if (response.payload.success) {
+          // console.log(response);
+          props.history.push("/login");
+          alert("회원가입 완료");
+          //서버에서 success:false 일시
+        } else {
+          setMessage("이메일 중복 입니다");
+        }
+      });
     }
-    //Input 입력 된 정보를 body 안에 담기
-    let body = {
-      name: Name,
-      email: Email,
-      password: Password,
-    };
-    // console.log(body);
-    //회원가입을 위해 redux 를 이용해 서버로 전송
-    dispatch(register(body)).then((response) => {
-      //서버에서 success: ture 일시
-      if (response.payload.success) {
-        // console.log(response);
-        props.history.push("/login");
-        alert("회원가입 완료");
-        //서버에서 success:false 일시
-      } else {
-        setMessage("이메일 중복 입니다");
-      }
-    });
   };
 
   return (
