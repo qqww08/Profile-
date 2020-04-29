@@ -15,7 +15,6 @@ function LadingPage() {
     <div>
       <div className="LMain">
         <Back />
-
         <ScrollAnimation animateIn="fadeIn">
           <Profile />
         </ScrollAnimation>

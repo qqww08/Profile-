@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { bordersave } from "../../_actions/post_actions";
 import { Button, ButtonGroup, FormControl, Form } from "react-bootstrap";
 
@@ -87,9 +87,9 @@ function BorderWrite(props) {
             <Button variant="primary" onClick={BoderSubmit}>
               등록
             </Button>
-            <Button variant="secondary" href="/List">
-              취소
-            </Button>
+            <Link to="/List">
+              <Button variant="secondary">취소</Button>
+            </Link>
           </ButtonGroup>
         </Form.Group>
       </Form>

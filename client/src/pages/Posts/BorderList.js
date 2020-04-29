@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { Table, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget } from "../../_actions/post_actions";
-
+import SearchBar from "./SearchBar";
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -72,6 +72,14 @@ function BorderList() {
   return (
     <div>
       <div className="none">
+        {/* 글쓰기 서치바 */}
+        <div className="ListTop">
+          <Link to="/Write">
+            <Button variant="primary">글쓰기</Button>
+          </Link>
+          <SearchBar />
+        </div>
+        {/* 게시판 목록 */}
         <div className="Blist">
           <Table
             striped
@@ -93,11 +101,7 @@ function BorderList() {
         <div className="BEdit">
           <ul style={{ width: "800px", display: "flex" }}>
             {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
-            <li>
-              <Link to="/Write">
-                <Button variant="primary">글쓰기</Button>
-              </Link>
-            </li>
+
             <li style={{ margin: "0 auto" }}>
               <Pagination
                 postsPerPage={postsPerPage}
@@ -110,6 +114,14 @@ function BorderList() {
       </div>
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
+        <div className="BEditM">
+          <div style={{ width: "800px" }}>
+            <Link to="/Write">
+              <Button variant="primary">글쓰기</Button>
+            </Link>
+          </div>
+          <SearchBar />
+        </div>
         <div className="BMobile">
           <Table
             striped
@@ -125,14 +137,6 @@ function BorderList() {
             </thead>
             {Mobile}
           </Table>
-        </div>
-
-        <div className="BEditM">
-          <div style={{ width: "800px" }}>
-            <Link to="/Write">
-              <Button variant="primary">글쓰기</Button>
-            </Link>
-          </div>
         </div>
       </div>
     </div>
