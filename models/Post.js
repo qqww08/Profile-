@@ -25,8 +25,8 @@ postSchema.index(
   },
   {
     weights: {
-      title: 5,
-      body: 1,
+      title: 50,
+      body: 25,
     },
   }
 );

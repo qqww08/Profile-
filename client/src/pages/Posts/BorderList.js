@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { Table, Button } from "react-bootstrap";
+import { Table, Button, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget, borderpost } from "../../_actions/post_actions";
 import { Input } from "antd";
-
+import refresh from "./img/refresh.svg";
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -67,9 +67,22 @@ function BorderList() {
       }
     });
   }, []);
+  const reload = () => {
+    dispatch(borderget()).then((response) => {
+      //서버에서 success:true 일시
+      setLoading(true);
+      if (response.payload.success) {
+        //서버에서 담고 있는 borderlist를 List 넣기
 
-  //새로고침 하지 않아도 List에 등록 될 변수 선언
+        setList(response.payload.borderlist);
+        setLoading(false);
 
+        //success:false 일시
+      } else {
+        alert("실패");
+      }
+    });
+  };
   // 반응형 웹 전용 게시판 목록
   const Mobile = List.map((post, index) => {
     return (
@@ -104,13 +117,22 @@ function BorderList() {
           <Link to="/Write">
             <Button variant="primary">글쓰기</Button>
           </Link>
-          <Search
-            placeholder="Search"
-            value={Searchv}
-            onChange={searchHandler}
-            onSearch={updateSearch}
-            style={{ width: 200 }}
-          />
+          <div>
+            <Button
+              onClick={reload}
+              className="refresh"
+              style={{ background: "none", border: "none" }}
+            >
+              <Image src={refresh} style={{ width: "20px" }} />
+            </Button>
+            <Search
+              placeholder="Search"
+              value={Searchv}
+              onChange={searchHandler}
+              onSearch={updateSearch}
+              style={{ width: 200 }}
+            />
+          </div>
         </div>
         {/* 게시판 목록 */}
         <div className="Blist">
@@ -148,12 +170,25 @@ function BorderList() {
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
         <div className="BEditM">
+          <Link to="/Write">
+            <Button variant="primary">글쓰기</Button>
+          </Link>
           <div>
-            <Link to="/Write">
-              <Button variant="primary">글쓰기</Button>
-            </Link>
+            <Button
+              onClick={reload}
+              className="refresh"
+              style={{ background: "none", border: "none" }}
+            >
+              <Image src={refresh} style={{ width: "20px" }} />
+            </Button>
+            <Search
+              placeholder="Search"
+              value={Searchv}
+              onChange={searchHandler}
+              onSearch={updateSearch}
+              style={{ width: 200 }}
+            />
           </div>
-          <div></div>
         </div>
         <div className="BMobile">
           <Table

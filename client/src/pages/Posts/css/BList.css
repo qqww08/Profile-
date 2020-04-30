@@ -5,6 +5,12 @@
   align-items: center;
   height: 100vh;
 }
+.refresh {
+  background: none;
+}
+.refresh:focus {
+  outline: none;
+}
 .ListTop {
   width: 800px;
   display: flex;

@@ -13,6 +13,7 @@ router.get("/", (req, res) => {
       res.status(200).json({ success: true, borderlist });
     });
 });
+//검색
 router.post("/search", (req, res) => {
   const term = req.body.searchTerm;
 

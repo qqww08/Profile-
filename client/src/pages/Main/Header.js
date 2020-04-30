@@ -34,41 +34,39 @@ function Header() {
           </li>
         </ul>
         {/* navbar 중간 */}
-        {!post.success ? (
-          <ul className="head_medium">
-            <li>
-              <Link to="about" spy={true} smooth={true}>
-                <Button variant="link" style={{ textDecoration: "none" }}>
-                  About
-                </Button>
-              </Link>
-            </li>
 
-            <li>
-              <Link to="skill" spy={true} smooth={true}>
-                <Button variant="link" style={{ textDecoration: "none" }}>
-                  Skill
-                </Button>
-              </Link>
-            </li>
-            <li>
-              <Link to="Project" spy={true} smooth={true}>
-                <Button variant="link" style={{ textDecoration: "none" }}>
-                  Project
-                </Button>
-              </Link>
-            </li>
-            <li>
-              <Li to="/List">
-                <Button variant="link" style={{ textDecoration: "none" }}>
-                  Board
-                </Button>
-              </Li>
-            </li>
-          </ul>
-        ) : (
-          <div className="head_medium">게시판</div>
-        )}
+        <div className="head_medium">
+          <Link to="about" spy={true} smooth={true}>
+            <Li to="/">
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                About
+              </Button>
+            </Li>
+          </Link>
+
+          <Link to="skill" spy={true} smooth={true}>
+            <Li to="/">
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Skill
+              </Button>
+            </Li>
+          </Link>
+
+          <Link to="Project" spy={true} smooth={true}>
+            <Li to="/">
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Project
+              </Button>
+            </Li>
+          </Link>
+
+          <Li to="/List">
+            <Button variant="link" style={{ textDecoration: "none" }}>
+              Board
+            </Button>
+          </Li>
+        </div>
+
         {/* 로그인 회원가입 */}
         <div className="head_right">
           <HeaderRight />
