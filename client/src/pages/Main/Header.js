@@ -37,34 +37,26 @@ function Header() {
 
         <div className="head_medium">
           <Link to="about" spy={true} smooth={true}>
-            <Li to="/">
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                About
-              </Button>
-            </Li>
+            <Button variant="link" style={{ textDecoration: "none" }}>
+              About
+            </Button>
           </Link>
 
           <Link to="skill" spy={true} smooth={true}>
-            <Li to="/">
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                Skill
-              </Button>
-            </Li>
+            <Button variant="link" style={{ textDecoration: "none" }}>
+              Skill
+            </Button>
           </Link>
-
-          <Link to="Project" spy={true} smooth={true}>
-            <Li to="/">
-              <Button variant="link" style={{ textDecoration: "none" }}>
-                Project
-              </Button>
-            </Li>
-          </Link>
-
-          <Li to="/List">
+          <Link to="boader" spy={true} smooth={true}>
             <Button variant="link" style={{ textDecoration: "none" }}>
               Board
             </Button>
-          </Li>
+          </Link>
+          <Link to="Project" spy={true} smooth={true}>
+            <Button variant="link" style={{ textDecoration: "none" }}>
+              Project
+            </Button>
+          </Link>
         </div>
 
         {/* 로그인 회원가입 */}
@@ -92,11 +84,9 @@ function Header() {
               >
                 <Dropdown.Item href="#/action-1">
                   <Link to="about" spy={true} smooth={true}>
-                    <Li to="/">
-                      <Button variant="link" style={{ textDecoration: "none" }}>
-                        About
-                      </Button>
-                    </Li>
+                    <Button variant="link" style={{ textDecoration: "none" }}>
+                      About
+                    </Button>
                   </Link>
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-2">
@@ -118,7 +108,7 @@ function Header() {
                   </Link>
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-4">
-                  <Li to="/List">
+                  <Link to="/boader">
                     <Button
                       variant="link"
                       style={{ textDecoration: "none" }}
@@ -126,7 +116,7 @@ function Header() {
                     >
                       Board
                     </Button>
-                  </Li>
+                  </Link>
                 </Dropdown.Item>
                 <Dropdown.Item href="#/action-5">
                   <HeaderRight />

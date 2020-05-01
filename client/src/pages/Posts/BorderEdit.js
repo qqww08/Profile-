@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { borderinfo } from "../../_actions/post_actions";
 import { borderedit } from "../../_actions/post_actions";
 import {
@@ -16,6 +16,7 @@ import "./css/BEdit.css";
 
 function BorderInfo(props) {
   //:postId 변수 선언
+  const user = useSelector((state) => state.user);
   const postId = props.match.params.postId;
   //서버에서 확인 할 UserInfo안에 :postId 담기
   const UserInfo = { postId: postId };
@@ -64,7 +65,8 @@ function BorderInfo(props) {
     });
   };
   //게시글 정보 불러오기전 bootstrap 스피너
-  if (!Info.writer && !Info.title) {
+
+  if ((!Info.writer && !Info.title) || !user.userData.isAuth) {
     return (
       <div className="info">
         <Spinner animation="border" variant="primary" />

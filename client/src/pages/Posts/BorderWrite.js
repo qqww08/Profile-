@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { bordersave } from "../../_actions/post_actions";
-import { Button, ButtonGroup, FormControl, Form } from "react-bootstrap";
+import {
+  Spinner,
+  Button,
+  ButtonGroup,
+  FormControl,
+  Form,
+} from "react-bootstrap";
 
 function BorderWrite(props) {
   //user 정보를 가지고 오기 위해 선언
@@ -52,49 +58,56 @@ function BorderWrite(props) {
       });
     }
   };
-
-  return (
-    <div className="info">
-      <Form className="fo">
-        <Form.Group>
-          <Form.Group className="EditTitle">
-            <Form.Label style={{ width: "40px" }}>제목</Form.Label>
+  if (!user.userData.isAuth) {
+    return (
+      <div className="info">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
+  } else {
+    return (
+      <div className="info">
+        <Form className="fo">
+          <Form.Group>
+            <Form.Group className="EditTitle">
+              <Form.Label style={{ width: "40px" }}>제목</Form.Label>
+              <FormControl
+                value={BorderTitle}
+                onChange={TitleHandler}
+                className="EditInput1"
+              />
+            </Form.Group>
+            <Form.Group
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                textAlign: "right",
+              }}
+            ></Form.Group>
+          </Form.Group>
+          <Form.Group>
             <FormControl
-              value={BorderTitle}
-              onChange={TitleHandler}
-              className="EditInput1"
+              as="textarea"
+              aria-label="With textarea"
+              value={BorderText}
+              onChange={TextHandler}
+              style={{ height: "290px", resize: "none" }}
             />
           </Form.Group>
-          <Form.Group
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              textAlign: "right",
-            }}
-          ></Form.Group>
-        </Form.Group>
-        <Form.Group>
-          <FormControl
-            as="textarea"
-            aria-label="With textarea"
-            value={BorderText}
-            onChange={TextHandler}
-            style={{ height: "290px", resize: "none" }}
-          />
-        </Form.Group>
-        <Form.Group>
-          <ButtonGroup aria-label="Basic example">
-            <Button variant="primary" onClick={BoderSubmit}>
-              등록
-            </Button>
-            <Link to="/List">
-              <Button variant="secondary">취소</Button>
-            </Link>
-          </ButtonGroup>
-        </Form.Group>
-      </Form>
-    </div>
-  );
+          <Form.Group>
+            <ButtonGroup aria-label="Basic example">
+              <Button variant="primary" onClick={BoderSubmit}>
+                등록
+              </Button>
+              <Link to="/List">
+                <Button variant="secondary">취소</Button>
+              </Link>
+            </ButtonGroup>
+          </Form.Group>
+        </Form>
+      </div>
+    );
+  }
 }
 
 export default withRouter(BorderWrite);

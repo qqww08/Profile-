@@ -10,6 +10,7 @@ import Bootstrap from "./images/Bootstrap_logo.png";
 import "./css/skill.css";
 import { Element } from "react-scroll";
 import { OverlayTrigger, Popover } from "react-bootstrap";
+import BorderList from "../Posts/BorderList";
 
 // 아이콘 이미지
 function Skill() {
@@ -23,6 +24,7 @@ function Skill() {
       }}
     >
       <Element id="skill" />
+
       <h1 className="h3Text">아이콘을 클릭해주세요</h1>
       <h1 className="h1Text">Skill</h1>
       <h1 className="h2Text">Front End</h1>

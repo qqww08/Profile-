@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
+import { Element } from "react-scroll";
 import { Table, Button, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { borderget, borderpost } from "../../_actions/post_actions";
@@ -111,6 +112,7 @@ function BorderList() {
 
   return (
     <div>
+      <Element id="boader" />
       <div className="none">
         {/* 글쓰기 서치바 */}
         <div className="ListTop">
@@ -174,11 +176,7 @@ function BorderList() {
             <Button variant="primary">글쓰기</Button>
           </Link>
           <div>
-            <Button
-              onClick={reload}
-              className="refresh"
-              style={{ background: "none", border: "none" }}
-            >
+            <Button onClick={reload} className="refresh">
               <Image src={refresh} style={{ width: "20px" }} />
             </Button>
             <Search

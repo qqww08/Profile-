@@ -6,6 +6,7 @@ import Project from "./Project";
 import Contact from "./Contact";
 import { useSelector } from "react-redux";
 import "animate.css/animate.min.css";
+import BorderList from "../Posts/BorderList";
 
 import ScrollAnimation from "react-animate-on-scroll";
 import "./css/LadingPage.css";
@@ -25,6 +26,9 @@ function LadingPage() {
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn">
           <Skill />
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeIn">
+          <BorderList />
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn">
           <Project />

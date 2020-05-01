@@ -51,6 +51,7 @@ function BorderInfo(props) {
   };
 
   // 작성자 정보를 불러오기 전 bootstrap 스피너
+
   if (!Info.writer && !Info.title) {
     return (
       <div className="info">
