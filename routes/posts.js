@@ -13,6 +13,15 @@ router.get("/", (req, res) => {
       res.status(200).json({ success: true, borderlist });
     });
 });
+router.get("/mborder", (req, res) => {
+  Post.find()
+    .populate("writer")
+    .sort("-createdAt")
+    .exec((err, mborderlist) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, mborderlist });
+    });
+});
 //검색
 router.post("/search", (req, res) => {
   const term = req.body.searchTerm;

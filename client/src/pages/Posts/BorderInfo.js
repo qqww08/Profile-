@@ -3,6 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
+import { Link as Li, animateScroll as scroll } from "react-scroll";
 import "./css/Info.css";
 
 // import PutDel from "./PutDel";
@@ -81,7 +82,8 @@ function BorderInfo(props) {
               {/* :postId로 받아온 게시글 제목 */}
               <Form.Label>제목 {Info.title}</Form.Label>
               {/* 게시판 목록으로 돌아가기 */}
-              <Link to="/List">
+
+              <Link to="/">
                 <Button variant="secondary">목록</Button>
               </Link>
             </Form.Group>

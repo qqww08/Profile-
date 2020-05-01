@@ -6,6 +6,7 @@ import {
   BORDER_INFO,
   BORDER_EDIT,
   BORDER_DELETE,
+  MBORDER_GET,
 } from "./types";
 
 //게시판 글쓰기 정보 전송
@@ -26,6 +27,17 @@ export function borderget() {
     payload: request,
   };
 }
+//모바일 게시판 목록
+export function mborderget() {
+  const request = Axios.get("/api/posts/mborder").then(
+    (response) => response.data
+  );
+  return {
+    type: MBORDER_GET,
+    payload: request,
+  };
+}
+//게시판 검색
 export function borderpost(data) {
   const request = Axios.post("/api/posts/search", data).then(
     (response) => response.data

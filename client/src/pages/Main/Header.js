@@ -12,9 +12,6 @@ import { useSelector } from "react-redux";
 function Header() {
   const post = useSelector((state) => state.post);
 
-  const Hideon = () => {
-    post.success = false;
-  };
   return (
     <nav className="body">
       {/* header */}
@@ -22,15 +19,15 @@ function Header() {
         <ul className="head_left">
           {/* 홈버튼 */}
           <li>
-            <a href="/">
+            <Li to="/">
               <Button
                 variant="link"
                 style={{ textDecoration: "none" }}
-                onClick={(scroll.scrollToTop, Hideon)}
+                onClick={scroll.scrollToTop}
               >
                 Home
               </Button>
-            </a>
+            </Li>
           </li>
         </ul>
         {/* navbar 중간 */}
@@ -75,60 +72,48 @@ function Header() {
             >
               Menu
             </Dropdown.Toggle>
+            <Dropdown.Menu
+              style={{
+                textAlign: "center",
+              }}
+            >
+              <Dropdown.Item href="#/action-1">
+                <Link to="about" spy={true} smooth={true}>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    About
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-2">
+                <Link to="skill" spy={true} smooth={true}>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    Skill
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-3">
+                <Link to="boader" spy={true} smooth={true}>
+                  <Button
+                    variant="link"
+                    style={{ textDecoration: "none" }}
+                    onClick={scroll.scrollToTop}
+                  >
+                    Board
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item href="#/action-4">
+                <Link to="Project" spy={true} smooth={true}>
+                  <Button variant="link" style={{ textDecoration: "none" }}>
+                    Project
+                  </Button>
+                </Link>
+              </Dropdown.Item>
 
-            {!post.success ? (
-              <Dropdown.Menu
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                <Dropdown.Item href="#/action-1">
-                  <Link to="about" spy={true} smooth={true}>
-                    <Button variant="link" style={{ textDecoration: "none" }}>
-                      About
-                    </Button>
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-2">
-                  <Link to="skill" spy={true} smooth={true}>
-                    <Li to="/">
-                      <Button variant="link" style={{ textDecoration: "none" }}>
-                        Skill
-                      </Button>
-                    </Li>
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-3">
-                  <Link to="Project" spy={true} smooth={true}>
-                    <Li to="/">
-                      <Button variant="link" style={{ textDecoration: "none" }}>
-                        Project
-                      </Button>
-                    </Li>
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-4">
-                  <Link to="/boader">
-                    <Button
-                      variant="link"
-                      style={{ textDecoration: "none" }}
-                      onClick={scroll.scrollToTop}
-                    >
-                      Board
-                    </Button>
-                  </Link>
-                </Dropdown.Item>
-                <Dropdown.Item href="#/action-5">
-                  <HeaderRight />
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            ) : (
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-5">
-                  <HeaderRight />
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            )}
+              <Dropdown.Item href="#/action-5">
+                <HeaderRight />
+              </Dropdown.Item>
+            </Dropdown.Menu>
           </Dropdown>
         </span>
       </div>

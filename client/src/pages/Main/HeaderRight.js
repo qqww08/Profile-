@@ -16,7 +16,7 @@ function HeaderRight(props) {
     dispatch(logout()).then((response) => {
       //서버에서 success: true 일시
       if (response.payload.success) {
-        props.history.push("/Login");
+        props.history.push("/");
       } else {
         alert("로그아웃 하는데 실패 했습니다.");
       }

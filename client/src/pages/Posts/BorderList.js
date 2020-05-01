@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { Element } from "react-scroll";
 import { Table, Button, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { borderget, borderpost } from "../../_actions/post_actions";
+import { borderget, borderpost, mborderget } from "../../_actions/post_actions";
 import { Input } from "antd";
 import refresh from "./img/refresh.svg";
 import "./css/BList.css";
@@ -15,8 +15,13 @@ import Pagination from "./Pagination";
 function BorderList() {
   //게시판에 올라오는 정보 변수
   const { Search } = Input;
+  //웹 리스트
   const [List, setList] = useState([]);
+  //모바일 리스트
+  const [mlist, setMlist] = useState([]);
+  //웹 게시판 페이징 로딩
   const [loading, setLoading] = useState(false);
+  //웹 게시판 페이징
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -26,14 +31,15 @@ function BorderList() {
   const dispatch = useDispatch();
   //Search props
   const [Searchv, setSearchv] = useState("");
+  const [Skip, setSkip] = useState(0);
+  const [Limit, setLimit] = useState(8);
   const searchHandler = (event) => {
     setSearchv(event.currentTarget.value);
   };
-  //더보기
 
   //글쓰기가 작성 된 후
 
-  //redux로 서버로 전송
+  //서치 정보
   const updateSearch = () => {
     const body = {
       searchTerm: Searchv,
@@ -52,13 +58,14 @@ function BorderList() {
       }
     });
   };
+
   useEffect(() => {
+    //웹 게시판 목록 불러오기
     dispatch(borderget()).then((response) => {
       //서버에서 success:true 일시
       setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
-
         setList(response.payload.borderlist);
         setLoading(false);
 
@@ -67,7 +74,21 @@ function BorderList() {
         alert("실패");
       }
     });
+    //모바일 게시판 리스트
+    dispatch(mborderget()).then((response) => {
+      //서버에서 success:true 일시
+      if (response.payload.success) {
+        //서버에서 담고 있는 borderlist를 List 넣기
+        console.log(response.payload.mborderlist);
+        setMlist(response.payload.mborderlist);
+        //success:false 일시
+      } else {
+        alert("실패");
+      }
+    });
   }, []);
+
+  //게시판 새로고침
   const reload = () => {
     dispatch(borderget()).then((response) => {
       //서버에서 success:true 일시
@@ -84,6 +105,8 @@ function BorderList() {
       }
     });
   };
+
+  const loadmore = () => {};
   // 반응형 웹 전용 게시판 목록
   const Mobile = List.map((post, index) => {
     return (
@@ -176,7 +199,11 @@ function BorderList() {
             <Button variant="primary">글쓰기</Button>
           </Link>
           <div>
-            <Button onClick={reload} className="refresh">
+            <Button
+              onClick={reload}
+              className="refresh"
+              style={{ background: "none", border: "none" }}
+            >
               <Image src={refresh} style={{ width: "20px" }} />
             </Button>
             <Search
@@ -202,6 +229,9 @@ function BorderList() {
               </tr>
             </thead>
             {Mobile}
+            <Button variant="primary" onClick={loadmore}>
+              글쓰기
+            </Button>
           </Table>
         </div>
       </div>

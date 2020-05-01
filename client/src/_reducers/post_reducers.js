@@ -5,6 +5,7 @@ import {
   BORDER_INFO,
   BORDER_EDIT,
   BORDER_DELETE,
+  MBORDER_GET,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
@@ -25,6 +26,9 @@ export default function (state = {}, action) {
       return { ...state, success: action.payload };
     //게시글 삭제
     case BORDER_DELETE:
+      return { ...state, success: action.payload };
+    //모바일 게시글
+    case MBORDER_GET:
       return { ...state, success: action.payload };
 
     default:

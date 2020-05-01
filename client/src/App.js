@@ -20,6 +20,7 @@ function App() {
         <Route exact path="/" component={Auth(LandingPage, false)} />
         <Route exact path="/Login" component={Auth(LoginPage, false)} />
         <Route exact path="/register" component={Auth(RegisterPage, false)} />
+
         <Route exact path="/Write" component={Auth(BorderWrite, true)} />
         <Route exact path="/List" component={Auth(BorderList, false)} />
         <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
