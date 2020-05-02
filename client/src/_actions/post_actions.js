@@ -28,8 +28,8 @@ export function borderget() {
   };
 }
 //모바일 게시판 목록
-export function mborderget() {
-  const request = Axios.get("/api/posts/mborder").then(
+export function mborderget(data) {
+  const request = Axios.post("/api/posts/mborder", data).then(
     (response) => response.data
   );
   return {

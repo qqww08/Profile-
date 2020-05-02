@@ -31,8 +31,9 @@ function BorderList() {
   const dispatch = useDispatch();
   //Search props
   const [Searchv, setSearchv] = useState("");
+  //모바일 더보기
   const [Skip, setSkip] = useState(0);
-  const [Limit, setLimit] = useState(8);
+  const [Limit, setLimit] = useState(6);
   const searchHandler = (event) => {
     setSearchv(event.currentTarget.value);
   };
@@ -75,19 +76,29 @@ function BorderList() {
       }
     });
     //모바일 게시판 리스트
-    dispatch(mborderget()).then((response) => {
+    let body = {
+      skip: Skip,
+      limit: Limit,
+    };
+    getmborder(body);
+  }, []);
+  const getmborder = (body) => {
+    dispatch(mborderget(body)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
-        console.log(response.payload.mborderlist);
-        setMlist(response.payload.mborderlist);
+        if (body.loadMore) {
+          setMlist([...mlist, ...response.payload.mborderlist]);
+        } else {
+          setMlist(response.payload.mborderlist);
+        }
+
         //success:false 일시
       } else {
         alert("실패");
       }
     });
-  }, []);
-
+  };
   //게시판 새로고침
   const reload = () => {
     dispatch(borderget()).then((response) => {
@@ -106,9 +117,18 @@ function BorderList() {
     });
   };
 
-  const loadmore = () => {};
+  const loadmore = () => {
+    let skip = Skip + Limit;
+    let body = {
+      skip: Skip,
+      limit: Limit,
+      loadMore: true,
+    };
+    getmborder(body);
+    setSkip(skip);
+  };
   // 반응형 웹 전용 게시판 목록
-  const Mobile = List.map((post, index) => {
+  const Mobile = mlist.map((post, index) => {
     return (
       <tbody key={post._id} style={{ width: "100%", tableLayout: "fixed" }}>
         <tr className="Mtr">
@@ -229,8 +249,12 @@ function BorderList() {
               </tr>
             </thead>
             {Mobile}
-            <Button variant="primary" onClick={loadmore}>
-              글쓰기
+            <Button
+              variant="primary"
+              onClick={loadmore}
+              style={{ margin: "0px auto" }}
+            >
+              더보기
             </Button>
           </Table>
         </div>

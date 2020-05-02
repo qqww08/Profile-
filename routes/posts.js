@@ -13,9 +13,15 @@ router.get("/", (req, res) => {
       res.status(200).json({ success: true, borderlist });
     });
 });
-router.get("/mborder", (req, res) => {
+//모바일 게시판 리스트
+router.post("/mborder", (req, res) => {
+  let limit = req.body.limit ? parseInt(req.body.limit) : 20;
+  let skip = req.body.skip ? parseInt(req.body.skip) : 0;
+
   Post.find()
     .populate("writer")
+    .limit(limit)
+    .skip(skip)
     .sort("-createdAt")
     .exec((err, mborderlist) => {
       if (err) return res.status(400).send(err);
