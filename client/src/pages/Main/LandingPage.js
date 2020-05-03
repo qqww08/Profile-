@@ -27,7 +27,6 @@ function LadingPage() {
       </div>
 
       <Contact />
-      <Header />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from "../Register/RegisterPage";
 import { logout } from "../../_actions/user_actions";
 import { withRouter, Link } from "react-router-dom";
 import { Button, ButtonGroup } from "react-bootstrap";
@@ -26,16 +27,8 @@ function HeaderRight(props) {
   if (user.userData && !user.userData.isAuth) {
     return (
       <ButtonGroup aria-label="Basic example">
-        <Link to="/Login">
-          <Button variant="link" style={{ textDecoration: "none" }}>
-            Login
-          </Button>
-        </Link>
-        <Link to="/Register">
-          <Button variant="link" style={{ textDecoration: "none" }}>
-            Register
-          </Button>
-        </Link>
+        <LoginPage />
+        <RegisterPage />
       </ButtonGroup>
     );
     //로그인한 경우 로그아웃 버튼 보여주기

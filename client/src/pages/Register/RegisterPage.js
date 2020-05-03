@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Modal, Button } from "react-bootstrap";
 import { register } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
 
 import "./RegisterPage.css";
 
-function RegisterPage(props) {
+function RegisterPage() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => {
+    setShow(false);
+    setName("");
+    setEmail("");
+    setPassword("");
+    setPassCh("");
+  };
+  const handleShow = () => setShow(true);
   //dispatch 사용하기 위해 선언
   const dispatch = useDispatch();
   //회원가입 정보를 받아오기 위해 useState 받아올 변수 선언
@@ -61,8 +72,9 @@ function RegisterPage(props) {
         //서버에서 success: ture 일시
         if (response.payload.success) {
           // console.log(response);
-          props.history.push("/login");
+
           alert("회원가입 완료");
+          setShow(false);
           //서버에서 success:false 일시
         } else {
           setMessage("이메일 중복 입니다");
@@ -72,70 +84,77 @@ function RegisterPage(props) {
   };
 
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          height: "100vh",
-        }}
+    <>
+      <Button
+        variant="link"
+        onClick={handleShow}
+        style={{ textDecoration: "none", margin: "0px" }}
       >
-        <form
-          className="FormBack"
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={submitHandler}
-        >
-          <h1 style={{ fontSize: "50px", margin: "0px", textAlign: "center" }}>
-            회원가입
-          </h1>
-          {/* 회원가입 페이지 이름 Input */}
-          <input
-            className="inputEmail"
-            type="text"
-            value={Name}
-            onChange={NameHandler}
-            placeholder="이름"
-            maxLength="6"
-          />
-          {/* 회원가입 페이지 이메일 Input */}
-          <input
-            className="inputEmail"
-            type="email"
-            value={Email}
-            onChange={EmailHandler}
-            placeholder="이메일"
-          />
-          {/* 회원가입 페이지 패스워드 Input */}
-          <input
-            className="inputPass"
-            type="password"
-            value={Password}
-            minLength="5"
-            onChange={PassHandler}
-            placeholder="패스워드"
-          />
-          {/* 회원가입 페이지 패스워드 체크 Input */}
-          <input
-            className="inputPass"
-            type="password"
-            value={PassCh}
-            onChange={PassChHandler}
-            placeholder="패스워드 체크"
-          />
+        회원가입
+      </Button>
 
-          <br />
-          <label style={{ color: "red", margin: "0px", padding: "0px" }}>
-            {Message}
-          </label>
-          {/* 회원가입 페이지 회원가입 버튼 */}
-          <button className="btnLogin" type="submit">
-            Register
-          </button>
-        </form>
-      </div>
-    </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>환영합니다</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <form
+            className="FormBack"
+            style={{ display: "flex", flexDirection: "column" }}
+            onSubmit={submitHandler}
+          >
+            <h1
+              style={{ fontSize: "50px", margin: "0px", textAlign: "center" }}
+            >
+              회원가입
+            </h1>
+            {/* 회원가입 페이지 이름 Input */}
+            <input
+              className="inputEmail"
+              type="text"
+              value={Name}
+              onChange={NameHandler}
+              placeholder="이름"
+              maxLength="6"
+            />
+            {/* 회원가입 페이지 이메일 Input */}
+            <input
+              className="inputEmail"
+              type="email"
+              value={Email}
+              onChange={EmailHandler}
+              placeholder="이메일"
+            />
+            {/* 회원가입 페이지 패스워드 Input */}
+            <input
+              className="inputPass"
+              type="password"
+              value={Password}
+              minLength="5"
+              onChange={PassHandler}
+              placeholder="패스워드"
+            />
+            {/* 회원가입 페이지 패스워드 체크 Input */}
+            <input
+              className="inputPass"
+              type="password"
+              value={PassCh}
+              onChange={PassChHandler}
+              placeholder="패스워드 체크"
+            />
+
+            <br />
+            <label style={{ color: "red", margin: "0px", padding: "0px" }}>
+              {Message}
+            </label>
+            {/* 회원가입 페이지 회원가입 버튼 */}
+            <button className="btnLogin" type="submit">
+              Register
+            </button>
+          </form>
+        </Modal.Body>
+      </Modal>
+    </>
   );
 }
 export default withRouter(RegisterPage);
