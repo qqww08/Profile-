@@ -3,9 +3,9 @@ import project1 from "./images/project1.PNG";
 import project2 from "./images/project2.PNG";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";
-import { Link } from "react-router-dom";
-import "./css/project.css";
 
+import "./css/project.css";
+import { Link as Li, animateScroll as scroll } from "react-scroll";
 // Project 설명
 function Project() {
   return (
@@ -37,9 +37,9 @@ function Project() {
             <Card.Body className="project_con">
               <Card.Title>게시판</Card.Title>
               <Card.Text>페이지 기능 : 게시판CRUD, 페이징, SPA </Card.Text>
-              <Link to="/List">
+              <Li to="boader" spy={true} smooth={true}>
                 <Button variant="primary">바로가기</Button>
-              </Link>
+              </Li>
             </Card.Body>
           </Card>
         </div>
