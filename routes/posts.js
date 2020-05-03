@@ -33,7 +33,7 @@ router.post("/search", (req, res) => {
   const term = req.body.searchTerm;
 
   Post.find()
-    .find({ $text: { $search: term } })
+    .find({ title: { $regex: term } })
     .populate("writer")
     .sort("-createdAt")
     .exec((err, borderlist) => {
