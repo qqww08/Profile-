@@ -9,6 +9,8 @@
   margin-bottom: 50px;
 }
 .header2 {
+  display: flex;
+  justify-content: space-between;
   background: #fafafa;
   position: fixed;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
@@ -38,8 +40,13 @@
   margin: 0px;
   display: none;
 }
-.textDeco {
-  text-decoration: underline;
+.nonee {
+  margin: 0px;
+  display: none;
+}
+.textdeco {
+  margin: 0px;
+  border: solid 2px red;
 }
 @media screen and (max-width: 768px) {
   .header_ {

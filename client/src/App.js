@@ -13,7 +13,7 @@ import Header from "./pages/Main/Header";
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
 import Github from "./pages/Main/Github";
-import ScrollAnimation from "react-animate-on-scroll";
+
 function App() {
   return (
     <Router>
@@ -27,9 +27,6 @@ function App() {
         <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
         <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />
       </Switch>
-      <ScrollAnimation animateIn="fadeIn">
-        <Header />
-      </ScrollAnimation>
     </Router>
   );
 }

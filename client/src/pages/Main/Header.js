@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
-import "antd/dist/antd.css";
+
 import { Button, Dropdown } from "react-bootstrap";
-import "antd/es/button/style";
+import ScrollAnimation from "react-animate-on-scroll";
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
 
@@ -30,14 +30,14 @@ function Header() {
     () => {
       const handleScroll = () => setScrollY(window.scrollY);
       window.addEventListener("scroll", debounce(handleScroll));
-      const isTop = window.scrollY < 600;
+      const isTop = window.scrollY < 700;
+
       console.log(window.scrollY);
       if (isTop !== true) {
         setscrolled(true);
       } else {
         setscrolled(false);
       }
-      return () => window.removeEventListener("scroll", debounce(handleScroll));
     },
     [debounce, window.scrollY] // If you remove this, things go 🍌🍌🍌
   );
@@ -55,6 +55,7 @@ function Header() {
                 style={{ textDecoration: "none" }}
                 onClick={scroll.scrollToTop}
               >
+                {/* <aside>Scrolled: {scrollY}</aside> */}
                 Home
               </Button>
             </Li>
@@ -63,17 +64,23 @@ function Header() {
         {/* navbar 중간 */}
 
         <div className="head_medium">
-          <Link to="about" spy={true} smooth={true}>
-            <Button variant="link" className="textDeco">
-              About
-            </Button>
-          </Link>
-
-          <Link to="skill" spy={true} smooth={true}>
-            <Button variant="link" style={{ textDecoration: "none" }}>
-              Skill
-            </Button>
-          </Link>
+          <div style={{ margin: "0px" }}>
+            <Link to="about" spy={true} smooth={true}>
+              <Button
+                variant="link "
+                style={{ textDecoration: "none", margin: "0px" }}
+              >
+                About
+              </Button>
+            </Link>
+          </div>
+          <div>
+            <Link to="skill" spy={true} smooth={true}>
+              <Button variant="link" style={{ textDecoration: "none" }}>
+                Skill
+              </Button>
+            </Link>
+          </div>
           <Link to="boader" spy={true} smooth={true}>
             <Button variant="link" style={{ textDecoration: "none" }}>
               Board

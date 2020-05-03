@@ -15,7 +15,7 @@ function LadingPage() {
   return (
     <div>
       <Back />
-      <Header />
+
       <div className="LMain">
         <Profile />
 
@@ -27,6 +27,7 @@ function LadingPage() {
       </div>
 
       <Contact />
+      <Header />
     </div>
   );
 }
