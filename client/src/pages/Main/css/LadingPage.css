@@ -1,14 +1,11 @@
-body {
-  margin: 0;
-}
 .LMain {
   width: 800px;
   margin: 0px auto;
-  margin-top: 55px;
+}
+.LadingImg {
 }
 @media screen and (max-width: 768px) {
   .LMain {
-    margin-top: 55px;
     width: 100%;
   }
 }

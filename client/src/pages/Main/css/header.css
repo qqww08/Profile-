@@ -1,23 +1,22 @@
-.header_ {
+.header {
   font-family: "Nanum";
   color: #1d4e89;
   display: flex;
   justify-content: space-between;
-  background: #fafafa;
   width: 100%;
   position: fixed;
   top: 0;
   margin-bottom: 50px;
+}
+.header2 {
+  background: #fafafa;
+  position: fixed;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
 }
-
 .head_left {
   display: flex;
   align-items: center;
   margin: 8px 12px;
-}
-.head_left li {
-  list-style-type: none;
 }
 
 .head_medium {
@@ -27,9 +26,6 @@
   display: flex;
 
   align-items: center;
-}
-.head_medium li {
-  list-style-type: none;
 }
 
 .head_right {
@@ -42,7 +38,9 @@
   margin: 0px;
   display: none;
 }
-
+.textDeco {
+  text-decoration: underline;
+}
 @media screen and (max-width: 768px) {
   .header_ {
     flex-direction: column;

@@ -1,12 +1,11 @@
 import React from "react";
 import Typing from "./typing";
 import images from "./images/back.PNG";
-
+import "./css/back.css";
 function Back() {
   return (
     //Landing Page Img
-    <div className="Size">
-      <img src={images} className="img_size" alt="" />
+    <div className="back">
       <span className="imgText">
         <Typing />
       </span>

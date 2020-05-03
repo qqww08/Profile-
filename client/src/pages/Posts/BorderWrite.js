@@ -99,7 +99,7 @@ function BorderWrite(props) {
               <Button variant="primary" onClick={BoderSubmit}>
                 등록
               </Button>
-              <Link to="/List">
+              <Link to="/">
                 <Button variant="secondary">취소</Button>
               </Link>
             </ButtonGroup>

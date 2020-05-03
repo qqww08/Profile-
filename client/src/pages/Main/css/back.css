@@ -1,9 +1,3 @@
-.Size {
-  position: relative;
-}
-.img_size {
-  width: 100%;
-}
 .imgText {
   position: absolute;
   top: 50%;
@@ -15,6 +9,20 @@
 }
 .Typist {
   font-size: 26px;
+}
+.back {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url(../images/back.PNG);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Center and scale the image nicely */
+}
+.Size {
 }
 @media screen and (max-width: 768px) {
   .Typist {

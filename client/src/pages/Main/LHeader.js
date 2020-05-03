@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 import "antd/dist/antd.css";
@@ -8,44 +8,11 @@ import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
 
 // navbar
-export function debounce(func, wait = 20, immediate = true) {
-  let timeout;
-  return function () {
-    const context = this;
-    const args = arguments;
-    const later = function () {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-}
-function Header() {
-  const [scrollY, setScrollY] = useState(window.scrollY);
-  const [scrolled, setscrolled] = useState(false);
-  useEffect(
-    () => {
-      const handleScroll = () => setScrollY(window.scrollY);
-      window.addEventListener("scroll", debounce(handleScroll));
-      const isTop = window.scrollY < 600;
-      console.log(window.scrollY);
-      if (isTop !== true) {
-        setscrolled(true);
-      } else {
-        setscrolled(false);
-      }
-      return () => window.removeEventListener("scroll", debounce(handleScroll));
-    },
-    [debounce, window.scrollY] // If you remove this, things go 🍌🍌🍌
-  );
-
+function LHeader() {
   return (
     <nav className="body">
       {/* header */}
-      <div className={scrolled ? "header header2" : "header"}>
+      <div className="header_">
         <ul className="head_left">
           {/* 홈버튼 */}
           <li>
@@ -64,7 +31,7 @@ function Header() {
 
         <div className="head_medium">
           <Link to="about" spy={true} smooth={true}>
-            <Button variant="link" className="textDeco">
+            <Button variant="link" style={{ textDecoration: "none" }}>
               About
             </Button>
           </Link>
@@ -151,4 +118,4 @@ function Header() {
   );
 }
 
-export default withRouter(Header);
+export default withRouter(LHeader);
