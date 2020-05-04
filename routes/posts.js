@@ -17,8 +17,9 @@ router.get("/", (req, res) => {
 router.post("/mborder", (req, res) => {
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
   let skip = req.body.skip ? parseInt(req.body.skip) : 0;
-
+  const term = req.body.searchTerm;
   Post.find()
+    .find({ title: { $regex: term } })
     .populate("writer")
     .limit(limit)
     .skip(skip)

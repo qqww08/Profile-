@@ -18,8 +18,10 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Auth(LandingPage, false)} />
+
       <Header />
       <Github />
+
       <Switch>
         <Route exact path="/Write" component={Auth(BorderWrite, true)} />
         <Route exact path="/List" component={Auth(BorderList, false)} />

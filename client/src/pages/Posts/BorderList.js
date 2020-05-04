@@ -161,7 +161,7 @@ function BorderList() {
           {/* 글쓰기 서치바 */}
           <div className="ListTop">
             <Link to="/Write">
-              <Button variant="primary">글쓰기</Button>
+              <Button variant="dark">글쓰기</Button>
             </Link>
             <div>
               <Button
@@ -221,24 +221,8 @@ function BorderList() {
         <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
           <div className="BEditM">
             <Link to="/Write">
-              <Button variant="primary">글쓰기</Button>
+              <Button variant="dark">글쓰기</Button>
             </Link>
-            <div>
-              <Button
-                onClick={reload}
-                className="refresh"
-                style={{ background: "none", border: "none" }}
-              >
-                <Image src={refresh} style={{ width: "20px" }} />
-              </Button>
-              <Search
-                placeholder="Search"
-                value={Searchv}
-                onChange={searchHandler}
-                onSearch={updateSearch}
-                style={{ width: 200 }}
-              />
-            </div>
           </div>
           <div className="BMobile">
             <Table
@@ -254,13 +238,11 @@ function BorderList() {
                 </tr>
               </thead>
               {Mobile}
-              <Button
-                variant="primary"
-                onClick={loadmore}
-                style={{ margin: "0px auto" }}
-              >
-                더보기
-              </Button>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Button variant="dark" onClick={loadmore}>
+                  더보기
+                </Button>
+              </div>
             </Table>
           </div>
         </ScrollAnimation>

@@ -1,5 +1,5 @@
 import React from "react";
-import images1 from "./images/back.jpg";
+import images1 from "./images/Pro.jpg";
 import "./css/profile.css";
 import { Element } from "react-scroll";
 import ScrollAnimation from "react-animate-on-scroll";

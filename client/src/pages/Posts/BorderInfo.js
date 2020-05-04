@@ -23,7 +23,9 @@ function BorderInfo(props) {
   //게시글 정보 변수
   const [Info, setInfo] = useState([]);
   const dispatch = useDispatch();
-
+  const goBack = () => {
+    props.history.goBack();
+  };
   useEffect(() => {
     //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
     dispatch(borderinfo(UserInfo)).then((response) => {
@@ -31,6 +33,7 @@ function BorderInfo(props) {
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
         setInfo(response.payload.post);
+
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");
@@ -44,7 +47,7 @@ function BorderInfo(props) {
     dispatch(bdelete(UserInfo)).then((response) => {
       //서버에서 success:ture 일시
       if (response.payload.success) {
-        props.history.push("/List");
+        props.history.push("/");
       } else {
         alert("삭제실패");
       }
@@ -83,9 +86,9 @@ function BorderInfo(props) {
               <Form.Label>제목 {Info.title}</Form.Label>
               {/* 게시판 목록으로 돌아가기 */}
 
-              <Link to="/">
-                <Button variant="secondary">목록</Button>
-              </Link>
+              <Button variant="secondary" onClick={goBack}>
+                목록
+              </Button>
             </Form.Group>
             <Form.Group
               style={{

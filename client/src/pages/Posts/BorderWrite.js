@@ -24,6 +24,10 @@ function BorderWrite(props) {
   const TextHandler = (event) => {
     setBorderText(event.currentTarget.value);
   };
+
+  const goBack = () => {
+    props.history.goBack();
+  };
   //등록 버튼 클릭 시
   const BoderSubmit = (event) => {
     event.preventDefault();
@@ -99,9 +103,10 @@ function BorderWrite(props) {
               <Button variant="primary" onClick={BoderSubmit}>
                 등록
               </Button>
-              <Link to="/">
-                <Button variant="secondary">취소</Button>
-              </Link>
+
+              <Button variant="secondary" onClick={goBack}>
+                취소
+              </Button>
             </ButtonGroup>
           </Form.Group>
         </Form>
