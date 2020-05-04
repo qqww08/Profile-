@@ -37,7 +37,7 @@ function HeaderRight(props) {
       <Button
         variant="link"
         onClick={onClickHandler}
-        style={{ textDecoration: "none" }}
+        style={{ textDecoration: "none", color: "black" }}
       >
         Logout
       </Button>

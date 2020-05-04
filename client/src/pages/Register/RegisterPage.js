@@ -88,7 +88,7 @@ function RegisterPage() {
       <Button
         variant="link"
         onClick={handleShow}
-        style={{ textDecoration: "none", margin: "0px" }}
+        style={{ textDecoration: "none", margin: "0px", color: "black" }}
       >
         회원가입
       </Button>

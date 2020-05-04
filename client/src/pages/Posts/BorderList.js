@@ -11,7 +11,7 @@ import Moment from "react-moment";
 import "moment-timezone";
 import Listcheck from "./PostsList";
 import Pagination from "./Pagination";
-
+import ScrollAnimation from "react-animate-on-scroll";
 function BorderList() {
   //게시판에 올라오는 정보 변수
   const { Search } = Input;
@@ -156,108 +156,114 @@ function BorderList() {
   return (
     <div>
       <Element id="boader" />
-      <div className="none">
-        {/* 글쓰기 서치바 */}
-        <div className="ListTop">
-          <Link to="/Write">
-            <Button variant="primary">글쓰기</Button>
-          </Link>
-          <div>
-            <Button
-              onClick={reload}
-              className="refresh"
-              style={{ background: "none", border: "none" }}
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <div className="none">
+          {/* 글쓰기 서치바 */}
+          <div className="ListTop">
+            <Link to="/Write">
+              <Button variant="primary">글쓰기</Button>
+            </Link>
+            <div>
+              <Button
+                onClick={reload}
+                className="refresh"
+                style={{ background: "none", border: "none" }}
+              >
+                <Image src={refresh} style={{ width: "20px" }} />
+              </Button>
+              <Search
+                placeholder="Search"
+                value={Searchv}
+                onChange={searchHandler}
+                onSearch={updateSearch}
+                style={{ width: 200 }}
+              />
+            </div>
+          </div>
+          {/* 게시판 목록 */}
+
+          <div className="Blist">
+            <Table
+              striped
+              bordered
+              hover
+              size="sm"
+              style={{ width: "800px", tableLayout: "fixed" }}
             >
-              <Image src={refresh} style={{ width: "20px" }} />
-            </Button>
-            <Search
-              placeholder="Search"
-              value={Searchv}
-              onChange={searchHandler}
-              onSearch={updateSearch}
-              style={{ width: 200 }}
-            />
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "center", width: "300px" }}>내용</th>
+                  <th style={{ width: "150px" }}>작성자</th>
+                  <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
+                </tr>
+              </thead>
+              <Listcheck List={currentPosts} loading={loading} paginate />
+            </Table>
+          </div>
+
+          <div className="BEdit">
+            <ul style={{ width: "800px", display: "flex" }}>
+              {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
+
+              <li style={{ margin: "0 auto" }}>
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  totalPosts={List.length}
+                  paginate={paginate}
+                />
+              </li>
+            </ul>
           </div>
         </div>
-        {/* 게시판 목록 */}
-        <div className="Blist">
-          <Table
-            striped
-            bordered
-            hover
-            size="sm"
-            style={{ width: "800px", tableLayout: "fixed" }}
-          >
-            <thead>
-              <tr>
-                <th style={{ textAlign: "center", width: "300px" }}>내용</th>
-                <th style={{ width: "150px" }}>작성자</th>
-                <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
-              </tr>
-            </thead>
-            <Listcheck List={currentPosts} loading={loading} paginate />
-          </Table>
-        </div>
-        <div className="BEdit">
-          <ul style={{ width: "800px", display: "flex" }}>
-            {/* 글쓰기 버튼에 props 이용해서 정보 넘기기 */}
-
-            <li style={{ margin: "0 auto" }}>
-              <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={List.length}
-                paginate={paginate}
-              />
-            </li>
-          </ul>
-        </div>
-      </div>
+      </ScrollAnimation>
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
-        <div className="BEditM">
-          <Link to="/Write">
-            <Button variant="primary">글쓰기</Button>
-          </Link>
-          <div>
-            <Button
-              onClick={reload}
-              className="refresh"
-              style={{ background: "none", border: "none" }}
-            >
-              <Image src={refresh} style={{ width: "20px" }} />
-            </Button>
-            <Search
-              placeholder="Search"
-              value={Searchv}
-              onChange={searchHandler}
-              onSearch={updateSearch}
-              style={{ width: 200 }}
-            />
+        <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+          <div className="BEditM">
+            <Link to="/Write">
+              <Button variant="primary">글쓰기</Button>
+            </Link>
+            <div>
+              <Button
+                onClick={reload}
+                className="refresh"
+                style={{ background: "none", border: "none" }}
+              >
+                <Image src={refresh} style={{ width: "20px" }} />
+              </Button>
+              <Search
+                placeholder="Search"
+                value={Searchv}
+                onChange={searchHandler}
+                onSearch={updateSearch}
+                style={{ width: 200 }}
+              />
+            </div>
           </div>
-        </div>
-        <div className="BMobile">
-          <Table
-            striped
-            bordered
-            hover
-            size="sm"
-            style={{ width: "100%", tableLayout: "fixed" }}
-          >
-            <thead>
-              <tr>
-                <th style={{ textAlign: "center" }}>전체글</th>
-              </tr>
-            </thead>
-            {Mobile}
-            <Button
-              variant="primary"
-              onClick={loadmore}
-              style={{ margin: "0px auto" }}
+          <div className="BMobile">
+            <Table
+              striped
+              bordered
+              hover
+              size="sm"
+              style={{ width: "100%", tableLayout: "fixed" }}
             >
-              더보기
-            </Button>
-          </Table>
-        </div>
+              <thead>
+                <tr>
+                  <th style={{ textAlign: "center" }}>전체글</th>
+                </tr>
+              </thead>
+              {Mobile}
+              <Button
+                variant="primary"
+                onClick={loadmore}
+                style={{ margin: "0px auto" }}
+              >
+                더보기
+              </Button>
+            </Table>
+          </div>
+        </ScrollAnimation>
       </div>
     </div>
   );

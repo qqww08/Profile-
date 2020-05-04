@@ -50,7 +50,7 @@ function LoginPage(props) {
       <Button
         variant="link"
         onClick={handleShow}
-        style={{ textDecoration: "none", margin: "0px" }}
+        style={{ textDecoration: "none", margin: "0px", color: "black" }}
       >
         로그인
       </Button>
