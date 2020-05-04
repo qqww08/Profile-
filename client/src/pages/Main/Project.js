@@ -38,7 +38,9 @@ function Project() {
               <Card.Title>게시판</Card.Title>
               <Card.Text>페이지 기능 : 게시판CRUD, 페이징, SPA </Card.Text>
               <Li to="boader" spy={true} smooth={true}>
-                <Button variant="primary">바로가기</Button>
+                <Button variant="primary" style={{ width: "100%" }}>
+                  바로가기
+                </Button>
               </Li>
             </Card.Body>
           </Card>
