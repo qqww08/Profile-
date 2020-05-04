@@ -22,7 +22,7 @@ function Profile() {
               <p>이름:신대현</p>
               <p>나이:27세(1994.05.10)</p>
               <p>연락처:010-9447-6412</p>
-              <p>지역:울산</p>
+              <p>지역:울산(희망근무지 서울)</p>
               <p>E-mail:qqwwee08@naver.com</p>
             </div>
             <div>

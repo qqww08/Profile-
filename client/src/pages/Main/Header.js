@@ -32,7 +32,6 @@ function Header() {
       window.addEventListener("scroll", debounce(handleScroll));
       const isTop = window.scrollY < 700;
 
-      console.log(window.scrollY);
       if (isTop !== true) {
         setscrolled(true);
       } else {
