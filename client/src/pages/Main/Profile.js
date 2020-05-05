@@ -34,10 +34,10 @@ function Profile() {
                 <p>E-mail:qqwwee08@naver.com</p>
               </div>
               <div>
-                <h1 className="profileText">History</h1>
+                {/* <h1 className="profileText">History</h1>
                 <p>2013.03 ~ 2019.02: 울산과학대학교 컴퓨터정보학과 졸업</p>
                 <p>2019.03 ~ 2020.04: 현대아이씨티 근무</p>
-                <p>(현대중공업 네트워크 인프라 운영)</p>
+                <p>(현대중공업 네트워크 인프라 운영)</p> */}
               </div>
               <div>
                 <h1 className="profileText">License</h1>
