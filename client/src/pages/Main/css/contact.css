@@ -22,3 +22,19 @@
   display: flex;
   justify-content: center;
 }
+.footerF {
+  display: flex;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  .footerFlex {
+    font-size: 15px;
+    padding: 0px;
+  }
+  .footerSize {
+    width: 80%;
+  }
+  .footerF {
+    font-size: 10px;
+  }
+}

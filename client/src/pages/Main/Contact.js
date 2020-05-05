@@ -20,12 +20,12 @@ function Contact() {
             <Card.Title className="footerFlex">qqwwee08@naver.com</Card.Title>
           </Card.Body>
         </Card>
-        <Card.Title className="footerFlex">
+        <Card.Title className="footerF">
           본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로
           제작되었습니다.
         </Card.Title>
 
-        <Card.Title className="footerFlex">
+        <Card.Title className="footerF">
           Copyrightⓒ2020. 신대현. All rights reserved.
         </Card.Title>
       </Card.Footer>
