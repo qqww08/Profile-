@@ -3,7 +3,11 @@ import { withRouter, Link } from "react-router-dom";
 import { Element } from "react-scroll";
 import { Table, Button, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { borderget, borderpost, mborderget } from "../../_actions/post_actions";
+import {
+  borderget,
+  bordersearch,
+  mborderget,
+} from "../../_actions/post_actions";
 import { Input } from "antd";
 import refresh from "./img/refresh.svg";
 import "./css/BList.css";
@@ -46,14 +50,15 @@ function BorderList() {
     const body = {
       searchTerm: Searchv,
     };
-    dispatch(borderpost(body)).then((response) => {
+    dispatch(bordersearch(body)).then((response) => {
       //서버에서 success:true 일시
       setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
+        setMlist(response.payload.borderlist);
         setLoading(false);
-
+        setPostSize(response.payload.postSize);
         //success:false 일시
       } else {
         alert("실패");
@@ -69,6 +74,7 @@ function BorderList() {
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
+
         setLoading(false);
 
         //success:false 일시
@@ -83,6 +89,7 @@ function BorderList() {
     };
     getmborder(body);
   }, []);
+  //모바일 게시판 리스트
   const getmborder = (body) => {
     dispatch(mborderget(body)).then((response) => {
       //서버에서 success:true 일시

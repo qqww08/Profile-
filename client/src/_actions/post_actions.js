@@ -38,7 +38,7 @@ export function mborderget(data) {
   };
 }
 //게시판 검색
-export function borderpost(data) {
+export function bordersearch(data) {
   const request = Axios.post("/api/posts/search", data).then(
     (response) => response.data
   );
