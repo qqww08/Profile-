@@ -176,8 +176,10 @@ function BorderList() {
   return (
     <div>
       <Element id="boader" />
+
       <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
         <div className="none">
+          <h1 className="h1Text">게시판</h1>
           {/* 글쓰기 서치바 */}
           <div className="ListTop">
             <Link to="/Write">
@@ -239,6 +241,7 @@ function BorderList() {
       {/* 반응형 웹, 웹페이지가 작아질 경우 */}
       <div>
         <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+          <h1 className="hText">게시판</h1>
           <div className="BEditM">
             <Link to="/Write">
               <Button variant="dark">글쓰기</Button>

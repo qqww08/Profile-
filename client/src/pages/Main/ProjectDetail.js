@@ -86,10 +86,10 @@ function ProjectDetail() {
                 포트폴리오 입니다.
               </p>
               <p className="profileText">제작기간</p>
-              <p>20.03.16 ~</p>
+              <p style={{ paddingLeft: "15px" }}>20.03.16 ~</p>
 
               <p className="profileText">목표</p>
-              <p>
+              <p style={{ paddingLeft: "15px" }}>
                 Git,React,nodeJs,expressJs,MongoDb 등 처음 사용 해보는
                 프레임워크, 라이브러리를 활용해서 동적인 웹페이지 제작 해서
                 배포까지 하기
