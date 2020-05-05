@@ -68,13 +68,17 @@ function BorderList() {
 
   useEffect(() => {
     //웹 게시판 목록 불러오기
+    const head_medium = document.querySelector(".head_medium");
+    const header = document.querySelector(".header");
+
     dispatch(borderget()).then((response) => {
       //서버에서 success:true 일시
       setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
         setList(response.payload.borderlist);
-
+        head_medium.classList.remove("active");
+        header.classList.remove("active");
         setLoading(false);
 
         //success:false 일시

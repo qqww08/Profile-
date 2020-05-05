@@ -51,6 +51,16 @@
   margin: 0px;
   border: solid 2px red;
 }
+.head_medium.active {
+  display: none;
+}
+.header.active {
+  display: flex;
+  justify-content: space-between;
+  background: #fafafa;
+  position: fixed;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+}
 @media screen and (max-width: 768px) {
   .header_ {
     flex-direction: column;

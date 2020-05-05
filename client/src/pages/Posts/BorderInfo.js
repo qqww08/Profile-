@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
-import { Link as Li, animateScroll as scroll } from "react-scroll";
+
 import "./css/Info.css";
 
 // import PutDel from "./PutDel";
@@ -27,13 +27,16 @@ function BorderInfo(props) {
     props.history.goBack();
   };
   useEffect(() => {
+    const head_medium = document.querySelector(".head_medium");
+    const header = document.querySelector(".header");
     //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
     dispatch(borderinfo(UserInfo)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
         setInfo(response.payload.post);
-
+        head_medium.classList.add("active");
+        header.classList.add("active");
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");
@@ -85,10 +88,11 @@ function BorderInfo(props) {
               {/* :postId로 받아온 게시글 제목 */}
               <Form.Label>제목 {Info.title}</Form.Label>
               {/* 게시판 목록으로 돌아가기 */}
-
-              <Button variant="secondary" onClick={goBack}>
-                목록
-              </Button>
+              <Link to="/">
+                <Button variant="secondary" onClick={goBack}>
+                  목록
+                </Button>
+              </Link>
             </Form.Group>
             <Form.Group
               style={{
