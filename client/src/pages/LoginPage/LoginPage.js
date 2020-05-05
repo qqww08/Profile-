@@ -7,9 +7,9 @@ import { withRouter } from "react-router-dom";
 import "./LoginPage.css";
 function LoginPage(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => {
     setShow(false);
+
     setEmail("");
     setPassword("");
   };

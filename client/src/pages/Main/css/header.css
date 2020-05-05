@@ -61,6 +61,7 @@
   position: fixed;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
 }
+
 @media screen and (max-width: 768px) {
   .header_ {
     flex-direction: column;
@@ -78,6 +79,7 @@
     justify-content: center;
     margin-bottom: 8px;
   }
+
   .menu_bar {
     top: 0px;
     right: 20px;

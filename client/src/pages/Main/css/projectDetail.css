@@ -1,0 +1,15 @@
+.detail_body {
+  width: 90%;
+}
+.detailimg {
+  height: 200px;
+}
+.projectfont {
+  font-size: 25px;
+}
+.projectDe {
+  font-size: 20px;
+}
+.projectDe li {
+  padding-left: 15px;
+}

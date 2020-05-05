@@ -16,7 +16,7 @@ function Header() {
   useEffect(
     () => {
       window.addEventListener("scroll", () => {
-        const isTop = window.scrollY < 753;
+        const isTop = window.scrollY < 600;
         if (isTop !== true) {
           setscrolled(true);
         } else {
@@ -113,48 +113,49 @@ function Header() {
                 textAlign: "center",
               }}
             >
-              <Dropdown.Item>
-                <Link to="about" spy={true} smooth={true}>
-                  <Button
-                    variant="link"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    About
-                  </Button>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="skill" spy={true} smooth={true}>
-                  <Button
-                    variant="link"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    Skill
-                  </Button>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="boader" spy={true} smooth={true}>
-                  <Button
-                    variant="link"
-                    style={{ textDecoration: "none", color: "black" }}
-                    onClick={scroll.scrollToTop}
-                  >
-                    Board
-                  </Button>
-                </Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
-                <Link to="Project" spy={true} smooth={true}>
-                  <Button
-                    variant="link"
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    Project
-                  </Button>
-                </Link>
-              </Dropdown.Item>
-
+              <div className="mheader">
+                <Dropdown.Item>
+                  <Link to="about" spy={true} smooth={true}>
+                    <Button
+                      variant="link"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      About
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="skill" spy={true} smooth={true}>
+                    <Button
+                      variant="link"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      Skill
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="boader" spy={true} smooth={true}>
+                    <Button
+                      variant="link"
+                      style={{ textDecoration: "none", color: "black" }}
+                      onClick={scroll.scrollToTop}
+                    >
+                      Board
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="Project" spy={true} smooth={true}>
+                    <Button
+                      variant="link"
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      Project
+                    </Button>
+                  </Link>
+                </Dropdown.Item>
+              </div>
               <Dropdown.Item>
                 <HeaderRight />
               </Dropdown.Item>

@@ -20,7 +20,8 @@ function Contact() {
             <Card.Title className="footerFlex">qqwwee08@naver.com</Card.Title>
           </Card.Body>
         </Card>
-        <Card.Title className="footerF">
+
+        <Card.Title className="footerF" style={{ marginTop: "20px" }}>
           본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로
           제작되었습니다.
         </Card.Title>

@@ -3,7 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
-
+import "../Main/css/header.css";
 import "./css/Info.css";
 
 // import PutDel from "./PutDel";
@@ -29,6 +29,7 @@ function BorderInfo(props) {
   useEffect(() => {
     const head_medium = document.querySelector(".head_medium");
     const header = document.querySelector(".header");
+
     //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
     dispatch(borderinfo(UserInfo)).then((response) => {
       //서버에서 success:true 일시
@@ -37,6 +38,7 @@ function BorderInfo(props) {
         setInfo(response.payload.post);
         head_medium.classList.add("active");
         header.classList.add("active");
+
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");

@@ -1,6 +1,5 @@
 import React, { useSelector } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "./App.css";
 import Back from "../src/pages/Main/Back";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
