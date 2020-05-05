@@ -23,7 +23,7 @@ function Project() {
               />
               <Card.Body className="project_con">
                 <Card.Title>포트폴리오</Card.Title>
-                <Card.Text>페이지 기능 : 로그인, 회원가입, 로그아웃</Card.Text>
+                {/* <Card.Text>페이지 기능 : 로그인, 회원가입, 로그아웃</Card.Text> */}
                 <Button variant="primary" href="/">
                   바로가기
                 </Button>
