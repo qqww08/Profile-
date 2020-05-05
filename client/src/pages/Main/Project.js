@@ -29,22 +29,6 @@ function Project() {
                 </Button>
               </Card.Body>
             </Card>
-            <Card className="mcard2">
-              <Card.Img
-                variant="top"
-                src={project2}
-                style={{ height: "190px" }}
-              />
-              <Card.Body className="project_con">
-                <Card.Title>게시판</Card.Title>
-                <Card.Text>페이지 기능 : 게시판CRUD, 페이징, SPA </Card.Text>
-                <Li to="boader" spy={true} smooth={true}>
-                  <Button variant="primary" style={{ width: "100%" }}>
-                    바로가기
-                  </Button>
-                </Li>
-              </Card.Body>
-            </Card>
           </div>
         </div>
       </ScrollAnimation>

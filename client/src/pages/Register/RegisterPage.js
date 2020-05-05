@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 import { register } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
-
+import Drop from "../Main/Drop";
 import "./RegisterPage.css";
 
 function RegisterPage() {
@@ -146,6 +146,7 @@ function RegisterPage() {
             <label style={{ color: "red", margin: "0px", padding: "0px" }}>
               {Message}
             </label>
+            <Drop />
             {/* 회원가입 페이지 회원가입 버튼 */}
             <Button className="btnLogin" type="submit">
               Register

@@ -3,6 +3,11 @@
   padding: 30px;
   background-color: #b1b6b7;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.4);
+  /* background-image: url(../images/d.gif); */
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .skill {

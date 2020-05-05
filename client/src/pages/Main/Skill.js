@@ -1,10 +1,11 @@
 import React from "react";
-import expressjs from "./images/expressjs.png";
+import expressjs from "./images/expressjs.svg";
 import mongodb from "./images/mongodb.svg";
 import node from "./images/node.svg";
 import react from "./images/react.svg";
 import redux from "./images/redux.png";
 import Bootstrap from "./images/Bootstrap_logo.png";
+
 import "./css/skill.css";
 import { Element } from "react-scroll";
 import { OverlayTrigger, Card } from "react-bootstrap";
@@ -25,6 +26,7 @@ function Skill() {
                 <Card.Text className="img1">React.js</Card.Text>
               </Card.Body>
             </Card>
+
             <Card className="cardMargin">
               <Card.Img variant="top" src={node} className="imgsize" />
               <Card.Body className="cardSize">

@@ -12,11 +12,11 @@ import { withRouter, Link as Li } from "react-router-dom";
 function Header() {
   const [scrollY, setScrollY] = useState(window.scrollY);
   const [scrolled, setscrolled] = useState(false);
+  const [About, setAbout] = useState(false);
   useEffect(
     () => {
       window.addEventListener("scroll", () => {
         const isTop = window.scrollY < 753;
-
         if (isTop !== true) {
           setscrolled(true);
         } else {
