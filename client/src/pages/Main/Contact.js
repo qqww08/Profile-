@@ -26,7 +26,7 @@ function Contact() {
         </Card.Title>
 
         <Card.Title className="footerFlex">
-          Copyrightⓒ2020. Web Publisher 신대현. All rights reserved.
+          Copyrightⓒ2020. 신대현. All rights reserved.
         </Card.Title>
       </Card.Footer>
     </div>
