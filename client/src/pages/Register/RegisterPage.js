@@ -72,7 +72,6 @@ function RegisterPage() {
         //서버에서 success: ture 일시
         if (response.payload.success) {
           // console.log(response);
-
           alert("회원가입 완료");
           setShow(false);
           //서버에서 success:false 일시
@@ -148,9 +147,9 @@ function RegisterPage() {
               {Message}
             </label>
             {/* 회원가입 페이지 회원가입 버튼 */}
-            <button className="btnLogin" type="submit">
+            <Button className="btnLogin" type="submit">
               Register
-            </button>
+            </Button>
           </form>
         </Modal.Body>
       </Modal>

@@ -1,4 +1,6 @@
 import React, { useSelector } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
 import Back from "../src/pages/Main/Back";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -10,6 +12,7 @@ import RegisterPage from "./pages/Register/RegisterPage";
 import BorderInfo from "./pages/Posts/BorderInfo";
 import BorderEdit from "./pages/Posts/BorderEdit";
 import Header from "./pages/Main/Header";
+
 // import FacebookPage from "./sns/Facebook";
 import Auth from "./hoc/auth";
 import Github from "./pages/Main/Github";

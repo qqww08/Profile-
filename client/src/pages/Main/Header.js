@@ -68,7 +68,7 @@ function Header() {
                 variant="link"
                 style={{ textDecoration: "none", color: "black" }}
               >
-                Skill
+                Stack
               </Button>
             </Link>
           </div>

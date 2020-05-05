@@ -16,15 +16,13 @@ function LadingPage() {
     <div>
       <Back />
 
-      <div className="LMain">
-        <Profile />
+      <Profile />
 
-        <Skill />
+      <Skill />
 
-        <BorderList />
+      <BorderList />
 
-        <Project />
-      </div>
+      <Project />
 
       <Contact />
     </div>
