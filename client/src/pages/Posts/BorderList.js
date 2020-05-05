@@ -34,6 +34,7 @@ function BorderList() {
   //모바일 더보기
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(6);
+  const [PostSize, setPostSize] = useState(0);
   const searchHandler = (event) => {
     setSearchv(event.currentTarget.value);
   };
@@ -92,7 +93,7 @@ function BorderList() {
         } else {
           setMlist(response.payload.mborderlist);
         }
-
+        setPostSize(response.payload.postSize);
         //success:false 일시
       } else {
         alert("실패");
@@ -116,7 +117,15 @@ function BorderList() {
       }
     });
   };
-
+  //모바일 더보기 리셋
+  const mreload = () => {
+    let body = {
+      skip: 0,
+      limit: 6,
+    };
+    getmborder(body);
+  };
+  //모바일 더보기
   const loadmore = () => {
     let skip = Skip + Limit;
     let body = {
@@ -223,6 +232,23 @@ function BorderList() {
             <Link to="/Write">
               <Button variant="dark">글쓰기</Button>
             </Link>
+
+            <div>
+              <Button
+                onClick={mreload}
+                className="refresh"
+                style={{ background: "none", border: "none" }}
+              >
+                <Image src={refresh} style={{ width: "20px" }} />
+              </Button>
+              <Search
+                placeholder="Search"
+                value={Searchv}
+                onChange={searchHandler}
+                onSearch={updateSearch}
+                style={{ width: 200 }}
+              />
+            </div>
           </div>
           <div className="BMobile">
             <Table
@@ -238,10 +264,23 @@ function BorderList() {
                 </tr>
               </thead>
               {Mobile}
+
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Button variant="dark" onClick={loadmore}>
-                  더보기
-                </Button>
+                {PostSize >= Limit ? (
+                  <Button variant="dark" onClick={loadmore}>
+                    더보기
+                  </Button>
+                ) : (
+                  <div>
+                    <Button
+                      onClick={mreload}
+                      className="refresh"
+                      style={{ background: "none", border: "none" }}
+                    >
+                      <Image src={refresh} style={{ width: "20px" }} />
+                    </Button>
+                  </div>
+                )}
               </div>
             </Table>
           </div>

@@ -17,16 +17,18 @@ router.get("/", (req, res) => {
 router.post("/mborder", (req, res) => {
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
   let skip = req.body.skip ? parseInt(req.body.skip) : 0;
-  const term = req.body.searchTerm;
+
   Post.find()
-    .find({ title: { $regex: term } })
+
     .populate("writer")
     .limit(limit)
     .skip(skip)
     .sort("-createdAt")
     .exec((err, mborderlist) => {
       if (err) return res.status(400).send(err);
-      res.status(200).json({ success: true, mborderlist });
+      res
+        .status(200)
+        .json({ success: true, mborderlist, postSize: mborderlist.length });
     });
 });
 //검색
