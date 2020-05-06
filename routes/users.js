@@ -20,6 +20,22 @@ router.post("/register", (req, res) => {
     }
   });
 });
+router.post("/fbregister", (req, res) => {
+  let token = req.body.token;
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (user) {
+      return res.cookie("f_auth", token).status(200).json({ login: true });
+    } else {
+      const user = new User(req.body);
+      user.save((err, userInfo) => {
+        if (err) return res.json({ register: false, err });
+        return res.status(200).json({
+          register: true,
+        });
+      });
+    }
+  });
+});
 
 router.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {

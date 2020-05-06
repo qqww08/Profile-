@@ -1,12 +1,5 @@
 import Axios from "axios";
-import {
-  LOGIN_USER,
-  REGISTER,
-  AUTH_USER,
-  // FACE_USER,
-  // FACE_REG,
-  LOGOUT,
-} from "./types";
+import { LOGIN_USER, REGISTER, AUTH_USER, FB_REGISTER, LOGOUT } from "./types";
 //로그인 정보 전송
 export function loginUser(dataToSubmit) {
   const request = Axios.post("/api/users/login", dataToSubmit).then(
@@ -39,26 +32,16 @@ export function register(dataToSubmit) {
     payload: request,
   };
 }
-// export function fbUser(data) {
-//   const request = Axios.post("/api/users/fblogin", data).then(
-//     (response) => response.data
-//   );
+export function fbregister(dataToSubmit) {
+  const request = Axios.post("/api/users/fbregister", dataToSubmit).then(
+    (response) => response.data
+  );
 
-//   return {
-//     type: FACE_USER,
-//     payload: request,
-//   };
-// }
-// export function fbregister(data) {
-//   const request = Axios.post("/api/users/fbregister", data).then(
-//     (response) => response.data
-//   );
-
-//   return {
-//     type: FACE_REG,
-//     payload: request,
-//   };
-// }
+  return {
+    type: FB_REGISTER,
+    payload: request,
+  };
+}
 // 로그인 체크
 export function auth() {
   const request = Axios.get("/api/users/auth").then(

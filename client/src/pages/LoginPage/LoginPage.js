@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Modal, Button } from "react-bootstrap";
 import { loginUser } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
-import SosialLogin from "./SosialLogin";
+// import SosialLogin from "./SosialLogin";
 import "./LoginPage.css";
 function LoginPage(props) {
   const [show, setShow] = useState(false);
@@ -83,7 +83,7 @@ function LoginPage(props) {
               로그인
             </Button>
 
-            <SosialLogin />
+            {/* <SosialLogin /> */}
           </form>
         </Modal.Body>
       </Modal>

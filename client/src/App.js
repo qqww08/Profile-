@@ -20,12 +20,13 @@ function App() {
   return (
     <Router>
       <Route exact path="/" component={Auth(LandingPage, false)} />
-
+      <Route exact path="/Login" component={Auth(LoginPage, false)} />
       <Header />
       <Github />
 
       <Switch>
         <Route exact path="/Write" component={Auth(BorderWrite, true)} />
+
         <Route exact path="/List" component={Auth(BorderList, false)} />
         <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
         <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />
