@@ -9,7 +9,6 @@ function Back() {
     <div className="back">
       <span className="imgText">
         <Typing />
-        <SosialLogin />
       </span>
     </div>
   );
