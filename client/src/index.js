@@ -12,9 +12,9 @@ import ReduxThunk from "redux-thunk";
 import Reducer from "./_reducers";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "fast-text-encoding/text";
-
+import social from "./pages/LoginPage/SosialLogin";
+window.social = social;
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
   ReduxThunk

@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "fast-sort": "^2.1.1",
     "fast-text-encoding": "^1.0.2",
+    "hellojs": "^1.18.4",
     "http-proxy-middleware": "^1.0.3",
     "jt-react-pagination": "^1.0.5",
     "moment": "^2.24.0",

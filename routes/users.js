@@ -46,36 +46,6 @@ router.post("/login", (req, res) => {
     });
   });
 });
-router.post("/fbregister", (req, res) => {
-  const user = new User(req.body);
-  user.save((err, userInfo) => {
-    if (err) return res.json({ success: false, err });
-    return res.status(200).json({
-      success: true,
-    });
-  });
-});
-router.post("/fblogin", (req, res) => {
-  // console.log('ping')
-
-  User.findOne({ email: req.body.email }, (err, user) => {
-    // console.log('user', user)
-    if (!user) {
-      return res.json({
-        success: false,
-        message: "제공된 이메일에 해당하는 유저가 없습니다.",
-      });
-    }
-
-    user.generateToken((err, user) => {
-      if (err) return res.status(400).send(err);
-      res
-        .cookie("x_auth", user.token)
-        .status(200)
-        .json({ success: true, userId: user._id });
-    });
-  });
-});
 
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({

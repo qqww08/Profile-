@@ -1,20 +1,17 @@
 import React from "react";
-import FacebookLogin from "react-facebook-login";
-
+import GoogleLogin from "react-google-login";
 function SosialLogin() {
-  const responseFacebook = (response) => {
+  const responseGoogle = (response) => {
     console.log(response);
   };
   return (
-    <div>
-      <FacebookLogin
-        appId="1298858200311362"
-        autoLoad={true}
-        fields="name,email,picture"
-        // onClick={componentClicked}
-        callback={responseFacebook}
-      />
-    </div>
+    <GoogleLogin
+      clientId="232543166919-tmim3lua0g2d4ogvgmjhpjk7va54s9mk.apps.googleusercontent.com"
+      buttonText="Login"
+      onSuccess={responseGoogle}
+      onFailure={responseGoogle}
+      cookiePolicy={"single_host_origin"}
+    />
   );
 }
 
