@@ -106,13 +106,14 @@ function ProjectDetail() {
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 JWT를 이용해 로그인 상태 확인
               </li>
+              <li type="circle" style={{ paddingLeft: "30px" }}>
+                소셜 로그인 기능
+              </li>
               <li type="disc">회원가입 기능</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 Bcrypt를 이용해서 패스워드 암호화
               </li>
-              <li type="circle" style={{ paddingLeft: "30px" }}>
-                이메일 중복 체크
-              </li>
+
               <li type="disc">게시판CRUD</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 게시글 작성자만 수정 삭제 가능
