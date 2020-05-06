@@ -20,11 +20,16 @@ router.post("/register", (req, res) => {
     }
   });
 });
-router.post("/fbregister", (req, res) => {
-  let token = req.body.token;
+router.post("/gregister", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (user) {
-      return res.cookie("f_auth", token).status(200).json({ login: true });
+      user.generateToken((err, user) => {
+        if (err) return res.status(400).send(err);
+        res
+          .cookie("x_auth", user.token)
+          .status(200)
+          .json({ success: true, userId: user._id });
+      });
     } else {
       const user = new User(req.body);
       user.save((err, userInfo) => {

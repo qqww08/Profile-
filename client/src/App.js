@@ -26,7 +26,6 @@ function App() {
 
       <Switch>
         <Route exact path="/Write" component={Auth(BorderWrite, true)} />
-
         <Route exact path="/List" component={Auth(BorderList, false)} />
         <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
         <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />

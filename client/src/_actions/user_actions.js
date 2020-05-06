@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { LOGIN_USER, REGISTER, AUTH_USER, FB_REGISTER, LOGOUT } from "./types";
+import { LOGIN_USER, REGISTER, AUTH_USER, G_REGISTER, LOGOUT } from "./types";
 //로그인 정보 전송
 export function loginUser(dataToSubmit) {
   const request = Axios.post("/api/users/login", dataToSubmit).then(
@@ -32,13 +32,13 @@ export function register(dataToSubmit) {
     payload: request,
   };
 }
-export function fbregister(dataToSubmit) {
-  const request = Axios.post("/api/users/fbregister", dataToSubmit).then(
+export function gregister(dataToSubmit) {
+  const request = Axios.post("/api/users/gregister", dataToSubmit).then(
     (response) => response.data
   );
 
   return {
-    type: FB_REGISTER,
+    type: G_REGISTER,
     payload: request,
   };
 }

@@ -2,7 +2,7 @@ import {
   LOGIN_USER,
   REGISTER,
   AUTH_USER,
-  FB_REGISTER,
+  G_REGISTER,
   LOGOUT,
 } from "../_actions/types";
 
@@ -14,7 +14,7 @@ export default function (state = {}, action) {
     //회원가입 정보
     case REGISTER:
       return { ...state, register: action.payload };
-    case FB_REGISTER:
+    case G_REGISTER:
       return { ...state, success: action.payload };
 
     // case FACE_REG:

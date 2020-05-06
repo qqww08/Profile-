@@ -11,4 +11,4 @@ export const LOGOUT = "logout";
 export const BORDER_DELETE = "borderdelete";
 export const BORDER_POST = "borderpost";
 export const MBORDER_GET = "mborderpost";
-export const FB_REGISTER = "fbregister";
+export const G_REGISTER = "gregister";
