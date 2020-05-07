@@ -48,9 +48,9 @@ function BorderInfo(props) {
   const BorderEdit = (event) => {
     event.preventDefault();
     //수정된 제목, 타이틀 정보 UserEdit에 담기
-    const UserEdit = { postId: postId, title: Title, body: Body };
+    const body = { postId: postId, title: Title, body: Body };
     //서버로 수정된 정보 전송
-    dispatch(borderedit(UserEdit)).then((response) => {
+    dispatch(borderedit(body)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //제목, 내용에 수정된 정보 담기

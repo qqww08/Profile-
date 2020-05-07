@@ -8,10 +8,11 @@ import "animate.css/animate.min.css";
 import BorderList from "../Posts/BorderList";
 import "./css/LadingPage.css";
 import { withRouter } from "react-router-dom";
-
+import Drop from "../Register/Drop";
 function LadingPage() {
   return (
     <div>
+      <Drop />
       <Back />
 
       <Profile />
