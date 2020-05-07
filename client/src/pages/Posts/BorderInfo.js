@@ -44,7 +44,7 @@ function BorderInfo(props) {
         alert("정보를 찾질 못했습니다");
       }
     });
-  }, [dispatch, UserInfo]);
+  }, []);
   //삭제 버튼
   const InfoDelete = (event) => {
     event.preventDefault();
