@@ -26,7 +26,13 @@ function Drop() {
   };
 
   return (
-    <Dropzone onDrop={fileupload} accept="image/jpeg,image/png , image/bmp">
+    <Dropzone
+      onDrop={fileupload}
+      accept="image/jpeg,image/png , image/bmp"
+      minSize={0}
+      maxSize={5242880}
+      multiple
+    >
       {({ getRootProps, getInputProps }) => (
         <div
           style={{
