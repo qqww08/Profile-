@@ -114,7 +114,7 @@ function ProjectDetail() {
                 Bcrypt를 이용해서 패스워드 암호화
               </li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
-                Dropzone 과 multer 을 이용한 이미지 업로드 기능
+                Dropzone 과 multer 을 이용한 프로필 사진 업로드 기능
               </li>
 
               <li type="disc">게시판CRUD</li>
