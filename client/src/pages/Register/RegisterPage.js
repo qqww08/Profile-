@@ -107,7 +107,7 @@ function RegisterPage() {
             >
               회원가입
             </h1>
-            {/* <Drop /> */}
+            <Drop />
             {/* 회원가입 페이지 이름 Input */}
             <input
               className="inputEmail"

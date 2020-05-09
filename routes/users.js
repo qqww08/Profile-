@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require("../models/User");
 const { auth } = require("../middleware/auth");
 const multer = require("multer");
+
 router.post("/register", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (user) {

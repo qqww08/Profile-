@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import { imageupload } from "../../_actions/user_actions";
 import { useDispatch } from "react-redux";
-
+import plus from "./plus.png";
 function Drop() {
   const dispatch = useDispatch();
   const [Image, setImage] = useState("");
@@ -26,7 +26,7 @@ function Drop() {
   };
 
   return (
-    <Dropzone onDrop={fileupload}>
+    <Dropzone onDrop={fileupload} accept="image/jpeg,image/png , image/bmp">
       {({ getRootProps, getInputProps }) => (
         <div
           style={{
@@ -41,11 +41,30 @@ function Drop() {
           {...getRootProps()}
         >
           <input {...getInputProps()} />
-          {Image && (
+          {Image ? (
             <img
-              style={{ minWidth: "300px", width: "300px", height: "240px" }}
-              src={`https://profile1234.herokuapp.com/${Image}`}
+              style={{
+                width: "300px",
+                height: "300px",
+                borderRadius: "50%",
+                border: "1px solid",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+              src={`http://localhost:5000/${Image}`}
             />
+          ) : (
+            <div>
+              <img
+                src={plus}
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  alignItems: "center",
+                }}
+              />
+            </div>
           )}
         </div>
       )}
