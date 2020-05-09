@@ -25,7 +25,7 @@ function RegisterPage() {
   const [Email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [PassCh, setPassCh] = useState("");
-
+  const [Image, setImage] = useState("");
   //onChange 된 value 값 을 useState 로 받아오기
   const NameHandler = (event) => {
     setName(event.currentTarget.value);
@@ -38,6 +38,10 @@ function RegisterPage() {
   };
   const PassChHandler = (event) => {
     setPassCh(event.currentTarget.value);
+  };
+
+  const uploadImage = (newImage) => {
+    setImage(newImage);
   };
   //특수문자, 숫자 확인 변수 선언
   const check_spc = /[~!@#$%^&*()_+|<>?:{}]/;
@@ -54,6 +58,7 @@ function RegisterPage() {
       name: Name,
       email: Email,
       password: Password,
+      image: Image,
     };
     // console.log(body);
     //회원가입을 위해 redux 를 이용해 서버로 전송
@@ -107,7 +112,7 @@ function RegisterPage() {
             >
               회원가입
             </h1>
-            <Drop />
+            <Drop imageFunction={uploadImage} />
             {/* 회원가입 페이지 이름 Input */}
             <input
               className="inputEmail"

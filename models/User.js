@@ -25,7 +25,9 @@ const userSchema = mongoose.Schema({
   userID: {
     type: String,
   },
-  picture: String,
+  image: {
+    type: String,
+  },
 });
 
 userSchema.pre("save", function (next) {

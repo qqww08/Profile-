@@ -35,6 +35,7 @@ function BorderInfo(props) {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
+
         setInfo(response.payload.post);
         head_medium.classList.add("active");
         header.classList.add("active");

@@ -3,7 +3,7 @@ import Dropzone from "react-dropzone";
 import { imageupload } from "../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 import plus from "./plus.png";
-function Drop() {
+function Drop(props) {
   const dispatch = useDispatch();
   const [Image, setImage] = useState("");
 
@@ -19,6 +19,7 @@ function Drop() {
       if (response.payload.success) {
         console.log(response);
         setImage(response.payload.filePath);
+        props.imageFunction(response.payload.filePath);
       } else {
         alert("파일을 저장하는데 실패했습니다.");
       }
@@ -58,7 +59,7 @@ function Drop() {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              src={`https://profile1234.herokuapp.com/${Image}`}
+              src={`http://localhost:5000/${Image}`}
             />
           ) : (
             <div>

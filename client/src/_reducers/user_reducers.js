@@ -18,7 +18,7 @@ export default function (state = {}, action) {
     case G_REGISTER:
       return { ...state, success: action.payload };
     case IMG_UPLOAD:
-      return { ...state, success: action.payload };
+      return { ...state, userData: action.payload };
 
     //로그인 체크
     case AUTH_USER:

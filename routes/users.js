@@ -76,6 +76,7 @@ router.get("/auth", auth, (req, res) => {
     isAuth: true,
     email: req.user.email,
     name: req.user.name,
+    image: req.user.image,
   });
 });
 router.get("/logout", auth, (req, res) => {
