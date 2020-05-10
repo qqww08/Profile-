@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import { imageupload } from "../../_actions/user_actions";
-import { useDispatch } from "react-redux";
-import plus from "./plus.png";
-function Drop(props) {
+import { useDispatch, useSelector } from "react-redux";
+import plus from "../Register/plus.png";
+function ProfileDrop(props) {
   const dispatch = useDispatch();
-  const [ImageDrop, setImageDrop] = useState("");
-
-  const fileupload = (files) => {
+  const user = useSelector((state) => state.user);
+  const img = user.userData.image;
+  const [Image, setImage] = useState(img);
+  const fileupload1 = (files) => {
     let formData = new FormData();
 
     const config = {
@@ -17,8 +18,8 @@ function Drop(props) {
 
     dispatch(imageupload(formData, config)).then((response) => {
       if (response.payload.success) {
-        console.log(response);
-        setImageDrop(response.payload.filePath);
+        console.log(response.payload.filePath);
+        setImage(response.payload.filePath);
         props.imageFunction(response.payload.filePath);
       } else {
         alert("파일을 저장하는데 실패했습니다.");
@@ -28,7 +29,7 @@ function Drop(props) {
 
   return (
     <Dropzone
-      onDrop={fileupload}
+      onDrop={fileupload1}
       accept="image/jpeg,image/png , image/bmp"
       minSize={0}
       maxSize={5242880}
@@ -48,7 +49,21 @@ function Drop(props) {
           {...getRootProps()}
         >
           <input {...getInputProps()} />
-          {ImageDrop ? (
+          {Image ? (
+            <img
+              style={{
+                width: "200px",
+                height: "200px",
+                borderRadius: "50%",
+                border: "1px solid",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+              }}
+              src={`http://localhost:5000/${Image}`}
+            />
+          ) : (
             <img
               style={{
                 width: "200px",
@@ -59,19 +74,8 @@ function Drop(props) {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              src={`http://localhost:5000/${ImageDrop}`}
+              src={plus}
             />
-          ) : (
-            <div>
-              <img
-                src={plus}
-                style={{
-                  width: "200px",
-                  height: "200px",
-                  alignItems: "center",
-                }}
-              />
-            </div>
           )}
         </div>
       )}
@@ -79,4 +83,4 @@ function Drop(props) {
   );
 }
 
-export default Drop;
+export default ProfileDrop;

@@ -5,6 +5,7 @@ import {
   G_REGISTER,
   LOGOUT,
   IMG_UPLOAD,
+  USER_EDIT,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
@@ -18,8 +19,9 @@ export default function (state = {}, action) {
     case G_REGISTER:
       return { ...state, success: action.payload };
     case IMG_UPLOAD:
-      return { ...state, userData: action.payload };
-
+      return { ...state, success: action.payload };
+    case USER_EDIT:
+      return { ...state, success: action.payload };
     //로그인 체크
     case AUTH_USER:
       return { ...state, userData: action.payload };

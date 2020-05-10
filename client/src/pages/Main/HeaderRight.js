@@ -8,6 +8,7 @@ import { withRouter, Link as Li } from "react-router-dom";
 import { Button, ButtonGroup, Dropdown, Image } from "react-bootstrap";
 import unimage from "./images/unimage.svg";
 import "./css/header.css";
+import ProfileEdit from "../LoginPage/ProfileEdit";
 // 로그인 로그아웃 회원가입 버튼 관리
 function HeaderRight(props) {
   const user = useSelector((state) => state.user);
@@ -43,7 +44,7 @@ function HeaderRight(props) {
           >
             {img ? (
               <Image
-                src={`https://profile1234.herokuapp.com/${img}`}
+                src={`http://localhost:5000/${img}`}
                 className="profileImg"
               />
             ) : (
@@ -106,6 +107,9 @@ function HeaderRight(props) {
                 </Link>
               </Dropdown.Item>
             </span>
+            <Dropdown.Item>
+              <ProfileEdit />
+            </Dropdown.Item>
             <Dropdown.Item>
               <Button
                 variant="link"

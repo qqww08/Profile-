@@ -6,6 +6,7 @@ import {
   G_REGISTER,
   LOGOUT,
   IMG_UPLOAD,
+  USER_EDIT,
 } from "./types";
 //로그인 정보 전송
 export function loginUser(dataToSubmit) {
@@ -68,6 +69,17 @@ export function auth() {
 
   return {
     type: AUTH_USER,
+    payload: request,
+  };
+  //회원정보수정
+}
+export function profileedit(dataToSubmit) {
+  const request = Axios.put("/api/users/useredit", dataToSubmit).then(
+    (response) => response.data
+  );
+
+  return {
+    type: USER_EDIT,
     payload: request,
   };
 }

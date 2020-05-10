@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const { User } = require("../models/User");
 const { auth } = require("../middleware/auth");
 const multer = require("multer");
 
+//회원가입
 router.post("/register", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (user) {
@@ -11,16 +14,19 @@ router.post("/register", (req, res) => {
         success: false,
       });
     } else {
+      console.log(req.body);
       const user = new User(req.body);
       user.save((err, userInfo) => {
         if (err) return res.json({ success: false, err });
         return res.status(200).json({
           success: true,
+          userInfo,
         });
       });
     }
   });
 });
+//소셜 회원가입,로그인
 router.post("/gregister", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (user) {
@@ -42,7 +48,7 @@ router.post("/gregister", (req, res) => {
     }
   });
 });
-
+//회원 로그인
 router.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     // console.log('user', user)
@@ -68,7 +74,7 @@ router.post("/login", (req, res) => {
     });
   });
 });
-
+//인증
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
@@ -79,6 +85,7 @@ router.get("/auth", auth, (req, res) => {
     image: req.user.image,
   });
 });
+//로그아웃
 router.get("/logout", auth, (req, res) => {
   // console.log('req.user', req.user)
   User.findOneAndUpdate({ _id: req.user._id }, { token: "" }, (err, user) => {
@@ -88,7 +95,7 @@ router.get("/logout", auth, (req, res) => {
     });
   });
 });
-
+//이미지 업로드
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/");
@@ -112,6 +119,22 @@ router.post("/image", (req, res) => {
       fileName: res.req.file.filename,
     });
   });
+});
+//회원정보 수정
+router.put("/useredit", auth, (req, res) => {
+  User.findByIdAndUpdate(
+    { _id: req.user._id },
+    {
+      image: req.body.image,
+    },
+    (err, user) => {
+      if (err) return res.json({ success: false, err });
+      return res.status(200).json({
+        success: true,
+        user,
+      });
+    }
+  );
 });
 
 module.exports = router;
