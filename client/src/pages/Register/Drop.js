@@ -17,7 +17,7 @@ function Drop(props) {
 
     dispatch(imageupload(formData, config)).then((response) => {
       if (response.payload.success) {
-        console.log(response);
+        // console.log(response);
         setImageDrop(response.payload.filePath);
         props.imageFunction(response.payload.filePath);
       } else {
@@ -59,7 +59,7 @@ function Drop(props) {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              src={`https://profile1234.herokuapp.com/${Image}`}
+              src={`https://profile1234.herokuapp.com/${ImageDrop}`}
             />
           ) : (
             <div>

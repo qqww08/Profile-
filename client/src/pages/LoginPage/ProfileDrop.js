@@ -18,7 +18,7 @@ function ProfileDrop(props) {
 
     dispatch(imageupload(formData, config)).then((response) => {
       if (response.payload.success) {
-        console.log(response.payload.filePath);
+        // console.log(response.payload.filePath);
         setImage(response.payload.filePath);
         props.imageFunction(response.payload.filePath);
       } else {
