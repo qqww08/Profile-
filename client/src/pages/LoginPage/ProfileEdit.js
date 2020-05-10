@@ -98,9 +98,9 @@ function ProfileEdit(props) {
               value={Password}
               minLength="5"
               onChange={PassHandler}
-              placeholder="변결할 패스워드"
-            />
-            {/* 회원가입 페이지 패스워드 체크 Input */}
+              placeholder="변결할 패스워드" */}
+            {/* /> */}
+            {/* 회원가입 페이지 패스워드 체크 Input
             {/* <input
               className="inputPass"
               type="password"

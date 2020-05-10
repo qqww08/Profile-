@@ -44,7 +44,7 @@ function HeaderRight(props) {
           >
             {img ? (
               <Image
-                src={`https://profile1234.herokuapp.com/${Image}`}
+                src={`https://profile1234.herokuapp.com/${img}`}
                 className="profileImg"
               />
             ) : (
