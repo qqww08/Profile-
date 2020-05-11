@@ -1,7 +1,5 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
-// import NaverLogin from "react-naver-login";
-import { Alert } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { gregister } from "../../_actions/user_actions";
 import { withRouter } from "react-router-dom";
@@ -31,13 +29,6 @@ function SosialLogin(props) {
 
   return (
     <div>
-      {/* <NaverLogin
-        clientId="Zm0m3twyEVtzsEkssAzI"
-        callbackUrl="http://127.0.0.1:3000/login"
-        render={(props) => <div onClick={props.onClick}>Naver Login</div>}
-        onSuccess={(naverUser) => console.log(naverUser)}
-        // onFailure={() => console.error(result)}
-      /> */}
       <GoogleLogin
         clientId="601387578460-hsu4jlii1cq8t1tt1gj8at4atu4guu4l.apps.googleusercontent.com"
         render={(renderProps) => (

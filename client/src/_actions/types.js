@@ -14,3 +14,4 @@ export const MBORDER_GET = "mborderpost";
 export const G_REGISTER = "gregister";
 export const IMG_UPLOAD = "imgupload";
 export const USER_EDIT = "useredit";
+export const COMMENT = "comment";

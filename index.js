@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use("/api/posts", require("./routes/posts"));
 app.use("/api/users", require("./routes/users"));
 app.use("/uploads", express.static("uploads"));
-
+app.use("/api/comment", require("./routes/comment"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 

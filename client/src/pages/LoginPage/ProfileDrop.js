@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
+import { Image } from "react-bootstrap";
 import { imageupload } from "../../_actions/user_actions";
 import { useDispatch, useSelector } from "react-redux";
 import plus from "../Register/plus.png";
@@ -7,7 +8,7 @@ function ProfileDrop(props) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const img = user.userData.image;
-  const [Image, setImage] = useState(img);
+  const [ImageDrop, setImage] = useState(img);
   const fileupload1 = (files) => {
     let formData = new FormData();
 
@@ -49,8 +50,8 @@ function ProfileDrop(props) {
           {...getRootProps()}
         >
           <input {...getInputProps()} />
-          {Image ? (
-            <img
+          {ImageDrop ? (
+            <Image
               style={{
                 width: "200px",
                 height: "200px",
@@ -61,7 +62,8 @@ function ProfileDrop(props) {
                 justifyContent: "center",
                 cursor: "pointer",
               }}
-              src={`https://profile1234.herokuapp.com/${Image}`}
+              src={`http://localhost:5000/${ImageDrop}`}
+              roundedCircle
             />
           ) : (
             <img

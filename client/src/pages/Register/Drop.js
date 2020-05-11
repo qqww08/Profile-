@@ -3,6 +3,7 @@ import Dropzone from "react-dropzone";
 import { imageupload } from "../../_actions/user_actions";
 import { useDispatch } from "react-redux";
 import plus from "./plus.png";
+import { Image } from "react-bootstrap";
 function Drop(props) {
   const dispatch = useDispatch();
   const [ImageDrop, setImageDrop] = useState("");
@@ -49,7 +50,7 @@ function Drop(props) {
         >
           <input {...getInputProps()} />
           {ImageDrop ? (
-            <img
+            <Image
               style={{
                 width: "200px",
                 height: "200px",
@@ -60,6 +61,7 @@ function Drop(props) {
                 justifyContent: "center",
               }}
               src={`https://profile1234.herokuapp.com/${ImageDrop}`}
+              roundedCircle
             />
           ) : (
             <div>

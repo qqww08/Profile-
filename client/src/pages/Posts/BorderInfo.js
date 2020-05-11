@@ -3,9 +3,10 @@ import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
+import Comment from "./Comment";
 import "../Main/css/header.css";
 import "./css/Info.css";
-
+import Axios from "axios";
 // import PutDel from "./PutDel";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -23,9 +24,8 @@ function BorderInfo(props) {
   //게시글 정보 변수
   const [Info, setInfo] = useState([]);
   const dispatch = useDispatch();
-  const goBack = () => {
-    props.history.goBack();
-  };
+  const [CommentLists, setCommentLists] = useState([]);
+
   useEffect(() => {
     const head_medium = document.querySelector(".head_medium");
     const header = document.querySelector(".header");
@@ -45,7 +45,19 @@ function BorderInfo(props) {
         alert("정보를 찾질 못했습니다");
       }
     });
+
+    Axios.post("/api/comment/getComment", UserInfo).then((response) => {
+      if (response.data.success) {
+        console.log(response.data.comments);
+        setCommentLists(response.data.comments);
+      } else {
+        alert("댓글 정보를 가져오는 것을 실패");
+      }
+    });
   }, []);
+  const updateComment = (newComment) => {
+    setCommentLists(CommentLists.concat(newComment));
+  };
   //삭제 버튼
   const InfoDelete = (event) => {
     event.preventDefault();
@@ -76,7 +88,8 @@ function BorderInfo(props) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "100vh",
+          flexDirection: "column",
+          marginTop: "80px",
         }}
       >
         <Form className="fo">
@@ -92,9 +105,7 @@ function BorderInfo(props) {
               <Form.Label>제목 {Info.title}</Form.Label>
               {/* 게시판 목록으로 돌아가기 */}
               <Link to="/">
-                <Button variant="secondary" onClick={goBack}>
-                  목록
-                </Button>
+                <Button variant="secondary">목록</Button>
               </Link>
             </Form.Group>
             <Form.Group
@@ -161,6 +172,11 @@ function BorderInfo(props) {
               <div></div>
             )}
           </Form.Group>
+          <Comment
+            CommentLists={CommentLists}
+            postId={Info._id}
+            refreshFunction={updateComment}
+          />
         </Form>
       </div>
     );

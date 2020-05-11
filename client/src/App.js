@@ -1,13 +1,12 @@
 import React, { Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Back from "../src/pages/Main/Back";
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BorderWrite from "./pages/Posts/BorderWrite";
 import BorderList from "./pages/Posts/BorderList";
 import LandingPage from "./pages/Main/LandingPage";
-import LoginPage from "./pages/LoginPage/LoginPage";
-import ProfileDrop from "./pages/LoginPage/ProfileDrop";
+
 import BorderInfo from "./pages/Posts/BorderInfo";
 import BorderEdit from "./pages/Posts/BorderEdit";
 import Header from "./pages/Main/Header";
