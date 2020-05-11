@@ -102,7 +102,13 @@ function SingleComment(props) {
           </Form.Label>
         </Form.Group>
       </Form.Group>
-      <hr style={{ border: "0.1px dashed gray", background: "#ccc" }} />
+      <hr
+        style={{
+          border: "0.1px dashed gray",
+          width: "100%",
+          background: "#ccc",
+        }}
+      />
       {ReComment && (
         <InputGroup>
           <FormControl

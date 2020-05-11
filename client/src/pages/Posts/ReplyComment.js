@@ -7,9 +7,11 @@ function ReplyComment(props) {
       <React.Fragment key={index}>
         {comment.responseTo === parentCommentId && (
           <div>
-            <div style={{ width: "80%", marginLeft: "20px", display: "flex" }}>
-              <p style={{ fontSize: "20px", marginRight: "10px" }}>ㄴ</p>
+            <div style={{ marginLeft: "20px", display: "flex" }}>
               <div>
+                <p style={{ fontSize: "20px", marginRight: "10px" }}>ㄴ</p>
+              </div>
+              <div style={{ width: "100%" }}>
                 <SingleComment
                   Info={props.Info}
                   comment={comment}
@@ -18,6 +20,7 @@ function ReplyComment(props) {
                 />
               </div>
             </div>
+
             <div>
               <ReplyComment
                 Info={props.Info}

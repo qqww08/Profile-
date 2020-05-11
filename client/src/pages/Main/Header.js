@@ -12,19 +12,16 @@ import { withRouter, Link as Li } from "react-router-dom";
 function Header() {
   const [scrolled, setscrolled] = useState(false);
 
-  useEffect(
-    () => {
-      window.addEventListener("scroll", () => {
-        const isTop = window.scrollY < 600;
-        if (isTop !== true) {
-          setscrolled(true);
-        } else {
-          setscrolled(false);
-        }
-      });
-    },
-    [window.scrollY] // If you remove this, things go 🍌🍌🍌
-  );
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const isTop = window.scrollY < 600;
+      if (isTop !== true) {
+        setscrolled(true);
+      } else {
+        setscrolled(false);
+      }
+    });
+  }, [window.scrollY]);
 
   return (
     <nav className="body">

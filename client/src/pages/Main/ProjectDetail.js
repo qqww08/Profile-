@@ -127,6 +127,9 @@ function ProjectDetail() {
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 검색, 페이징, 리셋 기능
               </li>
+              <li type="circle" style={{ paddingLeft: "30px" }}>
+                댓글, 작성자 식별 기능
+              </li>
               <li type="disc">모바일 게시판CRUD</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 게시글 작성자만 수정 삭제 가능

@@ -84,7 +84,6 @@ function BorderInfo(props) {
     );
     //작성자 정보를 찾은 후
   } else {
-    console.log(Info.writer.email);
     return (
       <div
         style={{
