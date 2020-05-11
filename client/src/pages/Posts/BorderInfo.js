@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { borderinfo, bdelete } from "../../_actions/post_actions";
+import { getComment } from "../../_actions/comment_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
 import Comment from "./Comment";
 import "../Main/css/header.css";
 import "./css/Info.css";
-import Axios from "axios";
-// import PutDel from "./PutDel";
+
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -19,39 +19,41 @@ function BorderInfo(props) {
   const user = useSelector((state) => state.user);
   //:postId 변수 선언
   const postId = props.match.params.postId;
-  //서버에서 확인 할 UserInfo안에 :postId 담기
-  const UserInfo = { postId: postId };
+
   //게시글 정보 변수
   const [Info, setInfo] = useState([]);
   const dispatch = useDispatch();
   const [CommentLists, setCommentLists] = useState([]);
 
+  //서버에서 확인 할 UserInfo안에 :postId 담기
+  const UserInfo = { postId: postId };
   useEffect(() => {
     const head_medium = document.querySelector(".head_medium");
     const header = document.querySelector(".header");
-
-    //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
-    dispatch(borderinfo(UserInfo)).then((response) => {
+    head_medium.classList.add("active");
+    header.classList.add("active");
+    dispatch(getComment(UserInfo)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
 
-        setInfo(response.payload.post);
-        head_medium.classList.add("active");
-        header.classList.add("active");
-
+        setCommentLists(response.payload.comments);
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");
       }
     });
+    //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
+    dispatch(borderinfo(UserInfo)).then((response) => {
+      //서버에서 success:true 일시
+      if (response.payload.success) {
+        //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
+        console.log(response.payload.post);
+        setInfo(response.payload.post);
 
-    Axios.post("/api/comment/getComment", UserInfo).then((response) => {
-      if (response.data.success) {
-        console.log(response.data.comments);
-        setCommentLists(response.data.comments);
+        //실패시
       } else {
-        alert("댓글 정보를 가져오는 것을 실패");
+        alert("정보를 찾질 못했습니다");
       }
     });
   }, []);
@@ -82,6 +84,7 @@ function BorderInfo(props) {
     );
     //작성자 정보를 찾은 후
   } else {
+    console.log(Info.writer.email);
     return (
       <div
         style={{
@@ -173,6 +176,7 @@ function BorderInfo(props) {
             )}
           </Form.Group>
           <Comment
+            Info={Info}
             CommentLists={CommentLists}
             postId={Info._id}
             refreshFunction={updateComment}

@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Moment from "react-moment";
 import "moment-timezone";
+import { useDispatch } from "react-redux";
+import { getComment } from "../../_actions/comment_actions";
 import { Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const Listcheck = ({ List, loading }) => {
-  if (loading) {
+
+function PostsList(props) {
+  if (props.loading) {
     return (
       <div
         style={{
@@ -20,7 +23,7 @@ const Listcheck = ({ List, loading }) => {
     );
   }
 
-  return List.map((post) => (
+  return props.List.map((post) => (
     <tbody key={post._id} style={{ width: "800px", tableLayout: "fixed" }}>
       <tr>
         {/* 게시판 제목 */}
@@ -45,5 +48,5 @@ const Listcheck = ({ List, loading }) => {
       </tr>
     </tbody>
   ));
-};
-export default Listcheck;
+}
+export default PostsList;

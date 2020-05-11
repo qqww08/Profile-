@@ -13,7 +13,7 @@ import refresh from "./img/refresh.svg";
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
-import Listcheck from "./PostsList";
+import PostsList from "./PostsList";
 import Pagination from "./Pagination";
 import ScrollAnimation from "react-animate-on-scroll";
 function BorderList() {
@@ -219,7 +219,7 @@ function BorderList() {
                   <th style={{ width: "150px", textAlign: "center" }}>날짜</th>
                 </tr>
               </thead>
-              <Listcheck List={currentPosts} loading={loading} paginate />
+              <PostsList List={currentPosts} loading={loading} paginate />
             </Table>
           </div>
 

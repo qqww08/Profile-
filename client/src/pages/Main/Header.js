@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
 
-import { Button, Dropdown } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
@@ -10,7 +10,6 @@ import { withRouter, Link as Li } from "react-router-dom";
 // navbar
 
 function Header() {
-  const [scrollY, setScrollY] = useState(window.scrollY);
   const [scrolled, setscrolled] = useState(false);
 
   useEffect(

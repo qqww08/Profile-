@@ -23,6 +23,7 @@ function Comment(props) {
     dispatch(saveComment(body)).then((response) => {
       if (response.payload.success) {
         setCommentValue("");
+
         props.refreshFunction(response.payload.result);
       } else {
         alert("저장하지 못했습니다.");
@@ -37,13 +38,15 @@ function Comment(props) {
         props.CommentLists.map(
           (comment, index) =>
             !comment.responseTo && (
-              <React.Fragment>
+              <React.Fragment key={index}>
                 <SingleComment
+                  Info={props.Info}
                   comment={comment}
                   postId={props.postId}
                   refreshFunction={props.refreshFunction}
                 />
                 <ReplyComment
+                  Info={props.Info}
                   CommentLists={props.CommentLists}
                   postId={props.postId}
                   parentCommentId={comment._id}

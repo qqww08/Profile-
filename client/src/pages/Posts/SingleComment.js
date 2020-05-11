@@ -6,10 +6,12 @@ import unimage from "../Main/images/unimage.svg";
 import { InputGroup, Form, Button, FormControl } from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
+import commentsvg from "./img/comment.svg";
 function SingleComment(props) {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const img = props.comment.writer.image;
+
   const [ReComment, setReComment] = useState(false);
   const [CommentValue, setCommentValue] = useState("");
   const CommentChange = (event) => {
@@ -57,21 +59,41 @@ function SingleComment(props) {
               {props.comment.writer.name}
             </Form.Label>
 
-            <Form.Label
-              style={{ margin: "0px", fontWeight: "bold", marginRight: "10px" }}
-            >
-              작성자
-            </Form.Label>
-            <Form.Label style={{ margin: "0px" }}>
+            {props.Info.writer.email === props.comment.writer.email && (
+              <Form.Label
+                style={{
+                  margin: "0px",
+                  fontWeight: "bold",
+                  marginRight: "10px",
+                  color: "red",
+                }}
+              >
+                작성자
+              </Form.Label>
+            )}
+
+            <Form.Label style={{ margin: "0px", marginRight: "10px" }}>
               <Moment format="YYYY.MM.DD HH:mm">
                 {props.comment.createdAt}
               </Moment>
             </Form.Label>
             <Form.Label style={{ margin: "0px" }}>
               {ReComment ? (
-                <p onClick={ReCommentClick}>답글 취소</p>
+                <p
+                  style={{ fontWeight: "bold", cursor: "pointer" }}
+                  onClick={ReCommentClick}
+                >
+                  <img src={commentsvg} style={{ width: "10px" }} />
+                  답글 취소
+                </p>
               ) : (
-                <p onClick={ReCommentClick}>답글</p>
+                <p
+                  style={{ fontWeight: "bold", cursor: "pointer" }}
+                  onClick={ReCommentClick}
+                >
+                  <img src={commentsvg} style={{ width: "10px" }} />
+                  답글
+                </p>
               )}
             </Form.Label>
           </Form.Group>

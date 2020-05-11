@@ -9,7 +9,7 @@ import {
   FormControl,
   Form,
 } from "react-bootstrap";
-
+import "./css/Info.css";
 function BorderWrite(props) {
   //user 정보를 가지고 오기 위해 선언
   const user = useSelector((state) => state.user);
@@ -24,17 +24,15 @@ function BorderWrite(props) {
   const TextHandler = (event) => {
     setBorderText(event.currentTarget.value);
   };
-
-  const goBack = () => {
-    props.history.goBack();
-  };
-  //등록 버튼 클릭 시
   useEffect(() => {
     const head_medium = document.querySelector(".head_medium");
     const header = document.querySelector(".header");
-    header.classList.add("active");
     head_medium.classList.add("active");
+    header.classList.add("active");
   }, []);
+
+  //등록 버튼 클릭 시
+
   const BoderSubmit = (event) => {
     event.preventDefault();
     //제목 안에 빈칸 확인
@@ -68,57 +66,56 @@ function BorderWrite(props) {
       });
     }
   };
-  if (!user.userData.isAuth) {
-    return (
-      <div className="info">
-        <Spinner animation="border" variant="primary" />
-      </div>
-    );
-  } else {
-    return (
-      <div className="info">
-        <Form className="fo">
-          <Form.Group>
-            <Form.Group className="EditTitle">
-              <Form.Label style={{ width: "40px" }}>제목</Form.Label>
-              <FormControl
-                value={BorderTitle}
-                onChange={TitleHandler}
-                className="EditInput1"
-              />
-            </Form.Group>
-            <Form.Group
-              style={{
-                display: "flex",
-                justifyContent: "end",
-                textAlign: "right",
-              }}
-            ></Form.Group>
-          </Form.Group>
-          <Form.Group>
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Form className="fo1">
+        <Form.Group>
+          <Form.Group className="EditTitle">
+            <Form.Label style={{ width: "40px" }}>제목</Form.Label>
             <FormControl
-              as="textarea"
-              aria-label="With textarea"
-              value={BorderText}
-              onChange={TextHandler}
-              style={{ height: "290px", resize: "none" }}
+              value={BorderTitle}
+              onChange={TitleHandler}
+              className="EditInput1"
             />
           </Form.Group>
-          <Form.Group>
-            <ButtonGroup aria-label="Basic example">
-              <Button variant="primary" onClick={BoderSubmit}>
-                등록
-              </Button>
-
-              <Button variant="secondary" onClick={goBack}>
-                취소
-              </Button>
-            </ButtonGroup>
-          </Form.Group>
-        </Form>
-      </div>
-    );
-  }
+          <Form.Group
+            style={{
+              display: "flex",
+              justifyContent: "end",
+              textAlign: "right",
+            }}
+          ></Form.Group>
+        </Form.Group>
+        <Form.Group>
+          <FormControl
+            as="textarea"
+            aria-label="With textarea"
+            value={BorderText}
+            onChange={TextHandler}
+            style={{ height: "290px", resize: "none" }}
+          />
+        </Form.Group>
+        <Form.Group>
+          <ButtonGroup aria-label="Basic example">
+            <Button variant="primary" onClick={BoderSubmit}>
+              등록
+            </Button>
+            <Link to="/">
+              <Button variant="secondary">취소</Button>
+            </Link>
+          </ButtonGroup>
+        </Form.Group>
+      </Form>
+    </div>
+  );
 }
 
 export default withRouter(BorderWrite);

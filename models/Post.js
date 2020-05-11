@@ -16,6 +16,7 @@ const postSchema = mongoose.Schema({
   updatedAt: { type: Date },
   views: { type: Number, default: 0 },
   numId: { type: Number },
+  comment: { type: Number },
 });
 
 postSchema.index(
