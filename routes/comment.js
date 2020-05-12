@@ -26,4 +26,13 @@ router.post("/getComment", (req, res) => {
       return res.json({ success: true, comments });
     });
 });
+// 댓글 삭제
+router.post("/delete", (req, res) => {
+  Comment.remove({ _id: req.body.postId })
+    .populate("writer")
+    .exec((err, result) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, result });
+    });
+});
 module.exports = router;

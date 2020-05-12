@@ -16,6 +16,7 @@ function SosialLogin(props) {
     const body = {
       name: Name,
       email: Email,
+      image: "",
     };
 
     dispatch(gregister(body)).then((response) => {

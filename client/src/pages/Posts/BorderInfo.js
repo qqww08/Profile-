@@ -32,11 +32,12 @@ function BorderInfo(props) {
     const header = document.querySelector(".header");
     head_medium.classList.add("active");
     header.classList.add("active");
+
     dispatch(getComment(UserInfo)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
-
+        console.log(response.payload.comments);
         setCommentLists(response.payload.comments);
         //실패시
       } else {
@@ -67,6 +68,7 @@ function BorderInfo(props) {
     dispatch(bdelete(UserInfo)).then((response) => {
       //서버에서 success:ture 일시
       if (response.payload.success) {
+        console.log(response.payload.post);
         props.history.push("/");
       } else {
         alert("삭제실패");

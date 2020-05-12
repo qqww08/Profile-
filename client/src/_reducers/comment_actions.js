@@ -1,4 +1,4 @@
-import { COMMENT, COMMENT_GET } from "../_actions/types";
+import { COMMENT, COMMENT_GET, COMMENT_DELETE } from "../_actions/types";
 
 export default function (state = {}, action) {
   switch (action.type) {
@@ -6,6 +6,8 @@ export default function (state = {}, action) {
     case COMMENT:
       return { ...state, success: action.payload };
     case COMMENT_GET:
+      return { ...state, success: action.payload };
+    case COMMENT_DELETE:
       return { ...state, success: action.payload };
 
     default:

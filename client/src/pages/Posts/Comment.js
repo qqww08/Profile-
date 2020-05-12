@@ -8,6 +8,7 @@ import ReplyComment from "./ReplyComment";
 function Comment(props) {
   const user = useSelector((state) => state.user);
   const PostId = props.postId;
+
   const dispatch = useDispatch();
   const [CommentValue, setCommentValue] = useState("");
   const Commenthandler = (event) => {
@@ -24,6 +25,7 @@ function Comment(props) {
       if (response.payload.success) {
         setCommentValue("");
 
+        console.log(response.payload.result);
         props.refreshFunction(response.payload.result);
       } else {
         alert("저장하지 못했습니다.");
@@ -35,43 +37,41 @@ function Comment(props) {
       <p>댓글</p>
       <hr style={{ background: "#ccc" }} />
       {props.CommentLists &&
-        props.CommentLists.map(
-          (comment, index) =>
-            !comment.responseTo && (
-              <React.Fragment key={index}>
-                <SingleComment
-                  Info={props.Info}
-                  comment={comment}
-                  postId={props.postId}
-                  refreshFunction={props.refreshFunction}
-                />
-                <ReplyComment
-                  Info={props.Info}
-                  CommentLists={props.CommentLists}
-                  postId={props.postId}
-                  parentCommentId={comment._id}
-                  refreshFunction={props.refreshFunction}
-                />
-              </React.Fragment>
-            )
-        )}
-
-      <InputGroup className="comment">
-        <FormControl
-          as="textarea"
-          placeholder="내용을 입력하세요"
-          aria-label="Recipient's username"
-          aria-label="With textarea"
-          value={CommentValue}
-          onChange={Commenthandler}
-          style={{ resize: "none", height: "80px" }}
-        />
-        <InputGroup.Append>
-          <Button variant="outline-secondary" onClick={onSubmit}>
-            등록
-          </Button>
-        </InputGroup.Append>
-      </InputGroup>
+        props.CommentLists.map((comment, index) => (
+          <React.Fragment key={index}>
+            <SingleComment
+              Info={props.Info}
+              comment={comment}
+              postId={props.postId}
+              refreshFunction={props.refreshFunction}
+            />
+            <ReplyComment
+              Info={props.Info}
+              CommentLists={props.CommentLists}
+              postId={props.postId}
+              parentCommentId={comment._id}
+              refreshFunction={props.refreshFunction}
+            />
+          </React.Fragment>
+        ))}
+      {user.userData.isAuth && (
+        <InputGroup className="comment">
+          <FormControl
+            as="textarea"
+            placeholder="내용을 입력하세요"
+            aria-label="Recipient's username"
+            aria-label="With textarea"
+            value={CommentValue}
+            onChange={Commenthandler}
+            style={{ resize: "none", height: "80px" }}
+          />
+          <InputGroup.Append>
+            <Button variant="outline-secondary" onClick={onSubmit}>
+              등록
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+      )}
     </div>
   );
 }
