@@ -178,17 +178,11 @@ function SingleComment(props) {
                         resize: "none",
                       }}
                     />
-                    <Button
-                      style={{
-                        position: "absolute",
-                        right: "0",
-                        bottom: "0",
-                        margin: "10px",
-                      }}
-                      onClick={puthandler}
-                    >
-                      수정
-                    </Button>
+                    <InputGroup.Append>
+                      <Button variant="outline-secondary" onClick={puthandler}>
+                        수정
+                      </Button>
+                    </InputGroup.Append>
                   </InputGroup>
                 ) : (
                   <Form.Label style={{ margin: "0px", width: "500px" }}>
@@ -198,17 +192,31 @@ function SingleComment(props) {
               </Form.Group>
             </Form.Group>
             <Form.Group style={{ textAlign: "right" }}>
-              <Form.Label
-                style={{
-                  margin: "0px",
-                  fontSize: "10px",
-                  fontWeight: "bold",
-                  marginRight: "5px",
-                }}
-                onClick={PutonClick}
-              >
-                수정
-              </Form.Label>
+              {PutComment ? (
+                <Form.Label
+                  style={{
+                    margin: "0px",
+                    fontSize: "13px",
+                    fontWeight: "bold",
+                    marginRight: "11px",
+                  }}
+                  onClick={PutonClick}
+                >
+                  수정 취소
+                </Form.Label>
+              ) : (
+                <Form.Label
+                  style={{
+                    margin: "0px",
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    marginRight: "5px",
+                  }}
+                  onClick={PutonClick}
+                >
+                  수정
+                </Form.Label>
+              )}
 
               <ButtonGroup aria-label="Basic example">
                 <Form.Label
