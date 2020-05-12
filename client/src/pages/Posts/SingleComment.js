@@ -191,63 +191,65 @@ function SingleComment(props) {
                 )}
               </Form.Group>
             </Form.Group>
-            <Form.Group style={{ textAlign: "right" }}>
-              {PutComment ? (
-                <Form.Label
-                  style={{
-                    margin: "0px",
-                    fontSize: "13px",
-                    fontWeight: "bold",
-                    marginRight: "11px",
-                  }}
-                  onClick={PutonClick}
-                >
-                  수정 취소
-                </Form.Label>
-              ) : (
-                <Form.Label
-                  style={{
-                    margin: "0px",
-                    fontSize: "10px",
-                    fontWeight: "bold",
-                    marginRight: "5px",
-                  }}
-                  onClick={PutonClick}
-                >
-                  수정
-                </Form.Label>
-              )}
+            {props.comment.writer.email === user.userData.email && (
+              <Form.Group style={{ textAlign: "right" }}>
+                {PutComment ? (
+                  <Form.Label
+                    style={{
+                      margin: "0px",
+                      fontSize: "13px",
+                      fontWeight: "bold",
+                      marginRight: "11px",
+                    }}
+                    onClick={PutonClick}
+                  >
+                    수정 취소
+                  </Form.Label>
+                ) : (
+                  <Form.Label
+                    style={{
+                      margin: "0px",
+                      fontSize: "10px",
+                      fontWeight: "bold",
+                      marginRight: "5px",
+                    }}
+                    onClick={PutonClick}
+                  >
+                    수정
+                  </Form.Label>
+                )}
 
-              <ButtonGroup aria-label="Basic example">
-                <Form.Label
-                  style={{
-                    margin: "0px",
-                    fontSize: "10px",
-                    fontWeight: "bold",
-                    marginRight: "10px",
-                    cursor: "pointer",
-                  }}
-                  onClick={handleShow}
-                >
-                  삭제
-                </Form.Label>
-                {/* 삭제 버튼 클릭시 재확인 modal */}
-                <Modal show={show} onHide={handleClose}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>알림</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>정말 삭제 하시겠습니까?</Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={commentDelete}>
-                      삭제
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                      취소
-                    </Button>
-                  </Modal.Footer>
-                </Modal>
-              </ButtonGroup>
-            </Form.Group>
+                <ButtonGroup aria-label="Basic example">
+                  <Form.Label
+                    style={{
+                      margin: "0px",
+                      fontSize: "10px",
+                      fontWeight: "bold",
+                      marginRight: "10px",
+                      cursor: "pointer",
+                    }}
+                    onClick={handleShow}
+                  >
+                    삭제
+                  </Form.Label>
+                  {/* 삭제 버튼 클릭시 재확인 modal */}
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>알림</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>정말 삭제 하시겠습니까?</Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={commentDelete}>
+                        삭제
+                      </Button>
+                      <Button variant="primary" onClick={handleClose}>
+                        취소
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </ButtonGroup>
+              </Form.Group>
+            )}
           </Form.Group>
 
           <hr

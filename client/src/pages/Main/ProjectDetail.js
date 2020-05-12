@@ -128,17 +128,12 @@ function ProjectDetail() {
                 검색, 페이징, 리셋 기능
               </li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
-                댓글, 작성자 식별 기능
+                댓글, 수정, 삭제 ,작성자 식별 기능
               </li>
               <li type="disc">모바일 게시판CRUD</li>
-              <li type="circle" style={{ paddingLeft: "30px" }}>
-                게시글 작성자만 수정 삭제 가능
-              </li>
+
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 모바일 게시판 더보기 기능
-              </li>
-              <li type="circle" style={{ paddingLeft: "30px" }}>
-                모바일 게시판 검색, 리셋 기능
               </li>
             </div>
           </Modal.Body>
