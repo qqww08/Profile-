@@ -17,3 +17,4 @@ export const USER_EDIT = "useredit";
 export const COMMENT = "comment";
 export const COMMENT_GET = "commentget";
 export const COMMENT_DELETE = "commentdelete";
+export const COMMENT_PUT = "commentput";

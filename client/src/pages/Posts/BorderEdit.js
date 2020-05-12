@@ -54,6 +54,7 @@ function BorderInfo(props) {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //제목, 내용에 수정된 정보 담기
+        console.log(response.payload.post);
         setTitle(response.payload.post);
         setBody(response.payload.post);
         //수정된 게시글 이동

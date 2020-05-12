@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { COMMENT, COMMENT_GET, COMMENT_DELETE } from "./types";
+import { COMMENT, COMMENT_GET, COMMENT_DELETE, COMMENT_PUT } from "./types";
 //댓글 정보 전송
 export function saveComment(dataToSubmit) {
   const request = Axios.post("/api/comment/saveComment", dataToSubmit).then(
@@ -28,6 +28,16 @@ export function deleteComment(data) {
 
   return {
     type: COMMENT_DELETE,
+    payload: request,
+  };
+}
+export function putComment(data) {
+  const request = Axios.put("/api/comment/edit", data).then(
+    (response) => response.data
+  );
+
+  return {
+    type: COMMENT_PUT,
     payload: request,
   };
 }

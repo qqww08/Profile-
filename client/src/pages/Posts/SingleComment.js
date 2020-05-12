@@ -1,25 +1,47 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { saveComment, deleteComment } from "../../_actions/comment_actions";
+import {
+  saveComment,
+  deleteComment,
+  putComment,
+} from "../../_actions/comment_actions";
 import { Image } from "react-bootstrap";
 import unimage from "../Main/images/unimage.svg";
-import { InputGroup, Form, Button, FormControl } from "react-bootstrap";
+import {
+  InputGroup,
+  Form,
+  Button,
+  ButtonGroup,
+  FormControl,
+  Modal,
+} from "react-bootstrap";
 import Moment from "react-moment";
 import "moment-timezone";
 import commentsvg from "./img/comment.svg";
 function SingleComment(props) {
   const user = useSelector((state) => state.user);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   const img = props.comment.writer.image;
   const [Refresh, setRefresh] = useState(true);
+  const [Body, setBody] = useState(props.comment.content);
+  const [PutComment, setPutComment] = useState(false);
   const [ReComment, setReComment] = useState(false);
   const [CommentValue, setCommentValue] = useState("");
-  console.log(props.comment);
+  const [DeleteComment, setDeleteComment] = useState("");
   const CommentChange = (event) => {
     setCommentValue(event.currentTarget.value);
   };
   const ReCommentClick = () => {
     setReComment(!ReComment);
+  };
+  const PutonClick = () => {
+    setPutComment(!PutComment);
+  };
+  const BodyHanler = (event) => {
+    setBody(event.currentTarget.value);
   };
   const onSubmit = (event) => {
     event.preventDefault();
@@ -32,7 +54,7 @@ function SingleComment(props) {
     dispatch(saveComment(body)).then((response) => {
       if (response.payload.success) {
         props.refreshFunction(response.payload.result);
-        setRefresh(response.payload.result);
+        console.log(response.payload.result);
         setCommentValue("");
         setReComment(false);
       } else {
@@ -40,22 +62,43 @@ function SingleComment(props) {
       }
     });
   };
+  const puthandler = (event) => {
+    event.preventDefault();
+    const body = {
+      postId: props.comment._id,
+      content: Body,
+    };
+    dispatch(putComment(body)).then((response) => {
+      if (response.payload.success) {
+        setBody(response.payload.result.content);
+        console.log(response.payload.result);
 
+        setPutComment(false);
+      } else {
+        alert("저장하지 못했습니다.");
+      }
+    });
+  };
   const commentDelete = () => {
-    const postBody = { postId: props.comment._id };
+    const postBody = {
+      postId: props.comment._id,
+      responseTo: props.comment.responseTo,
+    };
 
     dispatch(deleteComment(postBody)).then((response) => {
-      if (response.payload.success) {
+      if (response.payload.repost) {
         setRefresh(false);
-      } else {
-        alert("삭제 실패");
+      } else if (response.payload.post) {
+        setRefresh(false);
       }
     });
   };
   //댓글 placeholder
+
   const come = props.comment.writer.name + "님께 답글쓰기";
   return (
     <Form>
+      {DeleteComment}
       {Refresh && (
         <React.Fragment>
           <Form.Group
@@ -121,9 +164,37 @@ function SingleComment(props) {
                     )}
                   </Form.Label>
                 </Form.Group>
-                <Form.Label style={{ margin: "0px" }}>
-                  {props.comment.content}
-                </Form.Label>
+
+                {PutComment ? (
+                  <InputGroup className="comment">
+                    <FormControl
+                      as="textarea"
+                      aria-label="With textarea"
+                      value={Body}
+                      onChange={BodyHanler}
+                      style={{
+                        height: "100px",
+                        width: "600px",
+                        resize: "none",
+                      }}
+                    />
+                    <Button
+                      style={{
+                        position: "absolute",
+                        right: "0",
+                        bottom: "0",
+                        margin: "10px",
+                      }}
+                      onClick={puthandler}
+                    >
+                      수정
+                    </Button>
+                  </InputGroup>
+                ) : (
+                  <Form.Label style={{ margin: "0px", width: "500px" }}>
+                    {Body}
+                  </Form.Label>
+                )}
               </Form.Group>
             </Form.Group>
             <Form.Group style={{ textAlign: "right" }}>
@@ -134,20 +205,40 @@ function SingleComment(props) {
                   fontWeight: "bold",
                   marginRight: "5px",
                 }}
+                onClick={PutonClick}
               >
                 수정
               </Form.Label>
-              <Form.Label
-                style={{
-                  margin: "0px",
-                  fontSize: "10px",
-                  fontWeight: "bold",
-                  marginRight: "10px",
-                }}
-                onClick={commentDelete}
-              >
-                삭제
-              </Form.Label>
+
+              <ButtonGroup aria-label="Basic example">
+                <Form.Label
+                  style={{
+                    margin: "0px",
+                    fontSize: "10px",
+                    fontWeight: "bold",
+                    marginRight: "10px",
+                    cursor: "pointer",
+                  }}
+                  onClick={handleShow}
+                >
+                  삭제
+                </Form.Label>
+                {/* 삭제 버튼 클릭시 재확인 modal */}
+                <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>알림</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>정말 삭제 하시겠습니까?</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={commentDelete}>
+                      삭제
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                      취소
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </ButtonGroup>
             </Form.Group>
           </Form.Group>
 

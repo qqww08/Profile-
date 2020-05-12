@@ -37,23 +37,26 @@ function Comment(props) {
       <p>댓글</p>
       <hr style={{ background: "#ccc" }} />
       {props.CommentLists &&
-        props.CommentLists.map((comment, index) => (
-          <React.Fragment key={index}>
-            <SingleComment
-              Info={props.Info}
-              comment={comment}
-              postId={props.postId}
-              refreshFunction={props.refreshFunction}
-            />
-            <ReplyComment
-              Info={props.Info}
-              CommentLists={props.CommentLists}
-              postId={props.postId}
-              parentCommentId={comment._id}
-              refreshFunction={props.refreshFunction}
-            />
-          </React.Fragment>
-        ))}
+        props.CommentLists.map(
+          (comment, index) =>
+            !comment.responseTo && (
+              <React.Fragment key={index}>
+                <SingleComment
+                  Info={props.Info}
+                  comment={comment}
+                  postId={props.postId}
+                  refreshFunction={props.refreshFunction}
+                />
+                <ReplyComment
+                  Info={props.Info}
+                  CommentLists={props.CommentLists}
+                  postId={props.postId}
+                  parentCommentId={comment._id}
+                  refreshFunction={props.refreshFunction}
+                />
+              </React.Fragment>
+            )
+        )}
       {user.userData.isAuth && (
         <InputGroup className="comment">
           <FormControl

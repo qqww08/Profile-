@@ -8,9 +8,6 @@ function ReplyComment(props) {
         {comment.responseTo === parentCommentId && (
           <div>
             <div style={{ marginLeft: "20px", display: "flex" }}>
-              <div>
-                <p style={{ fontSize: "20px", marginRight: "10px" }}>ㄴ</p>
-              </div>
               <div style={{ width: "100%" }}>
                 <SingleComment
                   Info={props.Info}

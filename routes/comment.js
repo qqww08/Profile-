@@ -28,11 +28,32 @@ router.post("/getComment", (req, res) => {
 });
 // 댓글 삭제
 router.post("/delete", (req, res) => {
-  Comment.remove({ _id: req.body.postId })
-    .populate("writer")
-    .exec((err, result) => {
+  const responseTo = req.body.responseTo;
+  if (responseTo) {
+    Comment.remove({ _id: req.body.responseTo })
+      .populate("writer")
+      .exec((err, result) => {
+        if (err) return res.status(400).send(err);
+        res.status(200).json({ repost: true });
+      });
+  } else {
+    Comment.remove({ _id: req.body.postId }).exec((err, result) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ post: true });
+    });
+  }
+});
+
+//댓글 수정
+router.put("/edit", (req, res) => {
+  Comment.findByIdAndUpdate(
+    { _id: req.body.postId },
+    { content: req.body.content },
+    { new: true },
+    (err, result) => {
       if (err) return res.status(400).send(err);
       res.status(200).json({ success: true, result });
-    });
+    }
+  );
 });
 module.exports = router;
