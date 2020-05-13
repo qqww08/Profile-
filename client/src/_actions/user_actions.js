@@ -11,10 +11,9 @@ import {
 import { BACK_SERVER_URL } from "../Config";
 //로그인 정보 전송
 export function loginUser(dataToSubmit) {
-  const request = Axios.post(
-    `${BACK_SERVER_URL}/api/users/login`,
-    dataToSubmit
-  ).then((response) => response.data);
+  const request = Axios.post("/api/users/login", dataToSubmit).then(
+    (response) => response.data
+  );
 
   return {
     type: LOGIN_USER,
@@ -23,7 +22,7 @@ export function loginUser(dataToSubmit) {
 }
 //이미지 업로드
 export function imageupload(data) {
-  const request = Axios.post(`${BACK_SERVER_URL}/api/users/image`, data).then(
+  const request = Axios.post("/api/users/image", data).then(
     (response) => response.data
   );
 
@@ -34,7 +33,7 @@ export function imageupload(data) {
 }
 //로그아웃 정보 전송
 export function logout() {
-  const request = Axios.get(`${BACK_SERVER_URL}/api/users/logout`).then(
+  const request = Axios.get("/api/users/logout").then(
     (response) => response.data
   );
   return {
@@ -44,10 +43,9 @@ export function logout() {
 }
 //회원가입 정보 전송
 export function register(dataToSubmit) {
-  const request = Axios.post(
-    `${BACK_SERVER_URL}/api/users/register`,
-    dataToSubmit
-  ).then((response) => response.data);
+  const request = Axios.post("/api/users/register", dataToSubmit).then(
+    (response) => response.data
+  );
 
   return {
     type: REGISTER,
@@ -55,10 +53,9 @@ export function register(dataToSubmit) {
   };
 }
 export function gregister(dataToSubmit) {
-  const request = Axios.post(
-    `${BACK_SERVER_URL}/api/users/gregister`,
-    dataToSubmit
-  ).then((response) => response.data);
+  const request = Axios.post("/api/users/gregister", dataToSubmit).then(
+    (response) => response.data
+  );
 
   return {
     type: G_REGISTER,
@@ -67,7 +64,7 @@ export function gregister(dataToSubmit) {
 }
 // 로그인 체크
 export function auth() {
-  const request = Axios.get(`${BACK_SERVER_URL}/api/users/auth`).then(
+  const request = Axios.get("/api/users/auth").then(
     (response) => response.data
   );
 
@@ -78,10 +75,9 @@ export function auth() {
   //회원정보수정
 }
 export function profileedit(dataToSubmit) {
-  const request = Axios.put(
-    `${BACK_SERVER_URL}/api/users/useredit`,
-    dataToSubmit
-  ).then((response) => response.data);
+  const request = Axios.put("/api/users/useredit", dataToSubmit).then(
+    (response) => response.data
+  );
 
   return {
     type: USER_EDIT,
