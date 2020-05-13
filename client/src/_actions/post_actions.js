@@ -11,9 +11,10 @@ import {
 import { BACK_SERVER_URL } from "../Config";
 //게시판 글쓰기 정보 전송
 export function bordersave(dataToSubmit) {
-  const request = Axios.post("/api/posts/", dataToSubmit).then(
-    (response) => response.data
-  );
+  const request = Axios.post(
+    `${BACK_SERVER_URL}/api/posts/`,
+    dataToSubmit
+  ).then((response) => response.data);
   return {
     type: BORDER_SAVE,
     payload: request,
@@ -21,7 +22,9 @@ export function bordersave(dataToSubmit) {
 }
 //게시판 목록 가지고 오기
 export function borderget() {
-  const request = Axios.get("/api/posts/").then((response) => response.data);
+  const request = Axios.get(`${BACK_SERVER_URL}/api/posts/`).then(
+    (response) => response.data
+  );
   return {
     type: BORDER_GET,
     payload: request,
@@ -29,7 +32,7 @@ export function borderget() {
 }
 //모바일 게시판 목록
 export function mborderget(data) {
-  const request = Axios.post("/api/posts/mborder", data).then(
+  const request = Axios.post(`${BACK_SERVER_URL}/api/posts/mborder`, data).then(
     (response) => response.data
   );
   return {
@@ -39,7 +42,7 @@ export function mborderget(data) {
 }
 //게시판 검색
 export function bordersearch(data) {
-  const request = Axios.post("/api/posts/search", data).then(
+  const request = Axios.post(`${BACK_SERVER_URL}/api/posts/search`, data).then(
     (response) => response.data
   );
   return {
@@ -49,7 +52,7 @@ export function bordersearch(data) {
 }
 //게시글 정보
 export function borderinfo(data) {
-  const request = Axios.post("/api/posts/info", data).then(
+  const request = Axios.post(`${BACK_SERVER_URL}/api/posts/info`, data).then(
     (response) => response.data
   );
   return {
@@ -59,16 +62,17 @@ export function borderinfo(data) {
 }
 //게시글 수정
 export function borderedit(dataToSubmit) {
-  const request = Axios.put("/api/posts/edit", dataToSubmit).then(
-    (response) => response.data
-  );
+  const request = Axios.put(
+    `${BACK_SERVER_URL}/api/posts/edit`,
+    dataToSubmit
+  ).then((response) => response.data);
   return {
     type: BORDER_EDIT,
     payload: request,
   };
 }
 export function bdelete(data) {
-  const request = Axios.post("/api/posts/delete", data).then(
+  const request = Axios.post(`${BACK_SERVER_URL}/api/posts/delete`, data).then(
     (response) => response.data
   );
   return {
