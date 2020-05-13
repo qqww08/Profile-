@@ -101,6 +101,8 @@ function ProjectDetail() {
               <li type="disc">expressJS</li>
               <li type="disc">Redux(Redux-thrunk)</li>
               <li type="disc">Bootstrap</li>
+              <p className="profileText">etc</p>
+              <li type="disc">AWS EC2</li>
               <p className="profileText">주요기능</p>
               <li type="disc">로그인 기능</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>

@@ -37,7 +37,8 @@ function LoginPage(props) {
     dispatch(loginUser(body)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
-        // console.log(response);
+        window.localStorage.setItem("x_token", response.payload.token);
+        window.localStorage.setItem("userId", response.payload.userId);
         props.history.push("/");
 
         //서버에서 success:false 일시

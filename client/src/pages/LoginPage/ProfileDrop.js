@@ -4,6 +4,7 @@ import { Image } from "react-bootstrap";
 import { imageupload } from "../../_actions/user_actions";
 import { useDispatch, useSelector } from "react-redux";
 import plus from "../Register/plus.png";
+import { BACK_SERVER_URL } from "../../Config";
 function ProfileDrop(props) {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -62,7 +63,7 @@ function ProfileDrop(props) {
                 justifyContent: "center",
                 cursor: "pointer",
               }}
-              src={`https://profile1234.herokuapp.com/${ImageDrop}`}
+              src={`${BACK_SERVER_URL}/${ImageDrop}`}
               roundedCircle
             />
           ) : (

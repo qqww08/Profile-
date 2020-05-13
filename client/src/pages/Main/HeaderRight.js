@@ -9,6 +9,8 @@ import { Button, ButtonGroup, Dropdown, Image } from "react-bootstrap";
 import unimage from "./images/unimage.svg";
 import "./css/header.css";
 import ProfileEdit from "../LoginPage/ProfileEdit";
+import { BACK_SERVER_URL } from "../../Config";
+
 // 로그인 로그아웃 회원가입 버튼 관리
 function HeaderRight(props) {
   const user = useSelector((state) => state.user);
@@ -44,7 +46,7 @@ function HeaderRight(props) {
           >
             {img ? (
               <Image
-                src={`https://profile1234.herokuapp.com/${img}`}
+                src={`${BACK_SERVER_URL}/${img}`}
                 className="profileImg"
                 roundedCircle
               />

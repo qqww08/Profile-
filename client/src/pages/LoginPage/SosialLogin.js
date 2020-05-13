@@ -21,6 +21,8 @@ function SosialLogin(props) {
 
     dispatch(gregister(body)).then((response) => {
       if (response.payload.success) {
+        window.localStorage.setItem("x_token", response.payload.token);
+        window.localStorage.setItem("userId", response.payload.userId);
         props.history.push("/");
       } else if (response.payload.register) {
         alert("환영합니다 " + Name + "님 회원가입 되었습니다.");

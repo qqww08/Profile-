@@ -18,6 +18,7 @@ import {
 import Moment from "react-moment";
 import "moment-timezone";
 import commentsvg from "./img/comment.svg";
+import { BACK_SERVER_URL } from "../../Config";
 function SingleComment(props) {
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
@@ -107,7 +108,7 @@ function SingleComment(props) {
             <Form.Group style={{ display: "flex", margin: "0px" }}>
               {img ? (
                 <Image
-                  src={`https://profile1234.herokuapp.com/${img}`}
+                  src={`${BACK_SERVER_URL}/${img}`}
                   className="profileImg"
                   roundedCircle
                 />

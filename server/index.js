@@ -8,6 +8,36 @@ const path = require("path");
 const morgan = require("morgan");
 const cors = require("cors");
 
+//////////////////////////////////////////////////////////////
+// HTTPS CREATE /////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+const https = require("https");
+const fs = require("fs");
+
+const privateKey = fs.readFileSync(
+  "/etc/letsencrypt/live/sdhportfolio.site/privkey.pem",
+  "utf8"
+);
+const certificate = fs.readFileSync(
+  "/etc/letsencrypt/live/sdhportfolio.site/cert.pem",
+  "utf8"
+);
+const ca = fs.readFileSync(
+  "/etc/letsencrypt/live/sdhportfolio.site/chain.pem",
+  "utf8"
+);
+
+const credentials = {
+  key: privateKey,
+  cert: certificate,
+  ca: ca,
+};
+
+const https_server = https.createServer(credentials, app);
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
 const mongoose = require("mongoose");
 mongoose
   .connect(config.mongoURI, {
@@ -39,4 +69,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+///////////LOCAL_SERVER/////////////////////////
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+
+///////////////HTTPS_SERVER///////////////
+https_server.listen("8443", () => {
+  console.log("Https Server Running at 8443");
+});

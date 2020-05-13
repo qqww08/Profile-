@@ -8,7 +8,7 @@ import {
   IMG_UPLOAD,
   USER_EDIT,
 } from "./types";
-import { BACK_SERVER_URL } from "../Config";
+import { BACK_SERVER_URL, headersConfig } from "../Config";
 //로그인 정보 전송
 export function loginUser(dataToSubmit) {
   const request = Axios.post(
@@ -34,9 +34,10 @@ export function imageupload(data) {
 }
 //로그아웃 정보 전송
 export function logout() {
-  const request = Axios.get(`${BACK_SERVER_URL}/api/users/logout`).then(
-    (response) => response.data
-  );
+  const request = Axios.get(
+    `${BACK_SERVER_URL}/api/users/logout`,
+    headersConfig
+  ).then((response) => response.data);
   return {
     type: LOGOUT,
     payload: request,
@@ -67,9 +68,10 @@ export function gregister(dataToSubmit) {
 }
 // 로그인 체크
 export function auth() {
-  const request = Axios.get(`${BACK_SERVER_URL}/api/users/auth`).then(
-    (response) => response.data
-  );
+  const request = Axios.get(
+    `${BACK_SERVER_URL}/api/users/auth`,
+    headersConfig
+  ).then((response) => response.data);
 
   return {
     type: AUTH_USER,

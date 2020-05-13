@@ -32,9 +32,8 @@ router.post("/gregister", (req, res) => {
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
         res
-          .cookie("x_auth", user.token)
           .status(200)
-          .json({ success: true, userId: user._id });
+          .json({ success: true, userId: user._id, user, token: user.token });
       });
     } else {
       const user = new User(req.body);
@@ -66,9 +65,8 @@ router.post("/login", (req, res) => {
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
         res
-          .cookie("x_auth", user.token)
           .status(200)
-          .json({ success: true, userId: user._id });
+          .json({ success: true, userId: user._id, token: user.token });
       });
     });
   });
