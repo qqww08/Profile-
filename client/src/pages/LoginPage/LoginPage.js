@@ -39,8 +39,7 @@ function LoginPage(props) {
       if (response.payload.success) {
         window.localStorage.setItem("x_token", response.payload.token);
         window.localStorage.setItem("userId", response.payload.userId);
-        props.history.push("/");
-
+        window.location.reload(true);
         //서버에서 success:false 일시
       } else {
         alert("가입하지 않은 아이디이거나, 잘못된 비밀번호입니다.");

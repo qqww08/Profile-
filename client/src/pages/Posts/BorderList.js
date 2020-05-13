@@ -43,6 +43,7 @@ function BorderList() {
     setSearchv(event.currentTarget.value);
   };
 
+  const [SearchView, setSearchView] = useState(false);
   //글쓰기가 작성 된 후
 
   //서치 정보
@@ -55,6 +56,7 @@ function BorderList() {
       setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
+        setSearchView(true);
         setList(response.payload.borderlist);
         setMlist(response.payload.borderlist);
         setLoading(false);
@@ -101,9 +103,11 @@ function BorderList() {
         //서버에서 담고 있는 borderlist를 List 넣기
         if (body.loadMore) {
           setMlist([...mlist, ...response.payload.mborderlist]);
+          setSearchView(false);
         } else {
           setMlist(response.payload.mborderlist);
         }
+        setSearchView(false);
         setPostSize(response.payload.postSize);
         //success:false 일시
       } else {
@@ -118,7 +122,7 @@ function BorderList() {
       setLoading(true);
       if (response.payload.success) {
         //서버에서 담고 있는 borderlist를 List 넣기
-
+        setSearchView(false);
         setList(response.payload.borderlist);
         setLoading(false);
 
@@ -186,13 +190,15 @@ function BorderList() {
               <Button variant="dark">글쓰기</Button>
             </Link>
             <div>
-              <Button
-                onClick={reload}
-                className="refresh"
-                style={{ background: "none", border: "none" }}
-              >
-                <Image src={refresh} style={{ width: "20px" }} />
-              </Button>
+              {SearchView && (
+                <Button
+                  onClick={reload}
+                  className="refresh"
+                  style={{ background: "none", border: "none" }}
+                >
+                  <Image src={refresh} style={{ width: "20px" }} />
+                </Button>
+              )}
               <Search
                 placeholder="Search"
                 value={Searchv}
@@ -248,13 +254,15 @@ function BorderList() {
             </Link>
 
             <div>
-              <Button
-                onClick={mreload}
-                className="refresh"
-                style={{ background: "none", border: "none" }}
-              >
-                <Image src={refresh} style={{ width: "20px" }} />
-              </Button>
+              {SearchView && (
+                <Button
+                  onClick={mreload}
+                  className="refresh"
+                  style={{ background: "none", border: "none" }}
+                >
+                  <Image src={refresh} style={{ width: "20px" }} />
+                </Button>
+              )}
               <Search
                 placeholder="Search"
                 value={Searchv}

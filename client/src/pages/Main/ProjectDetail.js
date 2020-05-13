@@ -106,7 +106,7 @@ function ProjectDetail() {
               <p className="profileText">주요기능</p>
               <li type="disc">로그인 기능</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
-                JWT를 이용해 쿠키 생성, 로그인 상태 확인
+                JWT를 이용해 토큰 생성
               </li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 소셜 로그인 기능

@@ -64,9 +64,7 @@ router.post("/login", (req, res) => {
         });
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
-        res
-          .status(200)
-          .json({ success: true, userId: user._id, token: user.token });
+        res.status(200).json({ success: true, token: user.token });
       });
     });
   });
@@ -118,12 +116,13 @@ router.post("/image", (req, res) => {
   });
 });
 //회원정보 수정
-router.put("/useredit", auth, (req, res) => {
+router.put("/useredit", (req, res) => {
   User.findByIdAndUpdate(
-    { _id: req.user._id },
+    { _id: req.body._id },
     {
       image: req.body.image,
     },
+    { new: true },
     (err, user) => {
       if (err) return res.json({ success: false, err });
       return res.status(200).json({

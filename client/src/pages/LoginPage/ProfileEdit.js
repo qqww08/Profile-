@@ -17,27 +17,28 @@ function ProfileEdit(props) {
   };
   const dispatch = useDispatch();
   //회원가입 정보를 받아오기 위해 useState 받아올 변수 선언
-  const [Message, setMessage] = useState("");
-  const [NowPassword, setNowPassword] = useState("");
-  const [Password, setPassword] = useState("");
-  const [PassCh, setPassCh] = useState("");
+  // const [Message, setMessage] = useState("");
+  // const [NowPassword, setNowPassword] = useState("");
+  // const [Password, setPassword] = useState("");
+  // const [PassCh, setPassCh] = useState("");
   const [Image, setImage] = useState(user.userData.image);
   //onChange 된 value 값 을 useState 로 받아오기
-  const NowPassHandler = (event) => {
-    setNowPassword(event.currentTarget.value);
-  };
-  const PassHandler = (event) => {
-    setPassword(event.currentTarget.value);
-  };
-  const PassChHandler = (event) => {
-    setPassCh(event.currentTarget.value);
-  };
+  // const NowPassHandler = (event) => {
+  //   setNowPassword(event.currentTarget.value);
+  // };
+  // const PassHandler = (event) => {
+  //   setPassword(event.currentTarget.value);
+  // };
+  // const PassChHandler = (event) => {
+  //   setPassCh(event.currentTarget.value);
+  // };
   const imageState = (newImage) => {
     setImage(newImage);
   };
   const EditSubmit = (event) => {
     event.preventDefault();
     let body = {
+      _id: user.userData._id,
       image: Image,
     };
 

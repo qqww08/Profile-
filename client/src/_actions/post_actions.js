@@ -12,7 +12,7 @@ import { BACK_SERVER_URL } from "../Config";
 //게시판 글쓰기 정보 전송
 export function bordersave(dataToSubmit) {
   const request = Axios.post(
-    `${BACK_SERVER_URL}/api/posts/`,
+    `${BACK_SERVER_URL}/api/posts/save`,
     dataToSubmit
   ).then((response) => response.data);
   return {

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import BorderWrite from "./pages/Posts/BorderWrite";
 import BorderList from "./pages/Posts/BorderList";
 import LandingPage from "./pages/Main/LandingPage";
-
+import LoginPage from "./pages/LoginPage/LoginPage";
 import BorderInfo from "./pages/Posts/BorderInfo";
 import BorderEdit from "./pages/Posts/BorderEdit";
 import Header from "./pages/Main/Header";
@@ -23,6 +23,7 @@ function App() {
         <Header />
         <Github />
         <Switch>
+          <Route exact path="/Login" component={Auth(LoginPage, false)} />
           <Route exact path="/Write" component={Auth(BorderWrite, true)} />
           <Route exact path="/List" component={Auth(BorderList, false)} />
           <Route exact path="/:postId" component={Auth(BorderInfo, false)} />

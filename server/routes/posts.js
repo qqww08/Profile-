@@ -55,7 +55,7 @@ router.post("/info", (req, res) => {
 });
 
 //게시판 수정
-router.put("/edit", auth, (req, res) => {
+router.put("/edit", (req, res) => {
   Post.findByIdAndUpdate(
     { _id: req.body.postId },
     { title: req.body.title, body: req.body.body },
@@ -77,7 +77,7 @@ router.post("/delete", auth, (req, res) => {
     });
 });
 //게시판 저장
-router.post("/", auth, (req, res) => {
+router.post("/save", (req, res) => {
   const post = new Post(req.body);
   post.save((err, userInfo) => {
     if (err) return res.json({ success: false, err });

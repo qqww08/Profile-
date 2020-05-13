@@ -1,4 +1,5 @@
-export const BACK_SERVER_URL = "https://sdhportfolio.site:8443";
+// export const BACK_SERVER_URL = "https://sdhportfolio.site:8443";  //AWS
+export const BACK_SERVER_URL = "http://localhost:5000"; //로컬
 
 const config = {
   headers: {

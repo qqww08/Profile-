@@ -57,65 +57,72 @@ function BorderWrite(props) {
           setBorderText("");
           //props 로 게시판 에 서버에 저장된 글 refesh
           // props.refesh(response.payload.result);
-          props.history.push("/List");
+          props.history.push("/");
           //실패시
         } else {
-          // console.log(response);
+          console.log(response);
           alert("실패");
         }
       });
     }
   };
-
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <Form className="fo1">
-        <Form.Group>
-          <Form.Group className="EditTitle">
-            <Form.Label style={{ width: "40px" }}>제목</Form.Label>
+  if (!user.userData.isAuth) {
+    return (
+      <div className="info">
+        <Spinner animation="border" variant="primary" />
+      </div>
+    );
+  } else {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Form className="fo1">
+          <Form.Group>
+            <Form.Group className="EditTitle">
+              <Form.Label style={{ width: "40px" }}>제목</Form.Label>
+              <FormControl
+                value={BorderTitle}
+                onChange={TitleHandler}
+                className="EditInput1"
+              />
+            </Form.Group>
+            <Form.Group
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                textAlign: "right",
+              }}
+            ></Form.Group>
+          </Form.Group>
+          <Form.Group>
             <FormControl
-              value={BorderTitle}
-              onChange={TitleHandler}
-              className="EditInput1"
+              as="textarea"
+              aria-label="With textarea"
+              value={BorderText}
+              onChange={TextHandler}
+              style={{ height: "290px", resize: "none" }}
             />
           </Form.Group>
-          <Form.Group
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              textAlign: "right",
-            }}
-          ></Form.Group>
-        </Form.Group>
-        <Form.Group>
-          <FormControl
-            as="textarea"
-            aria-label="With textarea"
-            value={BorderText}
-            onChange={TextHandler}
-            style={{ height: "290px", resize: "none" }}
-          />
-        </Form.Group>
-        <Form.Group>
-          <ButtonGroup aria-label="Basic example">
-            <Button variant="primary" onClick={BoderSubmit}>
-              등록
-            </Button>
-            <Link to="/">
-              <Button variant="secondary">취소</Button>
-            </Link>
-          </ButtonGroup>
-        </Form.Group>
-      </Form>
-    </div>
-  );
+          <Form.Group>
+            <ButtonGroup aria-label="Basic example">
+              <Button variant="primary" onClick={BoderSubmit}>
+                등록
+              </Button>
+              <Link to="/">
+                <Button variant="secondary">취소</Button>
+              </Link>
+            </ButtonGroup>
+          </Form.Group>
+        </Form>
+      </div>
+    );
+  }
 }
 
 export default withRouter(BorderWrite);

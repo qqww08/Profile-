@@ -76,7 +76,7 @@ function RegisterPage() {
       dispatch(register(body)).then((response) => {
         //서버에서 success: ture 일시
         if (response.payload.success) {
-          console.log(response);
+          // console.log(response);
           alert("회원가입 완료");
           setShow(false);
           //서버에서 success:false 일시

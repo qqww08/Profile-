@@ -72,7 +72,7 @@ function SingleComment(props) {
     dispatch(putComment(body)).then((response) => {
       if (response.payload.success) {
         setBody(response.payload.result.content);
-        console.log(response.payload.result);
+        // console.log(response.payload.result);
 
         setPutComment(false);
       } else {
@@ -201,6 +201,7 @@ function SingleComment(props) {
                       fontSize: "13px",
                       fontWeight: "bold",
                       marginRight: "11px",
+                      cursor: "pointer",
                     }}
                     onClick={PutonClick}
                   >
@@ -213,6 +214,7 @@ function SingleComment(props) {
                       fontSize: "10px",
                       fontWeight: "bold",
                       marginRight: "5px",
+                      cursor: "pointer",
                     }}
                     onClick={PutonClick}
                   >
