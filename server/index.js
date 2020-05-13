@@ -3,23 +3,24 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 // const config = require("./config/key");
+const helmet = require("helmet");
 const path = require("path");
-// const cors = require("cors");
+const morgan = require("morgan");
+const cors = require("cors");
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(
-    "mongodb+srv://SDH:tlseog08!@cluster0-jxe5q.mongodb.net/test?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(config.mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
-// app.use(cors());
+app.use(cors());
+app.use(helmet());
+app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
