@@ -1,7 +1,7 @@
 import React from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import project1 from "./images/project1.PNG";
+import project1 from "./images/project1.png";
 import ProjectDetail from "./ProjectDetail";
 import { Card, Button } from "react-bootstrap";
 import { Element } from "react-scroll";

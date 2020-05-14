@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
-import project1 from "./images/project1.PNG";
-import project2 from "./images/project2.PNG";
-import project3 from "./images/project3.PNG";
-import project4 from "./images/project4.PNG";
-import project5 from "./images/project5.PNG";
+import project1 from "./images/project1.png";
+import project2 from "./images/project2.png";
+import project3 from "./images/project3.png";
+import project4 from "./images/project4.png";
+import project5 from "./images/project5.png";
 import { Button, Carousel } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import "./css/projectDetail.css";
@@ -100,10 +100,11 @@ function ProjectDetail() {
               <li type="disc">nodeJS</li>
               <li type="disc">expressJS</li>
               <li type="disc">Redux(Redux-thrunk)</li>
-              <li type="disc">Bootstrap</li>
+              <li type="disc">WebPack</li>
               <p className="profileText">etc</p>
               <li type="disc">AWS EC2(ubuntu)</li>
               <li type="disc">NGINX</li>
+              <li type="disc">Bootstrap</li>
               <p className="profileText">주요기능</p>
               <li type="disc">로그인 기능</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>

@@ -1,6 +1,6 @@
 import React from "react";
 import Typing from "./typing";
-import images from "./images/back.PNG";
+
 import "./css/back.css";
 import SosialLogin from "../LoginPage/SosialLogin";
 function Back() {
