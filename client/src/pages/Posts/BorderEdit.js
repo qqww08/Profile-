@@ -75,8 +75,15 @@ function BorderInfo(props) {
     );
   } else {
     return (
-      <div className="info">
-        <Form className="fo">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Form className="fo1">
           <Form.Group>
             <Form.Group className="EditTitle">
               <Form.Label
