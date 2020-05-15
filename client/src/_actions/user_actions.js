@@ -80,7 +80,7 @@ export function auth() {
   //회원정보수정
 }
 export function profileedit(dataToSubmit) {
-  const request = Axios.put(
+  const request = Axios.post(
     `${BACK_SERVER_URL}/api/users/useredit`,
     dataToSubmit
   ).then((response) => response.data);

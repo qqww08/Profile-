@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const { User } = require("../models/User");
 const { auth } = require("../middleware/auth");
 const multer = require("multer");
@@ -13,7 +14,6 @@ router.post("/register", (req, res) => {
         success: false,
       });
     } else {
-      console.log(req.body);
       const user = new User(req.body);
       user.save((err, userInfo) => {
         if (err) return res.json({ success: false, err });
@@ -74,6 +74,7 @@ router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
     isAdmin: req.user.role === 0 ? false : true,
+    password: req.user.password,
     isAuth: true,
     email: req.user.email,
     name: req.user.name,
@@ -103,7 +104,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage }).single("file");
 
 router.post("/image", (req, res) => {
-  //가져온 이미지를 저장을 해주면 된다.
   upload(req, res, (err) => {
     if (err) {
       return req.json({ success: false, err });
@@ -116,20 +116,42 @@ router.post("/image", (req, res) => {
   });
 });
 //회원정보 수정
-router.put("/useredit", (req, res) => {
-  User.findByIdAndUpdate(
-    { _id: req.body._id },
-    {
-      image: req.body.image,
-    },
-    { new: true },
-    (err, user) => {
-      if (err) return res.json({ success: false, err });
-      return res.status(200).json({
-        success: true,
-      });
-    }
-  );
+router.post("/useredit", (req, res) => {
+  User.findOne({ email: req.body.email }, (err, user) => {
+    // console.log('user', user)
+    user.comparePassword(req.body.password, (err, isMatch) => {
+      if (!isMatch)
+        return res.json({
+          success: false,
+        });
+
+      if (req.body.chpassword) {
+        bcrypt.genSalt(saltRounds, function (err, salt) {
+          bcrypt.hash(req.body.chpassword, salt, function (err, hash) {
+            if (err) return next(err);
+            req.body.chpassword = hash;
+
+            User.findByIdAndUpdate(
+              { _id: req.body._id },
+              {
+                image: req.body.image,
+                password: req.body.chpassword,
+              },
+              { new: true },
+              (err, userInfo) => {
+                if (err)
+                  return res.json({ success: false, message: "비밀번호" });
+                return res.status(200).json({
+                  success: true,
+                  userInfo,
+                });
+              }
+            );
+          });
+        });
+      }
+    });
+  });
 });
 
 module.exports = router;

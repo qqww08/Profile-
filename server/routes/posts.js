@@ -96,6 +96,7 @@ router.put("/commentLength", (req, res) => {
     { _id: req.body.postId },
     { com: req.body.com },
     { new: true },
+
     (err, com) => {
       if (err) return res.status(400).send(err);
       res.status(200).json({ success: true, com });

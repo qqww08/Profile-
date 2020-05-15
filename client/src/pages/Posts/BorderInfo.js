@@ -27,7 +27,7 @@ function BorderInfo(props) {
   const [Info, setInfo] = useState([]);
   const dispatch = useDispatch();
   const [CommentLists, setCommentLists] = useState([]);
-
+  const [CommentNum, setCommentNum] = useState("");
   //서버에서 확인 할 UserInfo안에 :postId 담기
   const UserInfo = { postId: postId };
   // console.log(CommentLists);
@@ -43,18 +43,8 @@ function BorderInfo(props) {
           postId: postId,
           com: response.payload.comments.length,
         };
-        console.log(commentInfo);
-        dispatch(commentLength(commentInfo)).then((response) => {
-          //서버에서 success:true 일시
-          if (response.payload.success) {
-            //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
-            console.log(response.payload.com);
-            //실패시
-          } else {
-            alert("정보를 찾질 못했습니다");
-          }
-        });
-        //실패시
+
+        dispatch(commentLength(commentInfo)).then((response) => {});
       } else {
         alert("정보를 찾질 못했습니다");
       }
@@ -69,7 +59,6 @@ function BorderInfo(props) {
         const header = document.querySelector(".header");
         head_medium.classList.add("active");
         header.classList.add("active");
-        console.log(response.payload.post);
 
         setInfo(response.payload.post);
         // console.log(response.payload.post.comment);
