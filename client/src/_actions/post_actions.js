@@ -7,6 +7,7 @@ import {
   BORDER_EDIT,
   BORDER_DELETE,
   MBORDER_GET,
+  POST_COMMENT,
 } from "./types";
 import { BACK_SERVER_URL } from "../Config";
 //게시판 글쓰기 정보 전송
@@ -77,6 +78,16 @@ export function bdelete(data) {
   );
   return {
     type: BORDER_DELETE,
+    payload: request,
+  };
+}
+export function commentLength(data) {
+  const request = Axios.put(
+    `${BACK_SERVER_URL}/api/posts/commentLength`,
+    data
+  ).then((response) => response.data);
+  return {
+    type: POST_COMMENT,
     payload: request,
   };
 }

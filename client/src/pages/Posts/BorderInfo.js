@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { withRouter, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { borderinfo, bdelete } from "../../_actions/post_actions";
+import {
+  borderinfo,
+  bdelete,
+  commentLength,
+} from "../../_actions/post_actions";
 import { getComment } from "../../_actions/comment_actions";
 import { Spinner, Button, ButtonGroup, Form, Modal } from "react-bootstrap";
 import Comment from "./Comment";
 import "../Main/css/header.css";
 import "./css/Info.css";
-
 import Moment from "react-moment";
 import "moment-timezone";
 
@@ -27,31 +30,49 @@ function BorderInfo(props) {
 
   //서버에서 확인 할 UserInfo안에 :postId 담기
   const UserInfo = { postId: postId };
-  useEffect(() => {
-    const head_medium = document.querySelector(".head_medium");
-    const header = document.querySelector(".header");
-    head_medium.classList.add("active");
-    header.classList.add("active");
+  // console.log(CommentLists);
 
+  useEffect(() => {
     dispatch(getComment(UserInfo)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
-
         setCommentLists(response.payload.comments);
+
+        const commentInfo = {
+          postId: postId,
+          com: response.payload.comments.length,
+        };
+        console.log(commentInfo);
+        dispatch(commentLength(commentInfo)).then((response) => {
+          //서버에서 success:true 일시
+          if (response.payload.success) {
+            //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
+            console.log(response.payload.com);
+            //실패시
+          } else {
+            alert("정보를 찾질 못했습니다");
+          }
+        });
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");
       }
     });
+
     //redux로 서버 전송 후 게시글 정보 서버에서 가지고 오기
     dispatch(borderinfo(UserInfo)).then((response) => {
       //서버에서 success:true 일시
       if (response.payload.success) {
         //setInfo 안에 서버에서 findOne 로 찾은 정보 가지고 오기
+        const head_medium = document.querySelector(".head_medium");
+        const header = document.querySelector(".header");
+        head_medium.classList.add("active");
+        header.classList.add("active");
+        console.log(response.payload.post);
 
         setInfo(response.payload.post);
-
+        // console.log(response.payload.post.comment);
         //실패시
       } else {
         alert("정보를 찾질 못했습니다");
@@ -61,6 +82,7 @@ function BorderInfo(props) {
   const updateComment = (newComment) => {
     setCommentLists(CommentLists.concat(newComment));
   };
+
   //삭제 버튼
   const InfoDelete = (event) => {
     event.preventDefault();
@@ -68,7 +90,6 @@ function BorderInfo(props) {
     dispatch(bdelete(UserInfo)).then((response) => {
       //서버에서 success:ture 일시
       if (response.payload.success) {
-        console.log(response.payload.post);
         props.history.push("/");
       } else {
         alert("삭제실패");

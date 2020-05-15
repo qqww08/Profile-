@@ -14,6 +14,7 @@ function Comment(props) {
   const Commenthandler = (event) => {
     setCommentValue(event.currentTarget.value);
   };
+
   const onSubmit = (event) => {
     event.preventDefault();
     const body = {
@@ -21,21 +22,23 @@ function Comment(props) {
       writer: user.userData._id,
       postId: PostId,
     };
+
     dispatch(saveComment(body)).then((response) => {
       if (response.payload.success) {
         setCommentValue("");
 
-        console.log(response.payload.result);
         props.refreshFunction(response.payload.result);
       } else {
         alert("저장하지 못했습니다.");
       }
     });
   };
+
   return (
     <div>
       <p>댓글</p>
       <hr style={{ background: "#ccc" }} />
+
       {props.CommentLists &&
         props.CommentLists.map(
           (comment, index) =>
@@ -57,7 +60,7 @@ function Comment(props) {
               </React.Fragment>
             )
         )}
-      {user.userData.isAuth && (
+      {user.userData.isAuth ? (
         <InputGroup className="comment">
           <FormControl
             as="textarea"
@@ -74,6 +77,8 @@ function Comment(props) {
             </Button>
           </InputGroup.Append>
         </InputGroup>
+      ) : (
+        <div>댓글은 로그인 후 사용가능</div>
       )}
     </div>
   );

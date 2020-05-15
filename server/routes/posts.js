@@ -47,6 +47,7 @@ router.post("/search", (req, res) => {
 //게시판 내용
 router.post("/info", (req, res) => {
   Post.findOne({ _id: req.body.postId })
+
     .populate("writer")
     .exec((err, post) => {
       if (err) return res.status(400).send(err);
@@ -68,11 +69,11 @@ router.put("/edit", (req, res) => {
 });
 
 // 삭제
-router.post("/delete", auth, (req, res) => {
+router.post("/delete", (req, res) => {
   Post.remove({ _id: req.body.postId })
     .populate("writer")
     .exec((err, post) => {
-      if (err) return res.status(400).send(err);
+      if (err) return res.status(400).send(post);
       res.status(200).json({ success: true, post });
     });
 });
@@ -89,5 +90,16 @@ router.post("/save", (req, res) => {
       });
   });
 });
-
+//댓글 수
+router.put("/commentLength", (req, res) => {
+  Post.findByIdAndUpdate(
+    { _id: req.body.postId },
+    { com: req.body.com },
+    { new: true },
+    (err, com) => {
+      if (err) return res.status(400).send(err);
+      res.status(200).json({ success: true, com });
+    }
+  );
+});
 module.exports = router;

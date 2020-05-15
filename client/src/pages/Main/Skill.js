@@ -4,11 +4,11 @@ import mongodb from "./images/mongodb.svg";
 import node from "./images/node.svg";
 import react from "./images/react.svg";
 import redux from "./images/redux.png";
-import Bootstrap from "./images/Bootstrap_logo.png";
+import webpack from "./images/webpack.png";
 
 import "./css/skill.css";
 import { Element } from "react-scroll";
-import { OverlayTrigger, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import ScrollAnimation from "react-animate-on-scroll";
 // 아이콘 이미지
 function Skill() {
@@ -52,9 +52,9 @@ function Skill() {
               </Card.Body>
             </Card>
             <Card className="cardMargin">
-              <Card.Img variant="top" src={Bootstrap} className="imgsize" />
+              <Card.Img variant="top" src={webpack} className="imgsize" />
               <Card.Body className="cardSize">
-                <Card.Text className="img1">Bootstrap</Card.Text>
+                <Card.Text className="img1">Webpack</Card.Text>
               </Card.Body>
             </Card>
           </div>

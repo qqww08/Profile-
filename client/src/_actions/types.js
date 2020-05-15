@@ -18,3 +18,4 @@ export const COMMENT = "comment";
 export const COMMENT_GET = "commentget";
 export const COMMENT_DELETE = "commentdelete";
 export const COMMENT_PUT = "commentput";
+export const POST_COMMENT = "postcomment";

@@ -18,6 +18,10 @@ const commentSchema = mongoose.Schema(
     content: {
       type: String,
     },
+    commentLength: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

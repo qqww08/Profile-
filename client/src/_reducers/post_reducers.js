@@ -6,6 +6,7 @@ import {
   BORDER_EDIT,
   BORDER_DELETE,
   MBORDER_GET,
+  POST_COMMENT,
 } from "../_actions/types";
 
 export default function (state = {}, action) {
@@ -29,6 +30,8 @@ export default function (state = {}, action) {
       return { ...state, success: action.payload };
     //모바일 게시글
     case MBORDER_GET:
+      return { ...state, success: action.payload };
+    case POST_COMMENT:
       return { ...state, success: action.payload };
 
     default:

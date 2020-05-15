@@ -16,6 +16,7 @@ import "moment-timezone";
 import PostsList from "./PostsList";
 import Pagination from "./Pagination";
 import ScrollAnimation from "react-animate-on-scroll";
+
 function BorderList() {
   //게시판에 올라오는 정보 변수
   const { Search } = Input;

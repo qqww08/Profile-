@@ -24,12 +24,11 @@ function BorderWrite(props) {
   const TextHandler = (event) => {
     setBorderText(event.currentTarget.value);
   };
-  useEffect(() => {
-    const head_medium = document.querySelector(".head_medium");
-    const header = document.querySelector(".header");
-    head_medium.classList.add("active");
-    header.classList.add("active");
-  }, []);
+
+  const head_medium = document.querySelector(".head_medium");
+  const header = document.querySelector(".header");
+  head_medium.classList.add("active");
+  header.classList.add("active");
 
   //등록 버튼 클릭 시
 
@@ -45,6 +44,7 @@ function BorderWrite(props) {
         writer: user.userData._id,
         title: BorderTitle,
         body: BorderText,
+        com: "",
       };
       //redux로 서버로 전송
       dispatch(bordersave(body)).then((response) => {
@@ -60,7 +60,6 @@ function BorderWrite(props) {
           props.history.push("/");
           //실패시
         } else {
-          console.log(response);
           alert("실패");
         }
       });
