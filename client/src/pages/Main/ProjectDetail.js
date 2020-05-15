@@ -123,7 +123,13 @@ function ProjectDetail() {
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 Dropzone 과 multer 을 이용한 프로필 사진 업로드 기능
               </li>
-
+              <li type="disc">회원 정보 수정</li>
+              <li type="circle" style={{ paddingLeft: "30px" }}>
+                패스워드 변경
+              </li>
+              <li type="circle" style={{ paddingLeft: "30px" }}>
+                사진 변경
+              </li>
               <li type="disc">게시판CRUD</li>
               <li type="circle" style={{ paddingLeft: "30px" }}>
                 게시글 작성자만 수정 삭제 가능
