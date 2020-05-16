@@ -78,6 +78,10 @@ function RegisterPage() {
         if (response.payload.success) {
           // console.log(response);
           alert("회원가입 완료");
+          setName("");
+          setEmail("");
+          setPassword("");
+          setPassCh("");
           setShow(false);
           //서버에서 success:false 일시
         } else {

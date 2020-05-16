@@ -44,7 +44,9 @@ function BorderInfo(props) {
           com: response.payload.comments.length,
         };
 
-        dispatch(commentLength(commentInfo)).then((response) => {});
+        dispatch(commentLength(commentInfo)).then((response) => {
+          setCommentNum(response.payload.com);
+        });
       } else {
         alert("정보를 찾질 못했습니다");
       }

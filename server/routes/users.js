@@ -73,8 +73,7 @@ router.post("/login", (req, res) => {
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
-    isAdmin: req.user.role === 0 ? false : true,
-    password: req.user.password,
+
     isAuth: true,
     email: req.user.email,
     name: req.user.name,

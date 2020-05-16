@@ -24,8 +24,8 @@ const userSchema = mongoose.Schema({
   userID: {
     type: String,
   },
-  Stoken: {
-    type: String,
+  stoken: {
+    type: Boolean,
   },
   image: {
     type: String,
