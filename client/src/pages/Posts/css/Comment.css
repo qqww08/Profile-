@@ -5,3 +5,25 @@
   height: 80px;
   resize: none;
 }
+.webcom {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+}
+.mobilecom {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .webcom {
+    display: none;
+  }
+  .mobilecom {
+    display: flex;
+    align-items: center;
+    width: "100%";
+  }
+  .McommentImage {
+    width: 25px;
+    height: 25px;
+  }
+}

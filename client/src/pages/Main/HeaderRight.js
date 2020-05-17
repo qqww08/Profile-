@@ -6,8 +6,8 @@ import RegisterPage from "../Register/RegisterPage";
 import { logout } from "../../_actions/user_actions";
 import { withRouter, Link as Li } from "react-router-dom";
 import { Button, ButtonGroup, Dropdown, Image } from "react-bootstrap";
-import unimage from "./images/unimage.svg";
-import "./css/header.css";
+import unimage from "./images/unimage.png";
+import "./css/headerRight.css";
 import ProfileEdit from "../LoginPage/ProfileEdit";
 import { BACK_SERVER_URL } from "../../Config";
 
@@ -43,6 +43,7 @@ function HeaderRight(props) {
             variant="link"
             className="dtoggle"
             style={{ color: "black", textDecoration: "none" }}
+            className="cus"
           >
             {img ? (
               <Image
@@ -126,13 +127,80 @@ function HeaderRight(props) {
         </Dropdown>
       </div>
     );
-    //로그인한 경우 로그아웃 버튼 보여주기
   } else {
     return (
-      <ButtonGroup aria-label="Basic example">
-        <LoginPage />
-        <RegisterPage />
-      </ButtonGroup>
+      <div>
+        <div className="hrweb">
+          <ButtonGroup aria-label="Basic example">
+            <LoginPage />
+            <RegisterPage />
+          </ButtonGroup>
+        </div>
+        <Dropdown className="hr1">
+          <Dropdown.Toggle
+            variant="link"
+            className="dtoggle"
+            style={{ color: "black", textDecoration: "none" }}
+          >
+            메뉴
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <Link to="about" spy={true} smooth={true}>
+                <Button
+                  variant="link"
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="cus"
+                >
+                  About
+                </Button>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="skill" spy={true} smooth={true}>
+                <Button
+                  variant="link"
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="cus"
+                >
+                  Skill
+                </Button>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="boader" spy={true} smooth={true}>
+                <Button
+                  variant="link"
+                  style={{ textDecoration: "none", color: "black" }}
+                  onClick={scroll.scrollToTop}
+                  className="cus"
+                >
+                  Board
+                </Button>
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="Project" spy={true} smooth={true}>
+                <Button
+                  variant="link"
+                  style={{ textDecoration: "none", color: "black" }}
+                  className="cus"
+                >
+                  Project
+                </Button>
+              </Link>
+            </Dropdown.Item>
+
+            <Dropdown.Item>
+              <LoginPage />
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <RegisterPage />
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
     );
   }
 }

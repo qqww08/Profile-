@@ -7,6 +7,14 @@
   top: 0;
   margin-bottom: 50px;
 }
+.cus {
+  display: flex;
+  align-items: center;
+}
+.cus:focus {
+  outline: none;
+  box-shadow: none;
+}
 .header2 {
   display: flex;
   justify-content: space-between;

@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -17,24 +17,18 @@ import Github from "./pages/Main/Github";
 
 function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Router>
-        <Route exact path="/" component={Auth(LandingPage, false)} />
-        <Header />
-        <Github />
-        <Switch>
-          <Route exact path="/Login" component={Auth(LoginPage, false)} />
-          <Route exact path="/Write" component={Auth(BorderWrite, true)} />
-          <Route exact path="/List" component={Auth(BorderList, false)} />
-          <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
-          <Route
-            exact
-            path="/edit/:postId"
-            component={Auth(BorderEdit, true)}
-          />
-        </Switch>
-      </Router>
-    </Suspense>
+    <Router>
+      <Route exact path="/" component={Auth(LandingPage, false)} />
+      <Header />
+      <Github />
+      <Switch>
+        <Route exact path="/Login" component={Auth(LoginPage, false)} />
+        <Route exact path="/Write" component={Auth(BorderWrite, true)} />
+        <Route exact path="/List" component={Auth(BorderList, false)} />
+        <Route exact path="/:postId" component={Auth(BorderInfo, false)} />
+        <Route exact path="/edit/:postId" component={Auth(BorderEdit, true)} />
+      </Switch>
+    </Router>
   );
 }
 

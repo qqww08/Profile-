@@ -166,10 +166,24 @@ function BorderList() {
                 color: "black",
               }}
             >
-              <p style={{ margin: "0px" }}>
-                {post.title} [{post.com}]
+              <p style={{ margin: "0px", display: "flex" }}>
+                {post.title}
+                {post.com && (
+                  <p
+                    style={{ margin: "0px", marginLeft: "10px", color: "red" }}
+                  >
+                    [{post.com}]
+                  </p>
+                )}
               </p>
-              <p style={{ margin: "0px", fontSize: "11px", color: "gray" }}>
+              <p
+                style={{
+                  margin: "0px",
+                  marginLeft: "5px",
+                  fontSize: "11px",
+                  color: "gray",
+                }}
+              >
                 {post.writer.name}
                 <Moment format="YYYY.MM.DD HH:mm">{post.createdAt}</Moment>
               </p>

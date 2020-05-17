@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./css/header.css";
 import { Link, animateScroll as scroll } from "react-scroll";
-
 import { Button } from "react-bootstrap";
-
 import HeaderRight from "./HeaderRight";
 import { withRouter, Link as Li } from "react-router-dom";
 
@@ -35,6 +33,7 @@ function Header() {
                 variant="link"
                 style={{ textDecoration: "none", color: "black" }}
                 onClick={scroll.scrollToTop}
+                className="cus"
               >
                 Home
               </Button>
@@ -53,6 +52,7 @@ function Header() {
                   margin: "0px",
                   color: "black",
                 }}
+                className="cus"
               >
                 About
               </Button>
@@ -63,6 +63,7 @@ function Header() {
               <Button
                 variant="link"
                 style={{ textDecoration: "none", color: "black" }}
+                className="cus"
               >
                 Stack
               </Button>
@@ -72,6 +73,7 @@ function Header() {
             <Button
               variant="link"
               style={{ textDecoration: "none", color: "black" }}
+              className="cus"
             >
               Board
             </Button>
@@ -80,6 +82,7 @@ function Header() {
             <Button
               variant="link"
               style={{ textDecoration: "none", color: "black" }}
+              className="cus"
             >
               Project
             </Button>

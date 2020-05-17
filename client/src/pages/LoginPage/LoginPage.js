@@ -52,6 +52,7 @@ function LoginPage(props) {
         variant="link"
         onClick={handleShow}
         style={{ textDecoration: "none", margin: "0px", color: "black" }}
+        className="cus"
       >
         로그인
       </Button>

@@ -99,7 +99,7 @@ function BorderInfo(props) {
     //작성자 정보를 찾은 후
   } else {
     return (
-      <div
+      <Form
         style={{
           display: "flex",
           justifyContent: "center",
@@ -109,7 +109,7 @@ function BorderInfo(props) {
         }}
       >
         <Form className="fo">
-          <Form.Group className="gr">
+          <Form.Group>
             <Form.Group
               style={{
                 display: "flex",
@@ -195,7 +195,7 @@ function BorderInfo(props) {
             refreshFunction={updateComment}
           />
         </Form>
-      </div>
+      </Form>
     );
   }
 }

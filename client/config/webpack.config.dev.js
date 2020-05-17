@@ -6,12 +6,12 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "./build"),
+    path: path.resolve(__dirname, "../build"),
   },
   devServer: {
-    contentBase: path.resolve("./build"),
+    contentBase: path.resolve("../build"),
     index: "index.html",
-    port: 5000,
+    port: 8080,
   },
   mode: "development",
   module: {

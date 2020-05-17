@@ -31,9 +31,13 @@ router.post("/gregister", (req, res) => {
     if (user) {
       user.generateToken((err, user) => {
         if (err) return res.status(400).send(err);
-        res
-          .status(200)
-          .json({ success: true, userId: user._id, user, token: user.token });
+        res.status(200).json({
+          success: true,
+          userId: user._id,
+          user,
+          token: user.token,
+          stoken: req.body.stoken,
+        });
       });
     } else {
       const user = new User(req.body);
@@ -73,11 +77,11 @@ router.post("/login", (req, res) => {
 router.get("/auth", auth, (req, res) => {
   res.status(200).json({
     _id: req.user._id,
-
     isAuth: true,
     email: req.user.email,
     name: req.user.name,
     image: req.user.image,
+    stoken: req.user.stoken,
   });
 });
 //로그아웃

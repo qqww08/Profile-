@@ -17,6 +17,7 @@ function SosialLogin(props) {
       name: Name,
       email: Email,
       image: "",
+      stoken: true,
     };
 
     dispatch(gregister(body)).then((response) => {
