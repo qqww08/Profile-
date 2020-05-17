@@ -10,6 +10,7 @@ import {
 } from "../../_actions/post_actions";
 import { Input } from "antd";
 import refresh from "./img/refresh.svg";
+import upicon from "./img/upicon.ico";
 import "./css/BList.css";
 import Moment from "react-moment";
 import "moment-timezone";
@@ -316,7 +317,7 @@ function BorderList() {
                       className="refresh"
                       style={{ background: "none", border: "none" }}
                     >
-                      <Image src={refresh} style={{ width: "20px" }} />
+                      <Image src={upicon} style={{ width: "20px" }} />
                     </Button>
                   </div>
                 )}

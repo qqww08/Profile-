@@ -349,7 +349,7 @@ function SingleComment(props) {
                 value={CommentValue}
                 onChange={CommentChange}
               />
-              <InputGroup.Append>
+              <InputGroup.Append style={{ height: "100px" }}>
                 <Button variant="outline-secondary" onClick={onSubmit}>
                   등록
                 </Button>
@@ -529,14 +529,16 @@ function SingleComment(props) {
                           )}
                         </Form.Label>
                       )}
-                      <Form.Label>
-                        <Dropdown overlay={menu} trigger={["click"]}>
-                          <Image
-                            src={mobilecomment}
-                            style={{ margin: "0px", cursor: "pointer" }}
-                          />
-                        </Dropdown>
-                      </Form.Label>
+                      {props.comment.writer.email === user.userData.email && (
+                        <Form.Label>
+                          <Dropdown overlay={menu} trigger={["click"]}>
+                            <Image
+                              src={mobilecomment}
+                              style={{ margin: "0px", cursor: "pointer" }}
+                            />
+                          </Dropdown>
+                        </Form.Label>
+                      )}
                     </Form.Group>
                   </Form.Group>
                 </Form.Group>
@@ -554,7 +556,7 @@ function SingleComment(props) {
             </React.Fragment>
           )}
           {ReComment && (
-            <InputGroup>
+            <InputGroup style={{ width: "240px" }}>
               <FormControl
                 as="textarea"
                 placeholder={come}
@@ -563,12 +565,13 @@ function SingleComment(props) {
                 style={{
                   resize: "none",
                   height: "100px",
+
                   marginBottom: "10px",
                 }}
                 value={CommentValue}
                 onChange={CommentChange}
               />
-              <InputGroup.Append>
+              <InputGroup.Append style={{ height: "100px" }}>
                 <Button variant="outline-secondary" onClick={onSubmit}>
                   등록
                 </Button>
