@@ -2,6 +2,7 @@
 React로 만든 개인 포트폴리오 사이트  
 
 ## [웹사이트](https://sdhportfolio.site/)
+## [DEMO VIDEO](https://www.youtube.com/watch?v=Cf4okO2-Lcc/)
 
 ---
 #### 활용 기술
